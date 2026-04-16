@@ -458,25 +458,38 @@
     <div class="grid" style="margin-top:16px">
       <div class="card col-6">
         <h3>Cross-Program Participation <span class="pill">Overlap</span></h3>
+        <div style="font-size:12px;color:var(--muted);margin-bottom:8px;line-height:1.5">Shows how many of the 18,046 unique participants serve in multiple ReachOut programs (TFD, CGD, GO Day, GO Trips). People in "2 Programs" volunteered in exactly two of the four, "3 Programs" in exactly three, and "All 4" served in every program.</div>
         <div class="chart-wrap tall"><canvas id="demo-all-chart-cross"></canvas></div>
       </div>
       <div class="card col-6">
         <h3>Program Overlap Matrix <span class="pill">Pairwise</span></h3>
+        <div style="font-size:12px;color:var(--muted);margin-bottom:8px;line-height:1.5">People who appeared in both programs based on all-time Rock RMS group membership. The "% of Smaller" column shows what share of the smaller program's participants also served in the larger one.</div>
         <div class="scroll-box" style="max-height:320px">
           <table>
-            <thead><tr><th>Programs</th><th class="num">Shared Participants</th></tr></thead>
+            <thead><tr><th>Programs</th><th class="num">Shared</th><th class="num">% of Smaller</th></tr></thead>
             <tbody>
-              <tr><td>TFD + CGD</td><td class="num">2,315</td></tr>
-              <tr><td>TFD + GO Day</td><td class="num">1,843</td></tr>
-              <tr><td>TFD + GO Trips</td><td class="num">821</td></tr>
-              <tr><td>CGD + GO Day</td><td class="num">713</td></tr>
-              <tr><td>CGD + GO Trips</td><td class="num">467</td></tr>
-              <tr><td>GO Day + GO Trips</td><td class="num">389</td></tr>
-              <tr style="font-weight:700;color:var(--accent-2)"><td>All 4 Programs</td><td class="num">122</td></tr>
+              <tr><td>TFD + CGD</td><td class="num">2,315</td><td class="num">52.9%</td></tr>
+              <tr><td>TFD + GO Day</td><td class="num">1,843</td><td class="num">43.7%</td></tr>
+              <tr><td>TFD + GO Trips</td><td class="num">821</td><td class="num">22.3%</td></tr>
+              <tr><td>CGD + GO Day</td><td class="num">713</td><td class="num">16.9%</td></tr>
+              <tr><td>CGD + GO Trips</td><td class="num">467</td><td class="num">12.7%</td></tr>
+              <tr><td>GO Day + GO Trips</td><td class="num">389</td><td class="num">10.6%</td></tr>
+              <tr style="font-weight:700;color:var(--accent-2)"><td>All 4 Programs</td><td class="num">122</td><td class="num">3.3%</td></tr>
             </tbody>
           </table>
         </div>
       </div>
+    </div>
+
+    
+    <h2 class="section" style="margin-top:28px">Community Generosity <span class="accent">· Estimated Giving Through TFD &amp; CGD</span></h2>
+    <div style="font-size:13px;color:var(--muted);margin-bottom:14px">Based on estimated cost per box/gift: TFD boxes at $65 each, CGD gifts averaged at $20 each. These figures represent the value the Crossroads community has invested directly through these two programs.</div>
+    <div class="kpi-grid">
+      <div class="kpi red"><div class="label">TFD Community Value</div><div class="value">$12.9M</div><div class="hint">198,773 boxes × $65/box</div></div>
+      <div class="kpi accent"><div class="label">CGD Community Value</div><div class="value">$3.1M</div><div class="hint">155,085 gifts × $20/gift</div></div>
+      <div class="kpi green"><div class="label">Combined Total</div><div class="value">$16.0M</div><div class="hint">Since 1997 (TFD) &amp; 2000 (CGD)</div></div>
+      <div class="kpi blue"><div class="label">TFD Boxes</div><div class="value">198,773</div><div class="hint">29 years of food drives</div></div>
+      <div class="kpi violet"><div class="label">CGD Gifts</div><div class="value">155,085</div><div class="hint">26 years of Christmas giving</div></div>
     </div>
 
     <h2 class="section" style="margin-top:24px">2026 Snapshot <span class="accent">· Live Programs</span></h2>
@@ -586,7 +599,7 @@
         <h1>GO Trips 2026</h1>
         <p>Crossroads international & domestic mission trip signups</p>
       </div>
-      <div class="header-badge" id="stamp">Data as of April 16, 2026 at 9:29 AM</div>
+      <div class="header-badge" id="stamp">Data as of April 16, 2026</div>
     </div>
     <div class="kpi-row" id="kpi-row"></div>
     <div class="content">
@@ -908,6 +921,72 @@
       </div>
     </div>
 
+    
+    <h2 class="section" style="margin-top:28px">Child Sponsorship <span class="accent">· Compassion International Partnership</span></h2>
+    <div style="font-size:13px;color:var(--muted);margin-bottom:14px">Crossroads Church (Partner ID: 01741954) partners with Compassion International to sponsor children in Nicaragua, Guatemala, and Bolivia. Data as of February 2026.</div>
+
+    <div class="kpi-grid">
+      <div class="kpi blue"><div class="label">Active Sponsorships</div><div class="value">8,147</div><div class="hint">Current active child sponsors</div></div>
+      <div class="kpi accent"><div class="label">Influenced Sponsorships</div><div class="value">14,427</div><div class="hint">All-time sponsorships influenced</div></div>
+      <div class="kpi green"><div class="label">Impacted Participants</div><div class="value">18,758</div><div class="hint">Children impacted overall</div></div>
+      <div class="kpi red"><div class="label">Church Direct Donations</div><div class="value">$674K</div><div class="hint">$674,084 total direct giving</div></div>
+    </div>
+
+    <div class="grid" style="margin-top:16px">
+      <div class="card col-4">
+        <h3 style="color:var(--accent-2)">Active Countries</h3>
+        <ul style="list-style:none;padding:0;margin:0;font-size:13px;line-height:1.9">
+          <li><strong>Nicaragua</strong> &mdash; <span style="color:var(--blue)">6,056</span> sponsorships</li>
+          <li><strong>Guatemala</strong> &mdash; <span style="color:var(--blue)">1,047</span> sponsorships</li>
+          <li><strong>Bolivia</strong> &mdash; <span style="color:var(--blue)">266</span> sponsorships</li>
+        </ul>
+      </div>
+      <div class="card col-4">
+        <h3 style="color:var(--accent-2)">Sponsorship Health</h3>
+        <ul style="list-style:none;padding:0;margin:0;font-size:13px;line-height:1.9">
+          <li><strong>1</strong> new sponsorship (last 12 months)</li>
+          <li><strong>839</strong> cancelled (last 12 months)</li>
+          <li>Cancellation reasons:</li>
+          <li>&nbsp;&nbsp;Sponsor-Requested &mdash; <strong>42%</strong></li>
+          <li>&nbsp;&nbsp;Delinquent &mdash; <strong>39%</strong></li>
+          <li>&nbsp;&nbsp;Sub Reject &mdash; <strong>15%</strong></li>
+          <li>&nbsp;&nbsp;Departure/No Sub &mdash; <strong>3%</strong></li>
+        </ul>
+      </div>
+      <div class="card col-4">
+        <h3 style="color:var(--accent-2)">Sponsor Engagement</h3>
+        <ul style="list-style:none;padding:0;margin:0;font-size:13px;line-height:1.9">
+          <li><strong>86%</strong> wrote letters (all-time)</li>
+          <li><strong>41%</strong> wrote letters (last 12 mos)</li>
+          <li><strong>22%</strong> gave gifts (all-time)</li>
+          <li><strong>50%</strong> gave gifts (last 12 mos)</li>
+          <li>Most recent donation: <strong>$2,913</strong></li>
+          <li>Date: <strong>11/17/2025</strong></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="grid" style="margin-top:16px">
+      <div class="card col-6">
+        <h3>Church Direct Donations by Year</h3>
+        <div class="chart-wrap tall"><canvas id="ci-chart-compassion-donations"></canvas></div>
+      </div>
+      <div class="card col-6">
+        <h3>Church Influenced Sponsorships by Year</h3>
+        <div class="chart-wrap tall"><canvas id="ci-chart-compassion-sponsorships"></canvas></div>
+      </div>
+    </div>
+    <div class="grid" style="margin-top:16px">
+      <div class="card col-6">
+        <h3>Top 5 Donation Funds</h3>
+        <div class="chart-wrap tall"><canvas id="ci-chart-compassion-funds"></canvas></div>
+      </div>
+      <div class="card col-6">
+        <h3>Sponsorship Trend <span class="pill">Last 12 months</span></h3>
+        <div class="chart-wrap tall"><canvas id="ci-chart-compassion-trend"></canvas></div>
+      </div>
+    </div>
+
     <h2 class="section" style="margin-top:28px">Longest-Running Partner Relationships</h2>
     <div class="card col-12">
       <table id="ci-tbl-tenure"><thead><tr><th>Partner</th><th>Location</th><th class="num">Years</th><th style="width:30%">Tenure</th></tr></thead><tbody></tbody></table>
@@ -982,6 +1061,17 @@
       </div>
     </div>
     
+    
+    <div class="grid" style="margin-top:16px">
+      <div class="card col-12" style="text-align:center;padding:18px 24px">
+        <div style="display:flex;align-items:center;justify-content:center;gap:32px;flex-wrap:wrap">
+          <div><div style="font-size:11px;text-transform:uppercase;letter-spacing:0.5px;color:var(--muted)">TFD Participants Who Also Went on a GO Trip</div>
+          <div style="font-size:36px;font-weight:700;color:var(--accent-2)">821</div>
+          <div style="font-size:13px;color:var(--muted)">7.4% of 11,148 TFD participants</div></div>
+        </div>
+      </div>
+    </div>
+
     <h2 class="section" style="margin-top:28px">Participant Demographics <span class="accent">· 11,148 Unique People in Rock RMS</span></h2>
     <div class="kpi-grid">
       <div class="kpi blue"><div class="label">Female</div><div class="value">54.2%</div><div class="hint">6,043 participants</div></div>
@@ -1059,6 +1149,17 @@
       </div>
     </div>
     
+    
+    <div class="grid" style="margin-top:16px">
+      <div class="card col-12" style="text-align:center;padding:18px 24px">
+        <div style="display:flex;align-items:center;justify-content:center;gap:32px;flex-wrap:wrap">
+          <div><div style="font-size:11px;text-transform:uppercase;letter-spacing:0.5px;color:var(--muted)">CGD Participants Who Also Went on a GO Trip</div>
+          <div style="font-size:36px;font-weight:700;color:var(--accent-2)">467</div>
+          <div style="font-size:13px;color:var(--muted)">10.7% of 4,377 CGD participants</div></div>
+        </div>
+      </div>
+    </div>
+
     <h2 class="section" style="margin-top:28px">Participant Demographics <span class="accent">· 4,377 Unique People in Rock RMS</span></h2>
     <div class="kpi-grid">
       <div class="kpi blue"><div class="label">Female</div><div class="value">68.6%</div><div class="hint">3,002 participants</div></div>
@@ -1141,6 +1242,17 @@
       </div>
     </div>
     
+    
+    <div class="grid" style="margin-top:16px">
+      <div class="card col-12" style="text-align:center;padding:18px 24px">
+        <div style="display:flex;align-items:center;justify-content:center;gap:32px;flex-wrap:wrap">
+          <div><div style="font-size:11px;text-transform:uppercase;letter-spacing:0.5px;color:var(--muted)">GO Day Participants Who Also Went on a GO Trip</div>
+          <div style="font-size:36px;font-weight:700;color:var(--accent-2)">389</div>
+          <div style="font-size:13px;color:var(--muted)">9.2% of 4,216 GO Day participants</div></div>
+        </div>
+      </div>
+    </div>
+
     <h2 class="section" style="margin-top:28px">Participant Demographics <span class="accent">· 4,216 Unique People in Rock RMS</span></h2>
     <div class="kpi-grid">
       <div class="kpi blue"><div class="label">Female</div><div class="value">56.2%</div><div class="hint">2,370 participants</div></div>
@@ -1248,6 +1360,17 @@
       </div>
     </div>
     
+    
+    <h2 class="section" style="margin-top:20px">Cross-Program Involvement <span class="accent">· GO Trip Participants in Other Programs</span></h2>
+    <div style="font-size:13px;color:var(--muted);margin-bottom:14px">Of the 3,680 unique GO Trip participants in Rock RMS, how many also served in other ReachOut programs.</div>
+    <div class="kpi-grid">
+      <div class="kpi red"><div class="label">Also in TFD</div><div class="value">821</div><div class="hint">22.3% of trip participants</div></div>
+      <div class="kpi blue"><div class="label">Also in CGD</div><div class="value">467</div><div class="hint">12.7% of trip participants</div></div>
+      <div class="kpi green"><div class="label">Also in GO Day</div><div class="value">389</div><div class="hint">10.6% of trip participants</div></div>
+      <div class="kpi violet"><div class="label">In 2+ Programs</div><div class="value">929</div><div class="hint">25.2% serve beyond trips</div></div>
+      <div class="kpi accent"><div class="label">All 4 Programs</div><div class="value">122</div><div class="hint">3.3% serve in every program</div></div>
+    </div>
+
     <h2 class="section" style="margin-top:28px">Participant Demographics <span class="accent">· 3,680 Unique People in Rock RMS</span></h2>
     <div class="kpi-grid">
       <div class="kpi blue"><div class="label">Female</div><div class="value">62.4%</div><div class="hint">2,298 participants</div></div>
@@ -1529,6 +1652,7 @@ document.querySelectorAll('.tab-btn').forEach(btn=>{
     if (t === 'prison' && !_tabInited.prison && typeof _initPrison === 'function') { _initPrison(); _tabInited.prison = true; }
     if (t === 'investments' && !_tabInited.investments && typeof _initInvestments === 'function') { _initInvestments(); _tabInited.investments = true; }
     if (t === 'community' && !_tabInited.community && typeof _initCommunity === 'function') { _initCommunity(); _tabInited.community = true; }
+    if (t === 'community' && typeof _initCompassion === 'function' && !window._compassionInited) { _initCompassion(); window._compassionInited = true; }
     if (t === 'overview' && !_tabInited.overview && typeof _initOverview === 'function') { _initOverview(); _tabInited.overview = true; }
     if (t === 'overview' && typeof _initDemoAll === 'function' && !window._demoInited_all) { _initDemoAll(); window._demoInited_all = true; }
     if (t === 'annual' && !_tabInited.annual && typeof _initAnnual === 'function') { _initAnnual(); _tabInited.annual = true; }
@@ -1783,7 +1907,7 @@ function _initGoDay() {
   <script>
 /* ========== GO TRIPS 2026 - LAZY INIT ========== */
 function _initGoTrips() {
-  const GOTRIPS_DATA = {asOf:"April 16, 2026",trips:[{id:1120826,name:"GO Cape Town Trip - June 2026",signups:10,capacity:32,location:"South Africa",dates:"June 2026",campus:{"East Side":1,"Mason":6,"Not Site Specific":1,"Oakley":2}},{id:1120827,name:"GO Durban Trip - July 2026",signups:33,capacity:32,location:"South Africa",dates:"July 2026",campus:{"Anywhere":1,"Dayton":4,"East Side":4,"Florence":2,"I Do Not Attend Crossroads":1,"Mason":5,"Not Site Specific":5,"Oakley":7,"Uptown":2,"West Side":2}},{id:1120828,name:"GO Durban Trip - November 2026",signups:7,capacity:39,location:"South Africa",dates:"November 2026",campus:{"Dayton":2,"East Side":1,"Mason":1,"Not Site Specific":2,"Oakley":1}},{id:1120720,name:"GO Guatemala Trip - July 2026",signups:13,capacity:35,location:"Guatemala",dates:"July 2026",campus:{"Dayton":3,"East Side":2,"Lexington":1,"Mason":1,"Not Site Specific":2,"Oakley":4}},{id:1120719,name:"GO Guatemala Women's Trip - May 2026",signups:27,capacity:35,location:"Guatemala",dates:"May 2026",campus:{"Anywhere":3,"Dayton":1,"East Side":3,"Florence":1,"Mason":3,"Not Site Specific":2,"Oakley":13,"West Side":1}},{id:1120825,name:"GO Johannesburg Trip - April 2026",signups:13,capacity:40,location:"South Africa",dates:"April 2026",campus:{"Anywhere":1,"Dayton":2,"East Side":2,"Mason":1,"Oakley":7}},{id:1120854,name:"GO Martin County Family Trip - June 2026",signups:18,capacity:40,location:"Martin County",dates:"June 2026",campus:{"East Side":1,"Florence":7,"Mason":3,"Oakley":7}},{id:1120839,name:"GO Martin County Men's Ministry Trip - April 2026",signups:19,capacity:40,location:"Martin County",dates:"April 2026",campus:{"Columbus":1,"Dayton":2,"East Side":3,"Florence":3,"Mason":6,"Oakley":3,"West Side":1}},{id:1120840,name:"GO Martin County Senior Connection Trip - October 2026",signups:39,capacity:38,location:"Martin County",dates:"October 2026",campus:{"Dayton":4,"Florence":4,"Mason":22,"Not Site Specific":1,"Oakley":4,"West Side":4}},{id:1120853,name:"GO Martin County Trip - August 2026",signups:10,capacity:40,location:"Martin County",dates:"August 2026",campus:{"Dayton":2,"East Side":3,"Florence":1,"Oakley":2,"West Side":2}},{id:1120844,name:"GO Martin County Women's Trip - November 2026",signups:39,capacity:40,location:"Martin County",dates:"November 2026",campus:{"Anywhere":1,"Dayton":1,"East Side":5,"Florence":6,"Mason":10,"Not Site Specific":3,"Oakley":13}},{id:1120711,name:"GO Nepal Trekking Trip - October 2026",signups:11,capacity:25,location:"Nepal",dates:"October 2026",campus:{"Florence":1,"Lexington":2,"Mason":1,"Oakley":3,"West Side":4}},{id:1166585,name:"GO Nepal Trip - September 2026",signups:5,capacity:25,location:"Nepal",dates:"September 2026",campus:{"Anywhere":1,"Florence":2,"Oakley":2}},{id:1120662,name:"GO Nicaragua Student Trip - June 2026",signups:18,capacity:20,location:"Nicaragua",dates:"June 2026",campus:{"East Side":4,"Florence":2,"Mason":1,"Oakley":5,"West Side":6}},{id:1120671,name:"GO Nicaragua Trip - June 2026",signups:19,capacity:19,location:"Nicaragua",dates:"June 2026",campus:{"East Side":5,"Florence":1,"Mason":6,"Not Site Specific":4,"Oakley":2,"West Side":1}},{id:1120703,name:"GO Nicaragua Trip - November 2026",signups:18,capacity:21,location:"Nicaragua",dates:"November 2026",campus:{"East Side":2,"Florence":5,"I Do Not Attend Crossroads":2,"Mason":4,"Not Site Specific":1,"Oakley":4}},{id:1120591,name:"GO Nicaragua Young Adults Trip - May 2026",signups:13,capacity:20,location:"Nicaragua",dates:"May 2026",campus:{"Dayton":1,"East Side":1,"Florence":1,"Mason":2,"Oakley":8}},{id:1120834,name:"GO Puerto Rico Anywhere Trip - June 2026",signups:19,capacity:40,location:"Puerto Rico",dates:"June 2026",campus:{"Anywhere":12,"Dayton":1,"Mason":4,"Oakley":2}},{id:1120833,name:"GO Puerto Rico Couples Trip - October 2026",signups:24,capacity:30,location:"Puerto Rico",dates:"October 2026",campus:{"Anywhere":2,"Dayton":2,"East Side":2,"Mason":4,"Oakley":14}},{id:1120831,name:"GO Puerto Rico Family Trip - July 2026",signups:24,capacity:40,location:"Puerto Rico",dates:"July 2026",campus:{"East Side":5,"Mason":4,"Not Site Specific":3,"Oakley":12}},{id:1120832,name:"GO Puerto Rico Family Trip - July 2026 (B)",signups:0,capacity:40,location:"Puerto Rico",dates:"July 2026",campus:{}},{id:1120829,name:"GO Puerto Rico Trip - April 2026",signups:16,capacity:40,location:"Puerto Rico",dates:"April 2026",campus:{"East Side":3,"Florence":2,"Lexington":1,"Mason":3,"Not Site Specific":1,"Oakley":6}},{id:1120830,name:"GO Puerto Rico Trip - June 2026",signups:37,capacity:40,location:"Puerto Rico",dates:"June 2026",campus:{"Anywhere":6,"Columbus":1,"Dayton":3,"East Side":3,"Florence":1,"Lexington":4,"Mason":3,"Not Site Specific":4,"Oakley":8,"West Side":4}}],locations:{"South Africa":{signups:63,capacity:143,trips:4,emoji:"🇿🇦",lat:-29,lon:24},"Guatemala":{signups:40,capacity:70,trips:2,emoji:"🇬🇹",lat:14.6,lon:-90.5},"Martin County":{signups:125,capacity:198,trips:5,emoji:"🇺🇸",lat:27.1,lon:-80.2},"Nepal":{signups:16,capacity:50,trips:2,emoji:"🇳🇵",lat:28.4,lon:84.1},"Nicaragua":{signups:68,capacity:80,trips:4,emoji:"🇳🇮",lat:12.1,lon:-85.0},"Puerto Rico":{signups:120,capacity:230,trips:6,emoji:"🇵🇷",lat:18.2,lon:-66.6}},campusTotals:{"Oakley":129,"Mason":90,"East Side":50,"Florence":39,"Not Site Specific":29,"Dayton":28,"Anywhere":27,"West Side":25,"Lexington":8,"I Do Not Attend Crossroads":3,"Columbus":2,"Uptown":2},demographics:{totalParticipants:419,ageBuckets:{"Under 18":49,"18-24":28,"25-34":22,"35-44":66,"45-54":77,"55-64":85,"65+":59,"Unknown":33},maritalStatus:{"Married":217,"Single":142,"Divorced":15,"Widowed":8,"Separated":3,"Unknown":34},gender:{"Female":250,"Male":146,"Unknown":23},baptism:{"Baptized":135,"Not Baptized / Unknown":284},volunteering:{"Volunteers (Serve Waiver)":282,"No Serve Record":137},pastTrips:{returning:186,firstTime:233},engagement:{goDay:{participated:19,notParticipated:400},tfd:{participated:163,notParticipated:256},cgd:{participated:119,notParticipated:300}}}};
+  const GOTRIPS_DATA = {"asOf":"April 16, 2026","trips":[{"id":1120826,"name":"GO Cape Town Trip - June 2026","signups":10,"capacity":32,"location":"South Africa","dates":"June 2026","campus":{"East Side":1,"Mason":6,"Not Site Specific":1,"Oakley":2}},{"id":1120827,"name":"GO Durban Trip - July 2026","signups":33,"capacity":32,"location":"South Africa","dates":"July 2026","campus":{"Anywhere":1,"Dayton":4,"East Side":4,"Florence":2,"I Do Not Attend Crossroads":1,"Mason":5,"Not Site Specific":5,"Oakley":7,"Uptown":2,"West Side":2}},{"id":1120828,"name":"GO Durban Trip - November 2026","signups":7,"capacity":39,"location":"South Africa","dates":"November 2026","campus":{"Dayton":2,"East Side":1,"Mason":1,"Not Site Specific":2,"Oakley":1}},{"id":1120720,"name":"GO Guatemala Trip - July 2026","signups":13,"capacity":35,"location":"Guatemala","dates":"July 2026","campus":{"Dayton":3,"East Side":2,"Lexington":1,"Mason":1,"Not Site Specific":2,"Oakley":4}},{"id":1120719,"name":"GO Guatemala Women's Trip - May 2026","signups":27,"capacity":35,"location":"Guatemala","dates":"May 2026","campus":{"Anywhere":3,"Dayton":1,"East Side":3,"Florence":1,"Mason":3,"Not Site Specific":2,"Oakley":13,"West Side":1}},{"id":1120825,"name":"GO Johannesburg Trip - April 2026","signups":13,"capacity":40,"location":"South Africa","dates":"April 2026","campus":{"Anywhere":1,"Dayton":2,"East Side":2,"Mason":1,"Oakley":7}},{"id":1120854,"name":"GO Martin County Family Trip - June 2026","signups":18,"capacity":40,"location":"Martin County","dates":"June 2026","campus":{"East Side":1,"Florence":7,"Mason":3,"Oakley":7}},{"id":1120839,"name":"GO Martin County Men's Ministry Trip - April 2026","signups":19,"capacity":40,"location":"Martin County","dates":"April 2026","campus":{"Columbus":1,"Dayton":2,"East Side":3,"Florence":3,"Mason":6,"Oakley":3,"West Side":1}},{"id":1120840,"name":"GO Martin County Senior Connection Trip - October 2026","signups":39,"capacity":38,"location":"Martin County","dates":"October 2026","campus":{"Dayton":4,"Florence":4,"Mason":22,"Not Site Specific":1,"Oakley":4,"West Side":4}},{"id":1120853,"name":"GO Martin County Trip - August 2026","signups":10,"capacity":40,"location":"Martin County","dates":"August 2026","campus":{"Dayton":2,"East Side":3,"Florence":1,"Oakley":2,"West Side":2}},{"id":1120844,"name":"GO Martin County Women's Trip - November 2026","signups":39,"capacity":40,"location":"Martin County","dates":"November 2026","campus":{"Anywhere":1,"Dayton":1,"East Side":5,"Florence":6,"Mason":10,"Not Site Specific":3,"Oakley":13}},{"id":1120711,"name":"GO Nepal Trekking Trip - October 2026","signups":11,"capacity":25,"location":"Nepal","dates":"October 2026","campus":{"Florence":1,"Lexington":2,"Mason":1,"Oakley":3,"West Side":4}},{"id":1166585,"name":"GO Nepal Trip - September 2026","signups":5,"capacity":25,"location":"Nepal","dates":"September 2026","campus":{"Anywhere":1,"Florence":2,"Oakley":2}},{"id":1120662,"name":"GO Nicaragua Student Trip - June 2026","signups":18,"capacity":20,"location":"Nicaragua","dates":"June 2026","campus":{"East Side":4,"Florence":2,"Mason":1,"Oakley":5,"West Side":6}},{"id":1120671,"name":"GO Nicaragua Trip - June 2026","signups":19,"capacity":19,"location":"Nicaragua","dates":"June 2026","campus":{"East Side":5,"Florence":1,"Mason":6,"Not Site Specific":4,"Oakley":2,"West Side":1}},{"id":1120703,"name":"GO Nicaragua Trip - November 2026","signups":18,"capacity":21,"location":"Nicaragua","dates":"November 2026","campus":{"East Side":2,"Florence":5,"I Do Not Attend Crossroads":2,"Mason":4,"Not Site Specific":1,"Oakley":4}},{"id":1120591,"name":"GO Nicaragua Young Adults Trip - May 2026","signups":13,"capacity":20,"location":"Nicaragua","dates":"May 2026","campus":{"Dayton":1,"East Side":1,"Florence":1,"Mason":2,"Oakley":8}},{"id":1120834,"name":"GO Puerto Rico Anywhere Trip - June 2026","signups":19,"capacity":40,"location":"Puerto Rico","dates":"June 2026","campus":{"Anywhere":12,"Dayton":1,"Mason":4,"Oakley":2}},{"id":1120833,"name":"GO Puerto Rico Couples Trip - October 2026","signups":24,"capacity":30,"location":"Puerto Rico","dates":"October 2026","campus":{"Anywhere":2,"Dayton":2,"East Side":2,"Mason":4,"Oakley":14}},{"id":1120831,"name":"GO Puerto Rico Family Trip - July 2026","signups":24,"capacity":40,"location":"Puerto Rico","dates":"July 2026","campus":{"East Side":5,"Mason":4,"Not Site Specific":3,"Oakley":12}},{"id":1120832,"name":"GO Puerto Rico Family Trip - July 2026 (B)","signups":0,"capacity":40,"location":"Puerto Rico","dates":"July 2026 (B)","campus":{}},{"id":1120829,"name":"GO Puerto Rico Trip - April 2026","signups":16,"capacity":40,"location":"Puerto Rico","dates":"April 2026","campus":{"East Side":3,"Florence":2,"Lexington":1,"Mason":3,"Not Site Specific":1,"Oakley":6}},{"id":1120830,"name":"GO Puerto Rico Trip - June 2026","signups":37,"capacity":40,"location":"Puerto Rico","dates":"June 2026","campus":{"Anywhere":6,"Columbus":1,"Dayton":3,"East Side":3,"Florence":1,"Lexington":4,"Mason":3,"Not Site Specific":4,"Oakley":8,"West Side":4}}],"locations":{"South Africa":{"signups":63,"capacity":143,"trips":4,"emoji":"🇿🇦","lat":-29,"lon":24},"Guatemala":{"signups":40,"capacity":70,"trips":2,"emoji":"🇬🇹","lat":14.6,"lon":-90.5},"Martin County":{"signups":125,"capacity":198,"trips":5,"emoji":"🇺🇸","lat":27.1,"lon":-80.2},"Nepal":{"signups":16,"capacity":50,"trips":2,"emoji":"🇳🇵","lat":28.4,"lon":84.1},"Nicaragua":{"signups":68,"capacity":80,"trips":4,"emoji":"🇳🇮","lat":12.1,"lon":-85.0},"Puerto Rico":{"signups":120,"capacity":230,"trips":6,"emoji":"🇵🇷","lat":18.2,"lon":-66.6}},"campusTotals":{"Oakley":129,"Mason":90,"East Side":50,"Florence":39,"Not Site Specific":29,"Dayton":28,"Anywhere":27,"West Side":25,"Lexington":8,"I Do Not Attend Crossroads":3,"Uptown":2,"Columbus":2}};
 
   const gt_fmt = n => n.toLocaleString();
   const gt_pct = (a,b) => b > 0 ? Math.round((a/b)*100) : 0;
@@ -2537,6 +2661,33 @@ function _init10x() {
   });
 }
 
+
+
+/* ---- Compassion Sponsorship charts ---- */
+function _initCompassion() {
+  // ── Compassion Child Sponsorship charts ──
+  new Chart(document.getElementById('ci-chart-compassion-donations'),{
+    type:'bar',
+    data:{labels:['Pre-2015','2016','2017','2019','2020','2021','2025'],datasets:[{label:'Donations',data:[162000,141000,450,176000,63000,128000,53000],backgroundColor:'#4A9DE0'}]},
+    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{y:{ticks:{callback:v=>'$'+v.toLocaleString()},grid:{color:'rgba(255,255,255,0.05)'}},x:{grid:{display:false}}}}
+  });
+  new Chart(document.getElementById('ci-chart-compassion-sponsorships'),{
+    type:'bar',
+    data:{labels:['Pre-2015','2015','2016','2017','2018','2019','2020','2021','2022','2023','2024','2025'],datasets:[{label:'Sponsorships',data:[3,5854,459,2620,69,33,633,11,13,2991,1740,1]}],backgroundColor:'#F6B042'},
+    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{y:{ticks:{callback:v=>v.toLocaleString()},grid:{color:'rgba(255,255,255,0.05)'}},x:{grid:{display:false}}}}
+  });
+  new Chart(document.getElementById('ci-chart-compassion-funds'),{
+    type:'bar',
+    data:{labels:['Non-Formal Education','Unsponsored Children','Infrastructure Dev.','Medical Assistance','Disaster Relief'],datasets:[{label:'Amount',data:[178000,162000,100000,70000,61000],backgroundColor:['#4A9DE0','#F6B042','#4CAF8E','#A989C5','#E94B35']}]},
+    options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{ticks:{callback:v=>'$'+v.toLocaleString()},grid:{color:'rgba(255,255,255,0.05)'}},y:{grid:{display:false}}}}
+  });
+  new Chart(document.getElementById('ci-chart-compassion-trend'),{
+    type:'line',
+    data:{labels:['M','A','M','J','J','A','S','O','N','D','J','F'],datasets:[{label:'Active',data:[8991,8898,8830,8762,8653,8588,8499,8415,8360,8292,8216,8147],borderColor:'#4A9DE0',backgroundColor:'rgba(74,157,224,0.1)',fill:true,tension:0.3}]},
+    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{y:{min:7800,ticks:{callback:v=>v.toLocaleString()},grid:{color:'rgba(255,255,255,0.05)'}},x:{grid:{display:false}}}}
+  });
+
+}
 
 /* ---- Demographic chart init functions ---- */
 function _initDemoTfd() {
