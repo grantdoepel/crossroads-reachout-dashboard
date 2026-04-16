@@ -1405,7 +1405,7 @@ new Chart(document.getElementById('chart-platform'),{ type:'doughnut', data:{lab
 
 (function(){ const tv = document.querySelector('#tbl-top-videos tbody'); DATA.pando.topVideos.forEach(r=>{ tv.innerHTML += `<tr><td>${r[0]}</td><td class="num">${fmt(r[1])}</td><td class="num">${r[2]}</td></tr>`; }); const tc = document.querySelector('#tbl-top-completions tbody'); const max = Math.max(...DATA.pando.topCompletions.map(r=>r[1])); DATA.pando.topCompletions.forEach(r=>{ const w = Math.round((r[1]/max)*100); tc.innerHTML += `<tr><td>${r[0]}</td><td class="num">${fmt(r[1])}</td><td><div class="bar"><i style="width:${w}%"></i></div></td></tr>`; });})();
 
-(function(){ new Chart(document.getElementById('chart-combined'),{ type:'bar', data:{labels:['Pando Views','Pando Subscribers','Pando Salvations','Prison Messages','Unique Inmates','Prison Replies'],datasets:[{ data:[DATA.pando.totals.views,DATA.pando.totals.subscribers,DATA.pando.totals.salvations,DATA.meta.totalMessages,DATA.meta.uniqueInmates,DATA.meta.totalOut], backgroundColor:[COLORS.blue,COLORS.violet,COLORS.orange,COLORS.red,COLORS.green,COLORS.yellow],borderRadius:4 }]}, options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>fmt(c.parsed.y)}}},scales:{y:{type:'logarithmic',ticks:{callback:v=>fmt(v)}}}} });})();
+/* combined chart removed — replaced by Overview tab */
 </script>
 
   <script>
