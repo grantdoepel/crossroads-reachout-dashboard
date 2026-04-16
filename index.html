@@ -356,6 +356,10 @@
     <button class="tab-btn" data-tab="prison">Prison Stats</button>
     <button class="tab-btn" data-tab="investments">Investments</button>
     <button class="tab-btn" data-tab="community">Community Impact</button>
+    <button class="tab-btn" data-tab="tfd">TFD History</button>
+    <button class="tab-btn" data-tab="cgd">CGD History</button>
+    <button class="tab-btn" data-tab="goday-history">GO Day History</button>
+    <button class="tab-btn" data-tab="gotrips-history">GO Trips History</button>
   </div>
 
   <div id="tab-pando" class="tab-content active">
@@ -822,6 +826,229 @@
     </div>
   </div>
 
+  <!-- ============ TFD HISTORY TAB ============ -->
+  <div id="tab-tfd" class="tab-content">
+    <h2 class="section">Thanksgiving Food Drive <span class="accent">· 1997–2025 History</span></h2>
+    <div style="font-size:13px;color:var(--muted);margin-bottom:14px">How TFD has grown from 8 boxes in 1997 to 14,141 boxes in 2025 — and how the type of support has shifted over time.</div>
+    <div class="kpi-grid">
+      <div class="kpi red"><div class="label">Total TFD Boxes</div><div class="value">198,773</div><div class="hint">Across 29 years (1997–2025)</div></div>
+      <div class="kpi accent"><div class="label">Individual Meals</div><div class="value">~1,328,892</div><div class="hint">8 per large, 4 per pantry/Africa</div></div>
+      <div class="kpi blue"><div class="label">Large Boxes</div><div class="value">133,450</div></div>
+      <div class="kpi violet"><div class="label">Pantry Boxes</div><div class="value">16,012</div><div class="hint">Program began 2019</div></div>
+      <div class="kpi green"><div class="label">Africa Boxes</div><div class="value">49,311</div><div class="hint">2006–2018</div></div>
+    </div>
+
+    <div class="grid" style="margin-top:16px">
+      <div class="card col-12">
+        <h3>Thanksgiving Food Drive Boxes by Year <span class="pill">Total Boxes 1997–2025</span></h3>
+        <div class="chart-wrap tall"><canvas id="tfd-chart-total"></canvas></div>
+      </div>
+      <div class="card col-12">
+        <h3>Box Type Breakdown by Year <span class="pill">Stacked: Large · Pantry · Africa</span></h3>
+        <div class="chart-wrap tall"><canvas id="tfd-chart-stack"></canvas></div>
+      </div>
+      <div class="card col-7">
+        <h3>Milestone Years <span class="pill">Program highlights</span></h3>
+        <ul style="list-style:none;padding:0;margin:0;font-size:13.5px;line-height:2">
+          <li><strong>1997:</strong> TFD begins — 8 boxes</li>
+          <li><strong>2006:</strong> Africa boxes begin with 1,640 boxes</li>
+          <li><strong>2013:</strong> Crosses 11,000 total boxes</li>
+          <li><strong>2018:</strong> Reaches 12,790 boxes; final year of Africa boxes</li>
+          <li><strong>2019:</strong> Pantry boxes launch with 3,862 boxes</li>
+          <li><strong>2024:</strong> Reaches 13,128 boxes post-COVID recovery</li>
+          <li><strong>2025:</strong> Highest year tracked — <strong style="color:var(--accent-2)">14,141 boxes</strong></li>
+        </ul>
+      </div>
+      <div class="card col-5">
+        <h3>Recent 5-Year Snapshot <span class="pill">2021–2025</span></h3>
+        <div class="chart-wrap"><canvas id="tfd-chart-recent"></canvas></div>
+      </div>
+      <div class="card col-12">
+        <h3>TFD Historical Data <span class="pill">Year-by-year detail</span></h3>
+        <div class="scroll-box" style="max-height:380px">
+          <table id="tfd-tbl">
+            <thead><tr><th>Year</th><th class="num">Total Boxes</th><th class="num">Large</th><th class="num">Pantry</th><th class="num">Africa</th><th class="num">Meals Provided</th></tr></thead>
+            <tbody><tr><td>1997</td><td class="num">8</td><td class="num">8</td><td class="num">0</td><td class="num">0</td><td class="num">64</td></tr><tr><td>1998</td><td class="num">180</td><td class="num">180</td><td class="num">0</td><td class="num">0</td><td class="num">1,440</td></tr><tr><td>1999</td><td class="num">150</td><td class="num">150</td><td class="num">0</td><td class="num">0</td><td class="num">1,200</td></tr><tr><td>2000</td><td class="num">355</td><td class="num">355</td><td class="num">0</td><td class="num">0</td><td class="num">2,840</td></tr><tr><td>2001</td><td class="num">440</td><td class="num">440</td><td class="num">0</td><td class="num">0</td><td class="num">3,520</td></tr><tr><td>2002</td><td class="num">630</td><td class="num">630</td><td class="num">0</td><td class="num">0</td><td class="num">5,040</td></tr><tr><td>2003</td><td class="num">1,125</td><td class="num">1,125</td><td class="num">0</td><td class="num">0</td><td class="num">9,000</td></tr><tr><td>2004</td><td class="num">1,325</td><td class="num">1,325</td><td class="num">0</td><td class="num">0</td><td class="num">10,600</td></tr><tr><td>2005</td><td class="num">1,690</td><td class="num">1,690</td><td class="num">0</td><td class="num">0</td><td class="num">13,520</td></tr><tr><td>2006</td><td class="num">3,610</td><td class="num">1,970</td><td class="num">0</td><td class="num">1,640</td><td class="num">22,320</td></tr><tr><td>2007</td><td class="num">4,545</td><td class="num">2,660</td><td class="num">0</td><td class="num">1,885</td><td class="num">28,820</td></tr><tr><td>2008</td><td class="num">5,950</td><td class="num">2,950</td><td class="num">0</td><td class="num">3,000</td><td class="num">35,600</td></tr><tr><td>2009</td><td class="num">7,200</td><td class="num">3,600</td><td class="num">0</td><td class="num">3,600</td><td class="num">43,200</td></tr><tr><td>2010</td><td class="num">7,700</td><td class="num">3,700</td><td class="num">0</td><td class="num">4,000</td><td class="num">45,600</td></tr><tr><td>2011</td><td class="num">8,300</td><td class="num">3,800</td><td class="num">0</td><td class="num">4,500</td><td class="num">48,400</td></tr><tr><td>2012</td><td class="num">8,500</td><td class="num">4,000</td><td class="num">0</td><td class="num">4,500</td><td class="num">50,000</td></tr><tr><td>2013</td><td class="num">11,078</td><td class="num">6,353</td><td class="num">0</td><td class="num">4,725</td><td class="num">69,724</td></tr><tr><td>2014</td><td class="num">10,780</td><td class="num">6,635</td><td class="num">0</td><td class="num">4,145</td><td class="num">69,660</td></tr><tr><td>2015</td><td class="num">11,662</td><td class="num">7,042</td><td class="num">0</td><td class="num">4,620</td><td class="num">74,816</td></tr><tr><td>2016</td><td class="num">10,970</td><td class="num">6,672</td><td class="num">0</td><td class="num">4,298</td><td class="num">70,568</td></tr><tr><td>2017</td><td class="num">11,675</td><td class="num">7,317</td><td class="num">0</td><td class="num">4,358</td><td class="num">75,968</td></tr><tr><td>2018</td><td class="num">12,790</td><td class="num">8,750</td><td class="num">0</td><td class="num">4,040</td><td class="num">86,160</td></tr><tr><td>2019</td><td class="num">12,181</td><td class="num">8,319</td><td class="num">3,862</td><td class="num">0</td><td class="num">82,000</td></tr><tr><td>2020</td><td class="num">7,023</td><td class="num">5,400</td><td class="num">1,623</td><td class="num">0</td><td class="num">49,692</td></tr><tr><td>2021</td><td class="num">10,509</td><td class="num">7,497</td><td class="num">3,012</td><td class="num">0</td><td class="num">72,024</td></tr><tr><td>2022</td><td class="num">10,186</td><td class="num">7,736</td><td class="num">2,450</td><td class="num">0</td><td class="num">71,688</td></tr><tr><td>2023</td><td class="num">10,942</td><td class="num">8,979</td><td class="num">1,963</td><td class="num">0</td><td class="num">79,684</td></tr><tr><td>2024</td><td class="num">13,128</td><td class="num">10,323</td><td class="num">2,805</td><td class="num">0</td><td class="num">93,804</td></tr><tr><td>2025</td><td class="num">14,141</td><td class="num">13,844</td><td class="num">297</td><td class="num">0</td><td class="num">111,940</td></tr></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div style="font-size:11px;color:var(--muted);margin-top:14px">Source: TFD CGD GO LOCAL CGM ANNUAL STATS · Meals calculated at 8 per large box, 4 per pantry/Africa box per program specs.</div>
+  </div>
+
+  <!-- ============ CGD HISTORY TAB ============ -->
+  <div id="tab-cgd" class="tab-content">
+    <h2 class="section">Christmas Gift Drive <span class="accent">· 2000–2025 History</span></h2>
+    <div style="font-size:13px;color:var(--muted);margin-bottom:14px">From 600 gifts in 2000 to 16,263 gifts in 2025 — a quarter-century of Christmas morning for children and families.</div>
+    <div class="kpi-grid">
+      <div class="kpi red"><div class="label">Total Gifts Distributed</div><div class="value">155,085</div><div class="hint">Across 26 years (2000–2025)</div></div>
+      <div class="kpi accent"><div class="label">2025 — Highest Year</div><div class="value">16,263</div><div class="hint">+38% vs 2024</div></div>
+      <div class="kpi blue"><div class="label">First Year Tracked</div><div class="value">2000</div><div class="hint">600 gifts</div></div>
+      <div class="kpi green"><div class="label">Avg Gifts/Year</div><div class="value">5,964</div></div>
+    </div>
+
+    <div class="grid" style="margin-top:16px">
+      <div class="card col-12">
+        <h3>Christmas Gift Drive Gifts by Year <span class="pill">Total Gifts 2000–2025</span></h3>
+        <div class="chart-wrap tall"><canvas id="cgd-chart-total"></canvas></div>
+      </div>
+      <div class="card col-7">
+        <h3>Growth Milestones <span class="pill">Turning points</span></h3>
+        <ul style="list-style:none;padding:0;margin:0;font-size:13.5px;line-height:2">
+          <li><strong>2000:</strong> CGD begins — 600 gifts</li>
+          <li><strong>2006:</strong> Crosses 2,000 gifts</li>
+          <li><strong>2008:</strong> Crosses 3,500 gifts</li>
+          <li><strong>2010:</strong> Reaches 5,000 gifts</li>
+          <li><strong>2018:</strong> Reaches 8,399 gifts</li>
+          <li><strong>2021:</strong> Reaches 11,000 gifts</li>
+          <li><strong>2024:</strong> Reaches 11,803 gifts</li>
+          <li><strong>2025:</strong> <strong style="color:var(--accent-2)">16,263 gifts</strong> — all-time high</li>
+        </ul>
+      </div>
+      <div class="card col-5">
+        <h3>Recent Momentum <span class="pill">Last 5 years</span></h3>
+        <div class="chart-wrap"><canvas id="cgd-chart-recent"></canvas></div>
+      </div>
+      <div class="card col-12">
+        <h3>CGD Historical Data <span class="pill">Year-by-year</span></h3>
+        <div class="scroll-box" style="max-height:380px">
+          <table id="cgd-tbl">
+            <thead><tr><th>Year</th><th class="num">Total Gifts</th></tr></thead>
+            <tbody><tr><td>2000</td><td class="num">600</td></tr><tr><td>2001</td><td class="num">800</td></tr><tr><td>2002</td><td class="num">1,100</td></tr><tr><td>2003</td><td class="num">1,300</td></tr><tr><td>2004</td><td class="num">1,500</td></tr><tr><td>2005</td><td class="num">1,800</td></tr><tr><td>2006</td><td class="num">2,100</td></tr><tr><td>2007</td><td class="num">2,500</td></tr><tr><td>2008</td><td class="num">3,500</td></tr><tr><td>2009</td><td class="num">4,500</td></tr><tr><td>2010</td><td class="num">5,000</td></tr><tr><td>2011</td><td class="num">5,400</td></tr><tr><td>2012</td><td class="num">6,000</td></tr><tr><td>2013</td><td class="num">5,200</td></tr><tr><td>2014</td><td class="num">6,551</td></tr><tr><td>2015</td><td class="num">7,000</td></tr><tr><td>2016</td><td class="num">7,400</td></tr><tr><td>2017</td><td class="num">8,003</td></tr><tr><td>2018</td><td class="num">8,399</td></tr><tr><td>2019</td><td class="num">8,412</td></tr><tr><td>2020</td><td class="num">8,227</td></tr><tr><td>2021</td><td class="num">11,000</td></tr><tr><td>2022</td><td class="num">10,669</td></tr><tr><td>2023</td><td class="num">10,058</td></tr><tr><td>2024</td><td class="num">11,803</td></tr><tr><td>2025</td><td class="num">16,263</td></tr></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div style="font-size:11px;color:var(--muted);margin-top:14px">Source: TFD CGD GO LOCAL CGM ANNUAL STATS · Originally labeled "Angel Tree" in source data.</div>
+  </div>
+
+  <!-- ============ GO DAY HISTORY TAB ============ -->
+  <div id="tab-goday-history" class="tab-content">
+    <h2 class="section">GO Day History <span class="accent">· 2006–2025</span></h2>
+    <div style="font-size:13px;color:var(--muted);margin-bottom:14px">Historical GO Day data includes previously tracked Go Local / CSD volunteer and project counts. Volunteer and project data is tracked from 2006–2019, then resumes in 2024.</div>
+    <div class="kpi-grid">
+      <div class="kpi red"><div class="label">Total Volunteers</div><div class="value">96,167</div><div class="hint">2006–2025</div></div>
+      <div class="kpi accent"><div class="label">Total Projects</div><div class="value">5,494</div></div>
+      <div class="kpi blue"><div class="label">Peak Year — 2019</div><div class="value">13,000</div><div class="hint">Volunteers</div></div>
+      <div class="kpi violet"><div class="label">2025 Baseline</div><div class="value">2,578</div><div class="hint">120 projects</div></div>
+    </div>
+
+    <div class="grid" style="margin-top:16px">
+      <div class="card col-12">
+        <h3>GO Day / Go Local Volunteers by Year <span class="pill">2006–2025 (gap 2020–2023)</span></h3>
+        <div class="chart-wrap tall"><canvas id="goday-chart-vols"></canvas></div>
+      </div>
+      <div class="card col-12">
+        <h3>GO Day / Go Local Projects by Year <span class="pill">2006–2025 (gap 2020–2023)</span></h3>
+        <div class="chart-wrap tall"><canvas id="goday-chart-projs"></canvas></div>
+      </div>
+      <div class="card col-7">
+        <h3>Milestone Years <span class="pill">Historical peaks</span></h3>
+        <ul style="list-style:none;padding:0;margin:0;font-size:13.5px;line-height:2">
+          <li><strong>2006:</strong> 1,500 volunteers · 65 projects (Go Local begins)</li>
+          <li><strong>2009:</strong> 4,535 volunteers · 200 projects</li>
+          <li><strong>2012:</strong> 6,000 volunteers · 330 projects</li>
+          <li><strong>2015:</strong> 9,000 volunteers · 485 projects</li>
+          <li><strong>2018:</strong> 10,664 volunteers · 669 projects</li>
+          <li><strong>2019:</strong> <strong style="color:var(--accent-2)">13,000 volunteers · 800 projects</strong> — peak year</li>
+          <li><strong>2020–2023:</strong> Tracking gap</li>
+          <li><strong>2024:</strong> Tracking resumes — 1,943 volunteers · 47 projects</li>
+          <li><strong>2025:</strong> 2,578 volunteers · 120 projects</li>
+        </ul>
+      </div>
+      <div class="card col-5">
+        <h3>Average Volunteers Per Project <span class="pill">Operational metric</span></h3>
+        <div class="chart-wrap"><canvas id="goday-chart-ratio"></canvas></div>
+      </div>
+      <div class="card col-12">
+        <h3>GO Day Historical Data <span class="pill">Year-by-year</span></h3>
+        <div class="scroll-box" style="max-height:360px">
+          <table id="goday-tbl">
+            <thead><tr><th>Year</th><th class="num">Volunteers</th><th class="num">Projects</th><th class="num">Avg per Project</th></tr></thead>
+            <tbody><tr><td>2006</td><td class="num">1,500</td><td class="num">65</td><td class="num">23</td></tr><tr><td>2007</td><td class="num">2,000</td><td class="num">123</td><td class="num">16</td></tr><tr><td>2008</td><td class="num">3,500</td><td class="num">160</td><td class="num">22</td></tr><tr><td>2009</td><td class="num">4,535</td><td class="num">200</td><td class="num">23</td></tr><tr><td>2010</td><td class="num">5,400</td><td class="num">238</td><td class="num">23</td></tr><tr><td>2011</td><td class="num">5,400</td><td class="num">300</td><td class="num">18</td></tr><tr><td>2012</td><td class="num">6,000</td><td class="num">330</td><td class="num">18</td></tr><tr><td>2013</td><td class="num">7,000</td><td class="num">400</td><td class="num">18</td></tr><tr><td>2014</td><td class="num">8,000</td><td class="num">450</td><td class="num">18</td></tr><tr><td>2015</td><td class="num">9,000</td><td class="num">485</td><td class="num">19</td></tr><tr><td>2016</td><td class="num">6,306</td><td class="num">555</td><td class="num">11</td></tr><tr><td>2017</td><td class="num">9,341</td><td class="num">552</td><td class="num">17</td></tr><tr><td>2018</td><td class="num">10,664</td><td class="num">669</td><td class="num">16</td></tr><tr><td>2019</td><td class="num">13,000</td><td class="num">800</td><td class="num">16</td></tr><tr style="opacity:.5"><td>2020</td><td class="num">—</td><td class="num">—</td><td class="num">—</td></tr><tr style="opacity:.5"><td>2021</td><td class="num">—</td><td class="num">—</td><td class="num">—</td></tr><tr style="opacity:.5"><td>2022</td><td class="num">—</td><td class="num">—</td><td class="num">—</td></tr><tr style="opacity:.5"><td>2023</td><td class="num">—</td><td class="num">—</td><td class="num">—</td></tr><tr><td>2024</td><td class="num">1,943</td><td class="num">47</td><td class="num">41</td></tr><tr><td>2025</td><td class="num">2,578</td><td class="num">120</td><td class="num">21</td></tr></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div style="font-size:11px;color:var(--muted);margin-top:14px">Source: TFD CGD GO LOCAL CGM ANNUAL STATS · Years without data may represent untracked activity, not necessarily no activity.</div>
+  </div>
+
+  <!-- ============ GO TRIPS HISTORY TAB ============ -->
+  <div id="tab-gotrips-history" class="tab-content">
+    <h2 class="section">GO Trips History <span class="accent">· 2006–2025</span></h2>
+    <div style="font-size:13px;color:var(--muted);margin-bottom:14px">Two decades of Crossroads mission trips: 12,067 participants across 188 trips to 14 locations worldwide.</div>
+    <div class="kpi-grid">
+      <div class="kpi red"><div class="label">Total Participants</div><div class="value">12,067</div><div class="hint">2006–2025</div></div>
+      <div class="kpi accent"><div class="label">Total Trips</div><div class="value">188</div><div class="hint">Across 14 locations</div></div>
+      <div class="kpi blue"><div class="label">Peak Year — 2024</div><div class="value">975</div><div class="hint">Participants</div></div>
+      <div class="kpi violet"><div class="label">Top Location</div><div class="value" style="font-size:22px">South Africa</div><div class="hint">3,725 participants · 61 trips</div></div>
+    </div>
+
+    <div class="grid" style="margin-top:16px">
+      <div class="card col-12">
+        <h3>Participants by Year <span class="pill">2006–2025</span></h3>
+        <div class="chart-wrap tall"><canvas id="trips-chart-parts"></canvas></div>
+      </div>
+      <div class="card col-12">
+        <h3>Number of GO Trips by Year <span class="pill">Trip count 2008–2024</span></h3>
+        <div class="chart-wrap tall"><canvas id="trips-chart-count"></canvas></div>
+      </div>
+      <div class="card col-7">
+        <h3>Total Participants by Location <span class="pill">Lifetime</span></h3>
+        <div class="chart-wrap tall"><canvas id="trips-chart-loc-parts"></canvas></div>
+      </div>
+      <div class="card col-5">
+        <h3>Total Trips by Location <span class="pill">Lifetime</span></h3>
+        <div class="chart-wrap tall"><canvas id="trips-chart-loc-trips"></canvas></div>
+      </div>
+      <div class="card col-7">
+        <h3>Milestone Years <span class="pill">Portfolio evolution</span></h3>
+        <ul style="list-style:none;padding:0;margin:0;font-size:13.5px;line-height:1.9">
+          <li><strong>2006:</strong> GO Trips history begins — 286 participants, all South Africa</li>
+          <li><strong>2008:</strong> New Orleans launches as a major domestic location</li>
+          <li><strong>2016:</strong> Nicaragua becomes a major destination</li>
+          <li><strong>2017:</strong> Portfolio expands — Nepal, Bolivia, Bahamas, Haiti added</li>
+          <li><strong>2020:</strong> COVID low — only 52 participants across 3 trips</li>
+          <li><strong>2021–2022:</strong> Rebuilding with Alabama, Appalachia, Puerto Rico, Nepal</li>
+          <li><strong>2024:</strong> <strong style="color:var(--accent-2)">All-time high — 975 participants, 29 trips</strong></li>
+          <li><strong>2025:</strong> 536 participants with Appalachia (141) the largest location</li>
+        </ul>
+      </div>
+      <div class="card col-5">
+        <h3>Recent Momentum <span class="pill">Last 5 years</span></h3>
+        <div class="chart-wrap"><canvas id="trips-chart-recent"></canvas></div>
+      </div>
+      <div class="card col-6">
+        <h3>Location Totals — Participants <span class="pill">Share of lifetime</span></h3>
+        <div class="scroll-box" style="max-height:320px">
+          <table>
+            <thead><tr><th>Location</th><th class="num">Participants</th><th class="num">% Share</th></tr></thead>
+            <tbody><tr><td>South Africa</td><td class="num">3,725</td><td class="num">30.9%</td></tr><tr><td>New Orleans</td><td class="num">3,697</td><td class="num">30.6%</td></tr><tr><td>Nicaragua</td><td class="num">1,355</td><td class="num">11.2%</td></tr><tr><td>India</td><td class="num">780</td><td class="num">6.5%</td></tr><tr><td>Puerto Rico</td><td class="num">707</td><td class="num">5.9%</td></tr><tr><td>Alabama</td><td class="num">584</td><td class="num">4.8%</td></tr><tr><td>Appalachia</td><td class="num">386</td><td class="num">3.2%</td></tr><tr><td>Nepal</td><td class="num">369</td><td class="num">3.1%</td></tr><tr><td>Bolivia</td><td class="num">154</td><td class="num">1.3%</td></tr><tr><td>Houston</td><td class="num">133</td><td class="num">1.1%</td></tr><tr><td>Guatemala</td><td class="num">108</td><td class="num">0.9%</td></tr><tr><td>Germany</td><td class="num">45</td><td class="num">0.4%</td></tr><tr><td>Haiti</td><td class="num">17</td><td class="num">0.1%</td></tr><tr><td>Bahamas</td><td class="num">7</td><td class="num">0.1%</td></tr></tbody>
+          </table>
+        </div>
+      </div>
+      <div class="card col-6">
+        <h3>Location Totals — Trips <span class="pill">Share of lifetime</span></h3>
+        <div class="scroll-box" style="max-height:320px">
+          <table>
+            <thead><tr><th>Location</th><th class="num">Trips</th><th class="num">% Share</th></tr></thead>
+            <tbody><tr><td>South Africa</td><td class="num">61</td><td class="num">32.1%</td></tr><tr><td>India</td><td class="num">42</td><td class="num">22.1%</td></tr><tr><td>Nicaragua</td><td class="num">26</td><td class="num">13.7%</td></tr><tr><td>New Orleans</td><td class="num">18</td><td class="num">9.5%</td></tr><tr><td>Puerto Rico</td><td class="num">13</td><td class="num">6.8%</td></tr><tr><td>Bolivia</td><td class="num">9</td><td class="num">4.7%</td></tr><tr><td>Nepal</td><td class="num">8</td><td class="num">4.2%</td></tr><tr><td>Appalachia</td><td class="num">5</td><td class="num">2.6%</td></tr><tr><td>Alabama</td><td class="num">3</td><td class="num">1.6%</td></tr><tr><td>Houston</td><td class="num">1</td><td class="num">0.5%</td></tr><tr><td>Haiti</td><td class="num">1</td><td class="num">0.5%</td></tr><tr><td>Bahamas</td><td class="num">1</td><td class="num">0.5%</td></tr><tr><td>Guatemala</td><td class="num">1</td><td class="num">0.5%</td></tr><tr><td>Germany</td><td class="num">1</td><td class="num">0.5%</td></tr></tbody>
+          </table>
+        </div>
+      </div>
+      <div class="card col-12">
+        <h3>GO Trips Historical Data <span class="pill">Year-by-year</span></h3>
+        <div class="scroll-box" style="max-height:360px">
+          <table id="trips-tbl">
+            <thead><tr><th>Year</th><th class="num">Participants</th><th class="num">Trips</th><th class="num">Avg/Trip</th></tr></thead>
+            <tbody><tr><td>2006</td><td class="num">286</td><td class="num">—</td><td class="num">—</td></tr><tr><td>2007</td><td class="num">584</td><td class="num">—</td><td class="num">—</td></tr><tr><td>2008</td><td class="num">775</td><td class="num">2</td><td class="num">388</td></tr><tr><td>2009</td><td class="num">586</td><td class="num">2</td><td class="num">293</td></tr><tr><td>2010</td><td class="num">827</td><td class="num">5</td><td class="num">165</td></tr><tr><td>2011</td><td class="num">337</td><td class="num">2</td><td class="num">168</td></tr><tr><td>2012</td><td class="num">515</td><td class="num">7</td><td class="num">74</td></tr><tr><td>2013</td><td class="num">713</td><td class="num">10</td><td class="num">71</td></tr><tr><td>2014</td><td class="num">678</td><td class="num">15</td><td class="num">45</td></tr><tr><td>2015</td><td class="num">688</td><td class="num">16</td><td class="num">43</td></tr><tr><td>2016</td><td class="num">715</td><td class="num">17</td><td class="num">42</td></tr><tr><td>2017</td><td class="num">925</td><td class="num">30</td><td class="num">31</td></tr><tr><td>2018</td><td class="num">645</td><td class="num">20</td><td class="num">32</td></tr><tr><td>2019</td><td class="num">872</td><td class="num">32</td><td class="num">27</td></tr><tr><td>2020</td><td class="num">52</td><td class="num">3</td><td class="num">17</td></tr><tr><td>2021</td><td class="num">216</td><td class="num">5</td><td class="num">43</td></tr><tr><td>2022</td><td class="num">499</td><td class="num">22</td><td class="num">23</td></tr><tr><td>2023</td><td class="num">643</td><td class="num">18</td><td class="num">36</td></tr><tr><td>2024</td><td class="num">975</td><td class="num">29</td><td class="num">34</td></tr><tr><td>2025</td><td class="num">536</td><td class="num">—</td><td class="num">—</td></tr></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div style="font-size:11px;color:var(--muted);margin-top:14px">Source: Trip History.xlsx · 2006/2007 and 2025 do not have trip-count breakdowns in source data.</div>
+  </div>
+
 
   <div class="sources">
     <strong>Sources:</strong>
@@ -906,6 +1133,10 @@ document.querySelectorAll('.tab-btn').forEach(btn=>{
     if (t === 'prison' && !_tabInited.prison && typeof _initPrison === 'function') { _initPrison(); _tabInited.prison = true; }
     if (t === 'investments' && !_tabInited.investments && typeof _initInvestments === 'function') { _initInvestments(); _tabInited.investments = true; }
     if (t === 'community' && !_tabInited.community && typeof _initCommunity === 'function') { _initCommunity(); _tabInited.community = true; }
+    if (t === 'tfd' && !_tabInited.tfd && typeof _initTfd === 'function') { _initTfd(); _tabInited.tfd = true; }
+    if (t === 'cgd' && !_tabInited.cgd && typeof _initCgd === 'function') { _initCgd(); _tabInited.cgd = true; }
+    if (t === 'goday-history' && !_tabInited['goday-history'] && typeof _initGoDayHistory === 'function') { _initGoDayHistory(); _tabInited['goday-history'] = true; }
+    if (t === 'gotrips-history' && !_tabInited['gotrips-history'] && typeof _initGoTripsHistory === 'function') { _initGoTripsHistory(); _tabInited['gotrips-history'] = true; }
     window.dispatchEvent(new Event('resize'));
   });
 });
@@ -1712,6 +1943,115 @@ function _initCommunity() {
     pBody.innerHTML += `<tr><td><strong>${r[0]}</strong></td><td>${r[1]}</td><td>${r[2]}</td><td style="color:var(--muted)">${r[3]}</td></tr>`;
   });
 }
+
+
+/* ============ PHASE 2 HISTORY TABS — lazy init ============ */
+const TFD_HIST = [[1997,8,8,0,0],[1998,180,180,0,0],[1999,150,150,0,0],[2000,355,355,0,0],[2001,440,440,0,0],[2002,630,630,0,0],[2003,1125,1125,0,0],[2004,1325,1325,0,0],[2005,1690,1690,0,0],[2006,3610,1970,0,1640],[2007,4545,2660,0,1885],[2008,5950,2950,0,3000],[2009,7200,3600,0,3600],[2010,7700,3700,0,4000],[2011,8300,3800,0,4500],[2012,8500,4000,0,4500],[2013,11078,6353,0,4725],[2014,10780,6635,0,4145],[2015,11662,7042,0,4620],[2016,10970,6672,0,4298],[2017,11675,7317,0,4358],[2018,12790,8750,0,4040],[2019,12181,8319,3862,0],[2020,7023,5400,1623,0],[2021,10509,7497,3012,0],[2022,10186,7736,2450,0],[2023,10942,8979,1963,0],[2024,13128,10323,2805,0],[2025,14141,13844,297,0]];
+const CGD_HIST = [[2000,600],[2001,800],[2002,1100],[2003,1300],[2004,1500],[2005,1800],[2006,2100],[2007,2500],[2008,3500],[2009,4500],[2010,5000],[2011,5400],[2012,6000],[2013,5200],[2014,6551],[2015,7000],[2016,7400],[2017,8003],[2018,8399],[2019,8412],[2020,8227],[2021,11000],[2022,10669],[2023,10058],[2024,11803],[2025,16263]];
+const GODAY_HIST = [[2006,1500,65],[2007,2000,123],[2008,3500,160],[2009,4535,200],[2010,5400,238],[2011,5400,300],[2012,6000,330],[2013,7000,400],[2014,8000,450],[2015,9000,485],[2016,6306,555],[2017,9341,552],[2018,10664,669],[2019,13000,800],[2020,0,0],[2021,0,0],[2022,0,0],[2023,0,0],[2024,1943,47],[2025,2578,120]];
+const TRIPS_PARTS_HIST = [[2006,286],[2007,584],[2008,775],[2009,586],[2010,827],[2011,337],[2012,515],[2013,713],[2014,678],[2015,688],[2016,715],[2017,925],[2018,645],[2019,872],[2020,52],[2021,216],[2022,499],[2023,643],[2024,975],[2025,536]];
+const TRIPS_TRIPS_HIST = [[2006,0],[2007,0],[2008,2],[2009,2],[2010,5],[2011,2],[2012,7],[2013,10],[2014,15],[2015,16],[2016,17],[2017,30],[2018,20],[2019,32],[2020,3],[2021,5],[2022,22],[2023,18],[2024,29],[2025,0]];
+const TRIPS_LOC_PARTS = [["South Africa",3725],["New Orleans",3697],["Nicaragua",1355],["India",780],["Puerto Rico",707],["Alabama",584],["Appalachia",386],["Nepal",369],["Bolivia",154],["Houston",133],["Guatemala",108],["Germany",45],["Haiti",17],["Bahamas",7]];
+const TRIPS_LOC_TRIPS_ARR = [["South Africa",61],["India",42],["Nicaragua",26],["New Orleans",18],["Puerto Rico",13],["Bolivia",9],["Nepal",8],["Appalachia",5],["Alabama",3],["Houston",1],["Haiti",1],["Bahamas",1],["Guatemala",1],["Germany",1]];
+
+function _initTfd() {
+  const years = TFD_HIST.map(r=>r[0]);
+  const totals = TFD_HIST.map(r=>r[1]);
+  const large = TFD_HIST.map(r=>r[2]);
+  const pantry = TFD_HIST.map(r=>r[3]);
+  const africa = TFD_HIST.map(r=>r[4]);
+  new Chart(document.getElementById('tfd-chart-total'),{
+    type:'bar',
+    data:{labels:years,datasets:[{label:'Total Boxes',data:totals,backgroundColor:COLORS.red,borderRadius:3}]},
+    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{y:{ticks:{callback:v=>v.toLocaleString()}}}}
+  });
+  new Chart(document.getElementById('tfd-chart-stack'),{
+    type:'bar',
+    data:{labels:years,datasets:[
+      {label:'Large Boxes',data:large,backgroundColor:COLORS.red},
+      {label:'Pantry Boxes',data:pantry,backgroundColor:COLORS.violet},
+      {label:'Africa Boxes',data:africa,backgroundColor:COLORS.orange}
+    ]},
+    options:{responsive:true,maintainAspectRatio:false,scales:{x:{stacked:true},y:{stacked:true,ticks:{callback:v=>v.toLocaleString()}}}}
+  });
+  const recent = TFD_HIST.slice(-5);
+  new Chart(document.getElementById('tfd-chart-recent'),{
+    type:'bar',
+    data:{labels:recent.map(r=>r[0]),datasets:[{label:'Total Boxes',data:recent.map(r=>r[1]),backgroundColor:recent.map((r,i)=>i===recent.length-1?COLORS.red:COLORS.blue),borderRadius:3}]},
+    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{y:{ticks:{callback:v=>v.toLocaleString()}}}}
+  });
+}
+
+function _initCgd() {
+  const years = CGD_HIST.map(r=>r[0]);
+  const gifts = CGD_HIST.map(r=>r[1]);
+  new Chart(document.getElementById('cgd-chart-total'),{
+    type:'bar',
+    data:{labels:years,datasets:[{label:'Gifts',data:gifts,backgroundColor:gifts.map((v,i)=>i===gifts.length-1?COLORS.red:COLORS.blue),borderRadius:3}]},
+    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{y:{ticks:{callback:v=>v.toLocaleString()}}}}
+  });
+  const recent = CGD_HIST.slice(-5);
+  new Chart(document.getElementById('cgd-chart-recent'),{
+    type:'bar',
+    data:{labels:recent.map(r=>r[0]),datasets:[{label:'Gifts',data:recent.map(r=>r[1]),backgroundColor:recent.map((r,i)=>i===recent.length-1?COLORS.red:COLORS.blue),borderRadius:3}]},
+    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{y:{ticks:{callback:v=>v.toLocaleString()}}}}
+  });
+}
+
+function _initGoDayHistory() {
+  const years = GODAY_HIST.map(r=>r[0]);
+  const vols = GODAY_HIST.map(r=>r[1]||null);
+  const projs = GODAY_HIST.map(r=>r[2]||null);
+  const ratios = GODAY_HIST.map(r=>(r[1]&&r[2])?Math.round(r[1]/r[2]):null);
+  new Chart(document.getElementById('goday-chart-vols'),{
+    type:'bar',
+    data:{labels:years,datasets:[{label:'Volunteers',data:vols,backgroundColor:COLORS.orange,borderRadius:3}]},
+    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{y:{ticks:{callback:v=>v.toLocaleString()}}}}
+  });
+  new Chart(document.getElementById('goday-chart-projs'),{
+    type:'bar',
+    data:{labels:years,datasets:[{label:'Projects',data:projs,backgroundColor:COLORS.teal,borderRadius:3}]},
+    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{y:{ticks:{callback:v=>v.toLocaleString()}}}}
+  });
+  new Chart(document.getElementById('goday-chart-ratio'),{
+    type:'line',
+    data:{labels:years,datasets:[{label:'Avg Volunteers / Project',data:ratios,borderColor:COLORS.violet,backgroundColor:'rgba(169,137,197,0.15)',tension:.3,spanGaps:true,pointRadius:4}]},
+    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}}}
+  });
+}
+
+function _initGoTripsHistory() {
+  const years = TRIPS_PARTS_HIST.map(r=>r[0]);
+  const parts = TRIPS_PARTS_HIST.map(r=>r[1]);
+  const trips = TRIPS_TRIPS_HIST.map(r=>r[1]||null);
+  new Chart(document.getElementById('trips-chart-parts'),{
+    type:'bar',
+    data:{labels:years,datasets:[{label:'Participants',data:parts,backgroundColor:parts.map((v,i)=>years[i]===2024?COLORS.red:COLORS.blue),borderRadius:3}]},
+    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{y:{ticks:{callback:v=>v.toLocaleString()}}}}
+  });
+  new Chart(document.getElementById('trips-chart-count'),{
+    type:'bar',
+    data:{labels:years,datasets:[{label:'Trips',data:trips,backgroundColor:COLORS.orange,borderRadius:3}]},
+    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}}}
+  });
+  new Chart(document.getElementById('trips-chart-loc-parts'),{
+    type:'bar',
+    data:{labels:TRIPS_LOC_PARTS.map(r=>r[0]),datasets:[{label:'Participants',data:TRIPS_LOC_PARTS.map(r=>r[1]),backgroundColor:COLORS.blue,borderRadius:3}]},
+    options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{ticks:{callback:v=>v.toLocaleString()}}}}
+  });
+  new Chart(document.getElementById('trips-chart-loc-trips'),{
+    type:'bar',
+    data:{labels:TRIPS_LOC_TRIPS_ARR.map(r=>r[0]),datasets:[{label:'Trips',data:TRIPS_LOC_TRIPS_ARR.map(r=>r[1]),backgroundColor:COLORS.orange,borderRadius:3}]},
+    options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}}}
+  });
+  const recent = TRIPS_PARTS_HIST.slice(-5);
+  new Chart(document.getElementById('trips-chart-recent'),{
+    type:'bar',
+    data:{labels:recent.map(r=>r[0]),datasets:[{label:'Participants',data:recent.map(r=>r[1]),backgroundColor:recent.map((r,i)=>r[0]===2024?COLORS.red:COLORS.blue),borderRadius:3}]},
+    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}}}
+  });
+}
+
 </script>
 
 
