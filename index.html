@@ -4,86 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Crossroads ReachOut Dashboard</title>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js">
-
-
-/* ============ OVERVIEW TAB — lazy init ============ */
-function _initOverview() {
-  /* Investment growth chart — selected years */
-  const invYears = [2000,2005,2010,2015,2020,2025];
-  const invAmts = [1.2,8.5,22.0,38.0,56.0,71.7]; /* cumulative $M */
-  new Chart(document.getElementById('ov-chart-invest'),{
-    type:'bar',
-    data:{labels:invYears,datasets:[{label:'Cumulative Investment ($M)',data:invAmts,backgroundColor:invAmts.map((_,i)=>i===invAmts.length-1?COLORS.red:COLORS.blue),borderRadius:4}]},
-    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{y:{ticks:{callback:v=>'$'+v+'M'}}}}
-  });
-  /* Program highlights — TFD, CGD, GO Day vols over recent years */
-  const progYears = [2019,2020,2021,2022,2023,2024,2025];
-  const tfdData = [12181,7023,10509,10186,10942,13128,14141];
-  const cgdData = [8412,8227,11000,10669,10058,11803,16263];
-  const tripsData = [872,52,216,499,643,975,536];
-  new Chart(document.getElementById('ov-chart-programs'),{
-    type:'line',
-    data:{labels:progYears,datasets:[
-      {label:'TFD Boxes',data:tfdData,borderColor:COLORS.red,backgroundColor:'rgba(233,75,53,0.1)',tension:.3,fill:true},
-      {label:'CGD Gifts',data:cgdData,borderColor:COLORS.blue,backgroundColor:'rgba(74,157,224,0.1)',tension:.3,fill:true},
-      {label:'GO Trip Participants',data:tripsData,borderColor:COLORS.orange,backgroundColor:'rgba(246,176,66,0.1)',tension:.3,fill:true}
-    ]},
-    options:{responsive:true,maintainAspectRatio:false,scales:{y:{ticks:{callback:v=>v.toLocaleString()}}}}
-  });
-  /* Allocation donut */
-  new Chart(document.getElementById('ov-chart-allocation'),{
-    type:'doughnut',
-    data:{
-      labels:['U.S. Local','U.S. Non-Local','International'],
-      datasets:[{data:[44.4,3.1,24.2],backgroundColor:[COLORS.green,COLORS.blue,COLORS.violet],borderWidth:0}]
-    },
-    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom'}}}
-  });
-}
-
-/* ============ ANNUAL STATS TAB — lazy init ============ */
-function _initAnnual() {
-  /* Build lookup maps */
-  const tfdMap = {}; TFD_HIST.forEach(r => tfdMap[r[0]] = r[1]);
-  const cgdMap = {}; CGD_HIST.forEach(r => cgdMap[r[0]] = r[1]);
-  const godayMap = {}; GODAY_HIST.forEach(r => { if(r[1]>0) godayMap[r[0]] = r[1]; });
-  const tripsPartMap = {}; TRIPS_PARTS_HIST.forEach(r => tripsPartMap[r[0]] = r[1]);
-  const tripsCountMap = {}; TRIPS_TRIPS_HIST.forEach(r => { if(r[1]>0) tripsCountMap[r[0]] = r[1]; });
-
-  /* Year range 2000–2025 */
-  const years = [];
-  for (let y = 2000; y <= 2025; y++) years.push(y);
-
-  /* Build table */
-  const tbody = document.querySelector('#annual-tbl tbody');
-  tbody.innerHTML = years.map(y => {
-    const tfd = tfdMap[y];
-    const cgd = cgdMap[y];
-    const goday = godayMap[y];
-    const tripsPart = tripsPartMap[y];
-    const tripsCount = tripsCountMap[y];
-    const f = v => v != null ? v.toLocaleString() : '—';
-    return '<tr><td>'+y+'</td><td class="num">'+f(tfd)+'</td><td class="num">'+f(cgd)+'</td><td class="num">'+f(goday)+'</td><td class="num">'+f(tripsPart)+'</td><td class="num">'+f(tripsCount)+'</td></tr>';
-  }).join('');
-
-  /* Multi-line chart */
-  const chartYears = years.filter(y => y >= 2006); /* GO data starts 2006 */
-  new Chart(document.getElementById('annual-chart-trends'),{
-    type:'line',
-    data:{labels:chartYears,datasets:[
-      {label:'TFD Boxes',data:chartYears.map(y=>tfdMap[y]||null),borderColor:COLORS.red,tension:.3,pointRadius:3,spanGaps:true},
-      {label:'CGD Gifts',data:chartYears.map(y=>cgdMap[y]||null),borderColor:COLORS.blue,tension:.3,pointRadius:3,spanGaps:true},
-      {label:'GO Day Volunteers',data:chartYears.map(y=>godayMap[y]||null),borderColor:COLORS.orange,tension:.3,pointRadius:3,spanGaps:true},
-      {label:'GO Trip Participants',data:chartYears.map(y=>tripsPartMap[y]||null),borderColor:COLORS.violet,tension:.3,pointRadius:3,spanGaps:true}
-    ]},
-    options:{responsive:true,maintainAspectRatio:false,scales:{y:{ticks:{callback:v=>v.toLocaleString()}}},plugins:{legend:{position:'bottom'}}}
-  });
-}
-
-/* ---- Auto-init the default Overview tab ---- */
-if (typeof _initOverview === 'function' && !_tabInited.overview) { _initOverview(); _tabInited.overview = true; }
-</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/d3@7.8.5/dist/d3.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/topojson-client@3.1.0/dist/topojson-client.min.js"></script>
 <style>
@@ -2205,6 +2126,66 @@ function _initGoTripsHistory() {
     options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}}}
   });
 }
+
+/* ============ OVERVIEW TAB — lazy init ============ */
+function _initOverview() {
+  const invYears = [2000,2005,2010,2015,2020,2025];
+  const invAmts = [1.2,8.5,22.0,38.0,56.0,71.7];
+  new Chart(document.getElementById('ov-chart-invest'),{
+    type:'bar',
+    data:{labels:invYears,datasets:[{label:'Cumulative Investment ($M)',data:invAmts,backgroundColor:invAmts.map((_,i)=>i===invAmts.length-1?COLORS.red:COLORS.blue),borderRadius:4}]},
+    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{y:{ticks:{callback:v=>'$'+v+'M'}}}}
+  });
+  const progYears = [2019,2020,2021,2022,2023,2024,2025];
+  const tfdData = [12181,7023,10509,10186,10942,13128,14141];
+  const cgdData = [8412,8227,11000,10669,10058,11803,16263];
+  const tripsData = [872,52,216,499,643,975,536];
+  new Chart(document.getElementById('ov-chart-programs'),{
+    type:'line',
+    data:{labels:progYears,datasets:[
+      {label:'TFD Boxes',data:tfdData,borderColor:COLORS.red,backgroundColor:'rgba(233,75,53,0.1)',tension:.3,fill:true},
+      {label:'CGD Gifts',data:cgdData,borderColor:COLORS.blue,backgroundColor:'rgba(74,157,224,0.1)',tension:.3,fill:true},
+      {label:'GO Trip Participants',data:tripsData,borderColor:COLORS.orange,backgroundColor:'rgba(246,176,66,0.1)',tension:.3,fill:true}
+    ]},
+    options:{responsive:true,maintainAspectRatio:false,scales:{y:{ticks:{callback:v=>v.toLocaleString()}}}}
+  });
+  new Chart(document.getElementById('ov-chart-allocation'),{
+    type:'doughnut',
+    data:{labels:['U.S. Local','U.S. Non-Local','International'],datasets:[{data:[44.4,3.1,24.2],backgroundColor:[COLORS.green,COLORS.blue,COLORS.violet],borderWidth:0}]},
+    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom'}}}
+  });
+}
+
+/* ============ ANNUAL STATS TAB — lazy init ============ */
+function _initAnnual() {
+  const tfdMap = {}; TFD_HIST.forEach(r => tfdMap[r[0]] = r[1]);
+  const cgdMap = {}; CGD_HIST.forEach(r => cgdMap[r[0]] = r[1]);
+  const godayMap = {}; GODAY_HIST.forEach(r => { if(r[1]>0) godayMap[r[0]] = r[1]; });
+  const tripsPartMap = {}; TRIPS_PARTS_HIST.forEach(r => tripsPartMap[r[0]] = r[1]);
+  const tripsCountMap = {}; TRIPS_TRIPS_HIST.forEach(r => { if(r[1]>0) tripsCountMap[r[0]] = r[1]; });
+  const years = [];
+  for (let y = 2000; y <= 2025; y++) years.push(y);
+  const tbody = document.querySelector('#annual-tbl tbody');
+  tbody.innerHTML = years.map(y => {
+    const tfd = tfdMap[y], cgd = cgdMap[y], goday = godayMap[y], tripsPart = tripsPartMap[y], tripsCount = tripsCountMap[y];
+    const f = v => v != null ? v.toLocaleString() : '\u2014';
+    return '<tr><td>'+y+'</td><td class="num">'+f(tfd)+'</td><td class="num">'+f(cgd)+'</td><td class="num">'+f(goday)+'</td><td class="num">'+f(tripsPart)+'</td><td class="num">'+f(tripsCount)+'</td></tr>';
+  }).join('');
+  const chartYears = years.filter(y => y >= 2006);
+  new Chart(document.getElementById('annual-chart-trends'),{
+    type:'line',
+    data:{labels:chartYears,datasets:[
+      {label:'TFD Boxes',data:chartYears.map(y=>tfdMap[y]||null),borderColor:COLORS.red,tension:.3,pointRadius:3,spanGaps:true},
+      {label:'CGD Gifts',data:chartYears.map(y=>cgdMap[y]||null),borderColor:COLORS.blue,tension:.3,pointRadius:3,spanGaps:true},
+      {label:'GO Day Volunteers',data:chartYears.map(y=>godayMap[y]||null),borderColor:COLORS.orange,tension:.3,pointRadius:3,spanGaps:true},
+      {label:'GO Trip Participants',data:chartYears.map(y=>tripsPartMap[y]||null),borderColor:COLORS.violet,tension:.3,pointRadius:3,spanGaps:true}
+    ]},
+    options:{responsive:true,maintainAspectRatio:false,scales:{y:{ticks:{callback:v=>v.toLocaleString()}}},plugins:{legend:{position:'bottom'}}}
+  });
+}
+
+/* ---- Auto-init the default Overview tab ---- */
+if (typeof _initOverview === 'function' && !_tabInited.overview) { _initOverview(); _tabInited.overview = true; }
 
 </script>
 
