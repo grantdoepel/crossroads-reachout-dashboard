@@ -361,6 +361,7 @@
     <button class="tab-btn" data-tab="goday-history">GO Day History</button>
     <button class="tab-btn" data-tab="gotrips-history">GO Trips History</button>
     <button class="tab-btn" data-tab="annual">Annual Stats</button>
+    <button class="tab-btn" data-tab="tenx">10x Updates</button>
   </div>
 
     <div id="tab-overview" class="tab-content active">
@@ -1123,6 +1124,149 @@
     </div>
   </div>
 
+  <div id="tab-tenx" class="tab-content">
+    <h2 class="section">ReachOut 10x <span class="accent">· Macro Promise Tracker</span></h2>
+    <div style="font-size:13px;color:var(--muted);margin-bottom:14px">Three bold, multi-year commitments totaling <strong style="color:var(--text)">$6.3M</strong> across Nepal, U.S. Prisons, and Latin America. Updated monthly.</div>
+
+    <!-- Summary KPIs -->
+    <div class="kpi-grid">
+      <div class="kpi accent"><div class="label">Total Budget</div><div class="value">$6.3M</div><div class="hint">Across 3 Macro Promises</div></div>
+      <div class="kpi green"><div class="label">Actuals Spent</div><div class="value">$882K</div><div class="hint">14% of total budget</div></div>
+      <div class="kpi blue"><div class="label">Nepal Anti-Trafficking</div><div class="value">19%</div><div class="hint">$3M budget · Apple of God's Eye</div></div>
+      <div class="kpi violet"><div class="label">Care for the Incarcerated</div><div class="value">26%</div><div class="hint">$2.3M budget · Crossroads + Four-Seven</div></div>
+      <div class="kpi red"><div class="label">Latin America Care</div><div class="value">0%</div><div class="hint">$1M budget · Amigos + CoEd</div></div>
+    </div>
+
+    <!-- Budget allocation chart + timeline -->
+    <div class="grid" style="margin-top:16px">
+      <div class="card col-5">
+        <h3>Budget Allocation <span class="pill">By Macro Promise</span></h3>
+        <div class="chart-wrap tall"><canvas id="tenx-chart-alloc"></canvas></div>
+      </div>
+      <div class="card col-7">
+        <h3>Spending Progress <span class="pill">Budget vs Actuals</span></h3>
+        <div class="chart-wrap tall"><canvas id="tenx-chart-spend"></canvas></div>
+      </div>
+    </div>
+
+    <!-- Macro Promise 1: Nepal -->
+    <h2 class="section" style="margin-top:28px">Macro Promise 1 <span class="accent">· Nepal Anti-Trafficking Campus</span></h2>
+    <div style="font-size:13px;color:var(--muted);margin-bottom:10px">Partner: <strong style="color:var(--text)">Apple of God's Eye</strong> · $3M Budget · Oct 2025 – Jan 2027</div>
+    <div class="grid">
+      <div class="card col-12">
+        <h3>Milestones <span class="pill">Aftercare Campus · $3M</span></h3>
+        <div class="scroll-box" style="max-height:340px">
+          <table id="tenx-tbl-nepal1">
+            <thead><tr><th>Milestone</th><th class="num">Actuals</th><th>Timeline</th><th>Status</th><th class="num">% Complete</th></tr></thead>
+            <tbody>
+              <tr><td>Groundbreaking (Oct 2025)</td><td class="num">$500,000</td><td>Oct 2025</td><td><span style="color:var(--green)">✓ Complete</span></td><td class="num">100%</td></tr>
+              <tr><td>Misc expenses</td><td class="num">$3,287</td><td>—</td><td><span style="color:var(--green)">✓ Complete</span></td><td class="num">100%</td></tr>
+              <tr><td>Build First Aftercare Home</td><td class="num">—</td><td>TBD</td><td><span style="color:var(--accent-2)">Upcoming</span></td><td class="num">5%</td></tr>
+              <tr><td>Build Second/Third Aftercare Home</td><td class="num">—</td><td>TBD</td><td><span style="color:var(--accent-2)">Upcoming</span></td><td class="num">0%</td></tr>
+              <tr><td>Construct Medical Clinic</td><td class="num">—</td><td>By Jan 2027</td><td><span style="color:var(--accent-2)">Upcoming</span></td><td class="num">0%</td></tr>
+              <tr><td>Construct Auditorium / Training Center</td><td class="num">—</td><td>By Jan 2027</td><td><span style="color:var(--accent-2)">Upcoming</span></td><td class="num">0%</td></tr>
+              <tr><td>Fund release installments</td><td class="num">—</td><td>Ongoing</td><td><span style="color:var(--accent-2)">Upcoming</span></td><td class="num">10%</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="card col-12">
+        <h3>Milestones <span class="pill">Anjali Expansion · $200K</span></h3>
+        <div class="scroll-box" style="max-height:280px">
+          <table id="tenx-tbl-nepal2">
+            <thead><tr><th>Milestone</th><th class="num">Actuals</th><th>Timeline</th><th>Status</th><th class="num">% Complete</th></tr></thead>
+            <tbody>
+              <tr><td>Begin Construction</td><td class="num">$150,000</td><td>Jun 2025</td><td><span style="color:var(--blue)">In Progress</span></td><td class="num">50%</td></tr>
+              <tr><td>Foundation, Framing, Exterior Complete</td><td class="num">—</td><td>Dec 2025</td><td><span style="color:var(--accent-2)">Upcoming</span></td><td class="num">75%</td></tr>
+              <tr><td>Two Classrooms Open (adds 75 kids)</td><td class="num">—</td><td>Apr 2026</td><td><span style="color:var(--accent-2)">Upcoming</span></td><td class="num">0%</td></tr>
+              <tr><td>Four Classrooms Open (adds 125 capacity)</td><td class="num">—</td><td>Apr 2027</td><td><span style="color:var(--accent-2)">Upcoming</span></td><td class="num">0%</td></tr>
+              <tr><td>Inauguration Celebration</td><td class="num">—</td><td>Oct 2027</td><td><span style="color:var(--accent-2)">Upcoming</span></td><td class="num">0%</td></tr>
+              <tr><td>Annual April New Class Additions</td><td class="num">—</td><td>Apr (annual)</td><td><span style="color:var(--accent-2)">Upcoming</span></td><td class="num">0%</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Macro Promise 2: Incarcerated -->
+    <h2 class="section" style="margin-top:28px">Macro Promise 2 <span class="accent">· Care for the Incarcerated</span></h2>
+    <div style="font-size:13px;color:var(--muted);margin-bottom:10px">Partners: <strong style="color:var(--text)">Crossroads &amp; The Four-Seven</strong> · $2.3M Budget · Jul 2025 – May 2028</div>
+    <div class="grid">
+      <div class="card col-12">
+        <h3>Milestones <span class="pill">Streaming in Every USA Prison · $1.3M</span></h3>
+        <div class="scroll-box" style="max-height:340px">
+          <table id="tenx-tbl-prison1">
+            <thead><tr><th>Milestone</th><th class="num">Actuals</th><th>Timeline</th><th>Status</th><th class="num">% Complete</th></tr></thead>
+            <tbody>
+              <tr><td>Uploads &amp; Prison Research ($10K/mo)</td><td class="num">—</td><td>Jul–Oct 2025</td><td><span style="color:var(--accent-2)">Upcoming</span></td><td class="num">0%</td></tr>
+              <tr><td>New Content Creation</td><td class="num">$4,341</td><td>Oct 2025–2027</td><td><span style="color:var(--blue)">In Progress</span></td><td class="num">50%</td></tr>
+              <tr><td>Content Creation (Contractor, $7K/mo)</td><td class="num">$42,000</td><td>Through Dec 2025</td><td><span style="color:var(--blue)">In Progress</span></td><td class="num">50%</td></tr>
+              <tr><td>Pando App (God Behind Bars, $7.5K/mo)</td><td class="num">$52,500</td><td>Through Dec 2025</td><td><span style="color:var(--blue)">In Progress</span></td><td class="num">50%</td></tr>
+              <tr><td>Ohio Launch — every tablet</td><td class="num">—</td><td>Sep 2025</td><td><span style="color:var(--accent-2)">Upcoming</span></td><td class="num">0%</td></tr>
+              <tr><td>Each New State Onboarded</td><td class="num">—</td><td>Ongoing</td><td><span style="color:var(--accent-2)">Upcoming</span></td><td class="num">70%</td></tr>
+              <tr><td>Halfway Point (25 states live)</td><td class="num">—</td><td>TBD</td><td><span style="color:var(--green)">✓ Complete</span></td><td class="num">100%</td></tr>
+              <tr><td>Weekly Engagement Metrics</td><td class="num">—</td><td>Ongoing</td><td><span style="color:var(--accent-2)">Upcoming</span></td><td class="num">50%</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="card col-12">
+        <h3>Milestones <span class="pill">Reentry App &amp; Services · $1M</span></h3>
+        <div class="scroll-box" style="max-height:340px">
+          <table id="tenx-tbl-prison2">
+            <thead><tr><th>Milestone</th><th class="num">Actuals</th><th>Timeline</th><th>Status</th><th class="num">% Complete</th></tr></thead>
+            <tbody>
+              <tr><td>Build Coordinator &amp; Citizen Platforms (Ample Phase 1)</td><td class="num">$50,000</td><td>Oct 2025–Sep 2026</td><td><span style="color:var(--blue)">In Progress</span></td><td class="num">25%</td></tr>
+              <tr><td>Maintenance &amp; Improvements ($15K/mo)</td><td class="num">—</td><td>Oct 2026–May 2028</td><td><span style="color:var(--accent-2)">Upcoming</span></td><td class="num">10%</td></tr>
+              <tr><td>Out-of-Pocket Costs</td><td class="num">—</td><td>TBD</td><td><span style="color:var(--accent-2)">Upcoming</span></td><td class="num">0%</td></tr>
+              <tr><td>Launch Coordinator Platform</td><td class="num">—</td><td>TBD</td><td><span style="color:var(--accent-2)">Upcoming</span></td><td class="num">5%</td></tr>
+              <tr><td>Launch Citizen Platform</td><td class="num">—</td><td>TBD</td><td><span style="color:var(--accent-2)">Upcoming</span></td><td class="num">5%</td></tr>
+              <tr><td>Internal Resident Platform – Phase 1</td><td class="num">—</td><td>TBD</td><td><span style="color:var(--accent-2)">Upcoming</span></td><td class="num">5%</td></tr>
+              <tr><td>Statewide Rollout (Ohio)</td><td class="num">—</td><td>TBD</td><td><span style="color:var(--accent-2)">Upcoming</span></td><td class="num">0%</td></tr>
+              <tr><td>Quarterly &amp; Annual Success Celebrations</td><td class="num">—</td><td>Ongoing</td><td><span style="color:var(--accent-2)">Upcoming</span></td><td class="num">0%</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Macro Promise 3: Latin America -->
+    <h2 class="section" style="margin-top:28px">Macro Promise 3 <span class="accent">· Latin America Care</span></h2>
+    <div style="font-size:13px;color:var(--muted);margin-bottom:10px">Partners: <strong style="color:var(--text)">Amigos for Christ &amp; Cooperative for Education</strong> · $1M Budget · Jul 2025 – Dec 2027</div>
+    <div class="grid">
+      <div class="card col-12">
+        <h3>Milestones <span class="pill">Nicaragua Youth Development · $1M</span></h3>
+        <div class="scroll-box" style="max-height:280px">
+          <table id="tenx-tbl-latam1">
+            <thead><tr><th>Milestone</th><th class="num">Actuals</th><th>Timeline</th><th>Status</th><th class="num">% Complete</th></tr></thead>
+            <tbody>
+              <tr><td>Break Ground (Phase 1)</td><td class="num">—</td><td>Nov 2025</td><td><span style="color:var(--accent-2)">Upcoming</span></td><td class="num">0%</td></tr>
+              <tr><td>Phase 2 Development</td><td class="num">—</td><td>Jul 2026</td><td><span style="color:var(--accent-2)">Upcoming</span></td><td class="num">0%</td></tr>
+              <tr><td>Youth Graduation &amp; Job Placement</td><td class="num">—</td><td>Annual</td><td><span style="color:var(--accent-2)">Upcoming</span></td><td class="num">0%</td></tr>
+              <tr><td>Quarterly Impact &amp; ROI Review</td><td class="num">—</td><td>Quarterly</td><td><span style="color:var(--accent-2)">Upcoming</span></td><td class="num">0%</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="card col-12">
+        <h3>Milestones <span class="pill">Guatemala Digital Curriculum · $1M</span></h3>
+        <div class="scroll-box" style="max-height:280px">
+          <table id="tenx-tbl-latam2">
+            <thead><tr><th>Milestone</th><th class="num">Actuals</th><th>Timeline</th><th>Status</th><th class="num">% Complete</th></tr></thead>
+            <tbody>
+              <tr><td>Curriculum Digitization (platform + training)</td><td class="num">—</td><td>TBD</td><td><span style="color:var(--accent-2)">Upcoming</span></td><td class="num">0%</td></tr>
+              <tr><td>Official Platform Launch</td><td class="num">—</td><td>TBD</td><td><span style="color:var(--accent-2)">Upcoming</span></td><td class="num">0%</td></tr>
+              <tr><td>Rural School Expansion</td><td class="num">$30,000</td><td>In Progress</td><td><span style="color:var(--blue)">In Progress</span></td><td class="num">—</td></tr>
+              <tr><td>National Rollout Across Schools</td><td class="num">—</td><td>TBD</td><td><span style="color:var(--accent-2)">Upcoming</span></td><td class="num">0%</td></tr>
+              <tr><td>Schools Onboarded / Students Reached</td><td class="num">—</td><td>Quarterly</td><td><span style="color:var(--accent-2)">Upcoming</span></td><td class="num">0%</td></tr>
+              <tr><td>Graduation Ceremonies &amp; Stories</td><td class="num">—</td><td>Annual</td><td><span style="color:var(--accent-2)">Upcoming</span></td><td class="num">0%</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
 <div class="sources">
     <strong>Sources:</strong>
     <a href="https://docs.google.com/spreadsheets/d/1LtGVf4eHQKbZyw2ndllqWaxrXTl_RkjknWVs9iFAolU/edit" target="_blank">2026 Crossroads Inmate Communications (Google Sheet)</a> &middot;
@@ -1212,6 +1356,7 @@ document.querySelectorAll('.tab-btn').forEach(btn=>{
     if (t === 'cgd' && !_tabInited.cgd && typeof _initCgd === 'function') { _initCgd(); _tabInited.cgd = true; }
     if (t === 'goday-history' && !_tabInited['goday-history'] && typeof _initGoDayHistory === 'function') { _initGoDayHistory(); _tabInited['goday-history'] = true; }
     if (t === 'gotrips-history' && !_tabInited['gotrips-history'] && typeof _initGoTripsHistory === 'function') { _initGoTripsHistory(); _tabInited['gotrips-history'] = true; }
+    if (t === 'tenx' && !_tabInited.tenx && typeof _init10x === 'function') { _init10x(); _tabInited.tenx = true; }
     window.dispatchEvent(new Event('resize'));
   });
 });
@@ -2181,6 +2326,30 @@ function _initAnnual() {
       {label:'GO Trip Participants',data:chartYears.map(y=>tripsPartMap[y]||null),borderColor:COLORS.violet,tension:.3,pointRadius:3,spanGaps:true}
     ]},
     options:{responsive:true,maintainAspectRatio:false,scales:{y:{ticks:{callback:v=>v.toLocaleString()}}},plugins:{legend:{position:'bottom'}}}
+  });
+}
+
+/* ---- 10x Updates charts ---- */
+function _init10x() {
+  const COLORS = {blue:'#4A9DE0',orange:'#F6B042',green:'#4CAF8E',red:'#E94B35',violet:'#A989C5'};
+  // Doughnut: budget allocation
+  new Chart(document.getElementById('tenx-chart-alloc'),{
+    type:'doughnut',
+    data:{labels:['Nepal Anti-Trafficking ($3M)','Care for the Incarcerated ($2.3M)','Latin America Care ($1M)'],
+      datasets:[{data:[3000000,2300000,1000000],backgroundColor:[COLORS.blue,COLORS.violet,COLORS.orange],borderWidth:0}]},
+    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{color:'#8A9BB8',padding:14}}}}
+  });
+  // Horizontal bar: budget vs actuals
+  new Chart(document.getElementById('tenx-chart-spend'),{
+    type:'bar',
+    data:{labels:['Nepal Anti-Trafficking','Care for the Incarcerated','Latin America Care'],
+      datasets:[
+        {label:'Budget',data:[3000000,2300000,1000000],backgroundColor:'rgba(74,157,224,0.3)',borderColor:COLORS.blue,borderWidth:1},
+        {label:'Actuals',data:[653287,148841,30000],backgroundColor:[COLORS.blue,COLORS.violet,COLORS.orange]}
+      ]},
+    options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,
+      scales:{x:{ticks:{callback:v=>'$'+((v/1e6).toFixed(1))+'M'},grid:{color:'rgba(255,255,255,0.05)'}},y:{grid:{display:false}}},
+      plugins:{legend:{position:'bottom',labels:{color:'#8A9BB8',padding:14}}}}
   });
 }
 
