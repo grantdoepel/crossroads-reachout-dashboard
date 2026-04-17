@@ -49,28 +49,64 @@ async function getMetabaseJwt() {
       timeout: 30000,
     });
 
-    // Wait for the React login form to render.
+    // Step 1: email
     const emailInput = page
       .locator(
         'input[type="email"], input[name="email"], input[autocomplete="email"], input[autocomplete="username"]'
       )
       .first();
     await emailInput.waitFor({ timeout: 20000 });
-
     await emailInput.fill(PANDO_EMAIL);
-    await page
+
+    const passwordLocator = page
       .locator(
         'input[type="password"], input[name="password"], input[autocomplete="current-password"]'
       )
-      .first()
-      .fill(PANDO_PASSWORD);
+      .first();
 
-    // Submit — try a few common selectors, finally press Enter.
+    // If password field is already there, this is a single-page login.
+    let passwordVisible = false;
+    try {
+      await passwordLocator.waitFor({ state: "visible", timeout: 2000 });
+      passwordVisible = true;
+    } catch (_) {}
+
+    // Otherwise: click a Next/Continue button (or press Enter) to advance.
+    if (!passwordVisible) {
+      const nextCandidates = [
+        'button:has-text("Next")',
+        'button:has-text("Continue")',
+        'button:has-text("Sign in")',
+        'button:has-text("Log in")',
+        'button:has-text("Login")',
+        'button[type="submit"]',
+        'input[type="submit"]',
+      ];
+      let advanced = false;
+      for (const sel of nextCandidates) {
+        const btn = page.locator(sel).first();
+        if ((await btn.count()) > 0) {
+          await btn.click({ timeout: 3000 }).catch(() => {});
+          advanced = true;
+          break;
+        }
+      }
+      if (!advanced) {
+        await emailInput.press("Enter");
+      }
+      await passwordLocator.waitFor({ state: "visible", timeout: 30000 });
+    }
+
+    // Step 2: password
+    await passwordLocator.fill(PANDO_PASSWORD);
+
+    // Submit password form
     const submitCandidates = [
-      'button[type="submit"]',
       'button:has-text("Sign in")',
       'button:has-text("Log in")',
       'button:has-text("Login")',
+      'button:has-text("Continue")',
+      'button[type="submit"]',
       'input[type="submit"]',
     ];
     let submitted = false;
@@ -80,7 +116,7 @@ async function getMetabaseJwt() {
         await Promise.all([
           page.waitForURL(
             (url) => !/\/login(\/|$)/.test(url.pathname || url.toString()),
-            { timeout: 25000 }
+            { timeout: 30000 }
           ),
           btn.click({ timeout: 5000 }).catch(() => {}),
         ]);
@@ -92,9 +128,9 @@ async function getMetabaseJwt() {
       await Promise.all([
         page.waitForURL(
           (url) => !/\/login(\/|$)/.test(url.pathname || url.toString()),
-          { timeout: 25000 }
+          { timeout: 30000 }
         ),
-        page.keyboard.press("Enter"),
+        passwordLocator.press("Enter"),
       ]);
     }
 
@@ -269,21 +305,21 @@ function spliceIndexHtml(html, newBlock, totals) {
 }
 
 async function main() {
-  console.log("1. Logging in to Pando and extracting Metabase JWT…");
+  console.log("1. Logging in to Pando and extracting Metabase JWT...");
   const token = await getMetabaseJwt();
   console.log(`   Got JWT (${token.length} chars)`);
 
-  console.log("2. Fetching Metabase dashcards…");
+  console.log("2. Fetching Metabase dashcards...");
   const results = await fetchAllDashcards(token);
   console.log(`   Fetched ${Object.keys(results).length} dashcards`);
 
-  console.log("3. Building pando:{} block…");
+  console.log("3. Building pando:{} block...");
   const { block, totals } = buildPandoBlock(results);
   console.log(
     `   views=${totals.views} subs=${totals.subscribers} salv=${totals.salvations}`
   );
 
-  console.log("4. Splicing index.html…");
+  console.log("4. Splicing index.html...");
   const html = await readFile(INDEX_PATH, "utf8");
   const updated = spliceIndexHtml(html, block, totals);
   await writeFile(INDEX_PATH, updated);
@@ -300,7 +336,7 @@ async function main() {
       salvations: totals.salvations,
       conversion: conv,
     })
-  );
+  });
 }
 
 main().catch((e) => {
