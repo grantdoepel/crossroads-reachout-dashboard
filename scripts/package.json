@@ -1,0 +1,13 @@
+{
+  "name": "pando-refresh",
+  "version": "1.0.0",
+  "type": "module",
+  "private": true,
+  "description": "Playwright-based Pando Analytics -> index.html refresh script, run by GitHub Actions",
+  "scripts": {
+    "refresh": "node pando-refresh.mjs"
+  },
+  "dependencies": {
+    "playwright": "1.49.1"
+  }
+}
