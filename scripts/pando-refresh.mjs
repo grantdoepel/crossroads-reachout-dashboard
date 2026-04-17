@@ -75,7 +75,7 @@ async function getMetabaseJwt() {
     if (!passwordVisible) {
       const nextCandidates = [
         'button:has-text("Next")',
-        'button:has-textø"Continue")',
+        'button:has-text("Continue")',
         'button:has-text("Sign in")',
         'button:has-text("Log in")',
         'button:has-text("Login")',
