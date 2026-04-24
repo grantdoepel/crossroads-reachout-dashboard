@@ -49,6 +49,15 @@ async function getMetabaseJwt() {
   });
   const page = await context.newPage();
 
+  // Log all non-asset network responses so we can see exactly what auth endpoint
+  // returns what status.
+  page.on("response", async (resp) => {
+    const url = resp.url();
+    if (/\.(js|css|png|jpg|jpeg|svg|ico|woff|woff2|ttf|map)(\?|$)/.test(url)) return;
+    if (!url.startsWith("https://dashboard.pandoapp.tv/") && !url.startsWith("https://pando-app.metabaseapp.com/")) return;
+    console.log("[net]", resp.status(), resp.request().method(), url.slice(0, 140));
+  });
+
   try {
     await page.goto("https://dashboard.pandoapp.tv/login", {
       waitUntil: "domcontentloaded",
