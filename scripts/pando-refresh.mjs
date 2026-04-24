@@ -108,12 +108,18 @@ async function getMetabaseJwt() {
     await passwordLocator.fill(PANDO_PASSWORD);
 
     // Submit password form
+    // The password step has multiple "Sign in" elements: a decorative top
+    // link (type=null), the real "Sign In" submit button (type=submit),
+    // and a "Use One-Time Code instead" button (type=button). Target the
+    // real submit button explicitly so we don't click the decorative link
+    // or (worse) the OTP fallback.
     const submitCandidates = [
-      'button:has-text("Sign in")',
-      'button:has-text("Log in")',
-      'button:has-text("Login")',
-      'button:has-text("Continue")',
-      'button[type="submit"]',
+      'button[type="submit"]:has-text("Sign In")',
+      'button[type="submit"]:has-text("Sign in")',
+      'button[type="submit"]:has-text("Log in")',
+      'button[type="submit"]:has-text("Login")',
+      'button[type="submit"]:has-text("Continue")',
+      'button[type="submit"]:not(:has-text("One-Time")):not(:has-text("Code"))',
       'input[type="submit"]',
     ];
     let submitted = false;
