@@ -123,43 +123,53 @@ async function getMetabaseJwt() {
     await passwordLocator.fill(PANDO_PASSWORD);
 
     // Submit password form
-    // The password step has multiple "Sign in" elements: a decorative top
-    // link (type=null), the real "Sign In" submit button (type=submit),
-    // and a "Use One-Time Code instead" button (type=button). Target the
-    // real submit button explicitly so we don't click the decorative link
-    // or (worse) the OTP fallback.
-    const submitCandidates = [
-      'button[type="submit"]:has-text("Sign In")',
-      'button[type="submit"]:has-text("Sign in")',
-      'button[type="submit"]:has-text("Log in")',
-      'button[type="submit"]:has-text("Login")',
-      'button[type="submit"]:has-text("Continue")',
-      'button[type="submit"]:not(:has-text("One-Time")):not(:has-text("Code"))',
-      'input[type="submit"]',
-    ];
-    let submitted = false;
-    for (const sel of submitCandidates) {
-      const btn = page.locator(sel).first();
-      if ((await btn.count()) > 0) {
-        await Promise.all([
-          page.waitForURL(
-            (url) => !/\/login(\/|$)/.test(url.pathname || url.toString()),
-            { timeout: 30000 }
-          ),
-          btn.click({ timeout: 5000 }).catch(() => {}),
-        ]);
-        submitted = true;
-        break;
+    // Submit the password step via form.requestSubmit() dispatched in the
+    // page context. Earlier attempts to click the Sign In button via
+    // Playwright did NOT fire the React onSubmit handler — no POST request
+    // appeared in the network log at all, and only Cloudflare's __cf_bm
+    // cookie came back. requestSubmit() fires a real submit event that
+    // React reliably picks up. We also wait for an auth response so we
+    // don't race ahead before the session cookie is set.
+    const authResponsePromise = page.waitForResponse(
+      (resp) => /\/auth\//.test(resp.url()) && resp.request().method() === "POST",
+      { timeout: 30000 }
+    ).catch(() => null);
+
+    await page.evaluate(() => {
+      const form = document.querySelector("form");
+      if (!form) throw new Error("No <form> on password step");
+      if (form.requestSubmit) {
+        // Prefer requestSubmit with the real submit button so form validation
+        // runs and React's onSubmit fires the same as a human click.
+        const submitBtn =
+          [...form.querySelectorAll("button[type=\"submit\"]")].find((b) =>
+            /sign\s*in/i.test(b.textContent || "")
+          ) ||
+          form.querySelector("button[type=\"submit\"]");
+        if (submitBtn) form.requestSubmit(submitBtn);
+        else form.requestSubmit();
+      } else {
+        form.submit();
       }
+    });
+
+    const authResp = await authResponsePromise;
+    if (authResp) {
+      console.log("Auth POST ->", authResp.status(), authResp.url().slice(0, 120));
+    } else {
+      console.log("No auth POST observed within 30s (may indicate submit did not fire)");
     }
-    if (!submitted) {
-      await Promise.all([
-        page.waitForURL(
-          (url) => !/\/login(\/|$)/.test(url.pathname || url.toString()),
-          { timeout: 30000 }
-        ),
-        passwordLocator.press("Enter"),
-      ]);
+
+    // Wait for navigation away from /login (auth cookie is typically set by
+    // this point).
+    try {
+      await page.waitForURL(
+        (url) => !/\/login(\/|$)/.test(url.pathname || url.toString()),
+        { timeout: 15000 }
+      );
+    } catch (_) {
+      // If URL doesn't change but auth POST returned 200, we might still be
+      // authenticated — proceed and let the iframe wait be the real gate.
     }
 
     // DEBUG: log post-login URL + page text + visible buttons so we can
