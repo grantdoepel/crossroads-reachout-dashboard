@@ -6,7 +6,13 @@
 // GitHub Actions workflow handles commit + push, and Netlify's GitHub
 // webhook handles the deploy.
 
-import { chromium } from "playwright";
+import { chromium } from "playwright-extra";
+import StealthPlugin from "puppeteer-extra-plugin-stealth";
+
+// Pando sits behind Cloudflare bot management. Without stealth, the login
+// POST is silently rejected (only the __cf_bm cookie comes back, no session
+// cookie ever gets set). Stealth patches common headless fingerprints.
+chromium.use(StealthPlugin());
 import { writeFile, readFile } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
 import path from "node:path";
