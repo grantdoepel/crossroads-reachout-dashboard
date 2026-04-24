@@ -147,6 +147,19 @@ async function getMetabaseJwt() {
       ]);
     }
 
+    // DEBUG: log post-login URL + page text + visible buttons so we can
+    // see whether auth actually took effect. Results show up in the GitHub
+    // Actions step log.
+    console.log("Post-login URL:", page.url());
+    try {
+      const postLoginBody = await page.locator('body').textContent({ timeout: 5000 });
+      console.log("Post-login body (first 500 chars):", (postLoginBody || "").replace(/\s+/g, " ").slice(0, 500));
+    } catch (e) {
+      console.log("Post-login body read failed:", e.message);
+    }
+    const cookies = await context.cookies();
+    console.log("Post-login cookie count:", cookies.length, "names:", cookies.map(c => c.name).join(","));
+
     // Navigate to the analytics dashboard and wait for the Metabase iframe.
     await page.goto("https://dashboard.pandoapp.tv/dashboard/analytics", {
       waitUntil: "domcontentloaded",
