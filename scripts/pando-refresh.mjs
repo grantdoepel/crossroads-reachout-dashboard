@@ -73,14 +73,21 @@ async function getMetabaseJwt() {
 
     // Otherwise: click a Next/Continue button (or press Enter) to advance.
     if (!passwordVisible) {
+      // Pando's email-first form shows TWO buttons side by side: a plain
+      // "Enter Password" button (what we want) and a primary blue
+      // "Send One-Time Code" button (type=submit, which would trigger an OTP
+      // email instead of advancing to the password step).
+      // Prioritize the explicit "Enter Password" label and EXCLUDE the
+      // generic submit/OTP button.
       const nextCandidates = [
+        'button:has-text("Enter Password")',
+        'button:has-text("Use Password")',
         'button:has-text("Next")',
         'button:has-text("Continue")',
+        'button:has-text("Sign in with password")',
         'button:has-text("Sign in")',
         'button:has-text("Log in")',
         'button:has-text("Login")',
-        'button[type="submit"]',
-        'input[type="submit"]',
       ];
       let advanced = false;
       for (const sel of nextCandidates) {
