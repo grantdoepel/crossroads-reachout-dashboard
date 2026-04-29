@@ -3769,7 +3769,7 @@ function _agRenderFootprint(){
     {l: 'Trip Participants', v: fmt(fp.signups) + ' / ' + fmt(fp.capacity)},
     {l: 'Prisons Reached', v: fmt(fp.facilities)},
     {l: 'States Receiving Mail', v: fmt(fp.states)},
-    {l: 'Pando Subscribers', v: GLANCE_DATA.programs.find(p=>p.id==='pando').subtitle.split(' ')[0]}
+    {l: 'Pando Subscribers', v: (GLANCE_DATA.programs.find(p=>p.id==='pando_subs')||{}).current ? (GLANCE_DATA.programs.find(p=>p.id==='pando_subs').current).toLocaleString('en-US') : '--'}
   ];
   f.innerHTML = items.map(it => '<div class="ag-fp"><div class="v">'+it.v+'</div><div class="l">'+it.l+'</div></div>').join('');
 }
