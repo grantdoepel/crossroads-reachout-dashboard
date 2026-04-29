@@ -392,6 +392,97 @@
   .ov-ne-lbl{display:block;font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:1.4px;margin-top:3px;}
   .ov-ne-arrow{font-size:11px;color:#F6B042;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding-left:8px;border-left:1px solid var(--line);margin-left:4px;}
 
+  /* ===== At-a-Glance tab ===== */
+  .tab-btn[data-tab="glance"].active{border-bottom-color:#4CAF8E; color:#4CAF8E;}
+  .ag-goals{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;}
+  .ag-goal-card{position:relative;background:linear-gradient(160deg,rgba(255,255,255,0.04),rgba(255,255,255,0.01));border:1px solid var(--line);border-radius:16px;padding:18px;cursor:pointer;transition:transform 0.18s ease,border-color 0.18s ease;display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:center;}
+  .ag-goal-card:hover{transform:translateY(-2px);border-color:rgba(255,255,255,0.18);}
+  .ag-ring{width:74px;height:74px;flex-shrink:0;}
+  .ag-ring svg{width:100%;height:100%;transform:rotate(-90deg);}
+  .ag-ring .track{fill:none;stroke:rgba(255,255,255,0.07);stroke-width:7;}
+  .ag-ring .progress{fill:none;stroke-width:7;stroke-linecap:round;transition:stroke-dashoffset 0.6s ease;}
+  .ag-ring-label{position:relative;}
+  .ag-ring-label .pct{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:14px;font-weight:700;color:var(--text);}
+  .ag-goal-card .gc-name{font-size:14px;font-weight:600;color:var(--text);}
+  .ag-goal-card .gc-sub{font-size:11px;color:var(--muted);margin-top:2px;}
+  .ag-goal-card .gc-numbers{margin-top:8px;display:flex;align-items:baseline;gap:6px;}
+  .ag-goal-card .gc-current{font-size:24px;font-weight:700;color:var(--text);font-variant-numeric:tabular-nums;line-height:1;}
+  .ag-goal-card .gc-goal{font-size:12px;color:var(--muted);}
+  .ag-goal-card .gc-status{display:inline-flex;gap:5px;align-items:center;font-size:10px;text-transform:uppercase;letter-spacing:1.2px;font-weight:700;margin-top:6px;padding:3px 8px;border-radius:999px;}
+  .ag-goal-card .gc-dot{width:7px;height:7px;border-radius:50%;display:inline-block;}
+  .ag-goal-card .gc-delta{font-size:10px;color:var(--muted);margin-top:4px;}
+  .ag-goal-card .gc-delta.up{color:#4CAF8E;}
+  .ag-goal-card .gc-delta.down{color:#E94B35;}
+  .ag-feed{display:flex;flex-direction:column;gap:0;max-height:320px;overflow:auto;}
+  .ag-feed-item{display:grid;grid-template-columns:30px 1fr auto;gap:12px;padding:12px 4px;border-bottom:1px solid rgba(255,255,255,0.04);align-items:flex-start;}
+  .ag-feed-item:last-child{border-bottom:none;}
+  .ag-feed-icon{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0;}
+  .ag-feed-title{font-size:13px;font-weight:600;color:var(--text);}
+  .ag-feed-body{font-size:12px;color:var(--muted);margin-top:3px;}
+  .ag-feed-ts{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;font-weight:600;flex-shrink:0;}
+  .ag-footprint{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;}
+  .ag-fp{background:rgba(255,255,255,0.03);border:1px solid var(--line);border-radius:10px;padding:12px;}
+  .ag-fp .v{font-size:22px;font-weight:700;color:var(--text);font-variant-numeric:tabular-nums;line-height:1;}
+  .ag-fp .l{font-size:10px;text-transform:uppercase;letter-spacing:1.2px;color:var(--muted);margin-top:5px;}
+
+  /* Goal badges on Overview tiles */
+  .ov-goal-badge{display:inline-flex;align-items:center;gap:5px;font-size:10px;text-transform:uppercase;letter-spacing:1px;font-weight:700;margin-top:8px;padding:3px 8px;border-radius:999px;background:rgba(255,255,255,0.04);border:1px solid var(--line);}
+  .ov-goal-badge .dot{width:7px;height:7px;border-radius:50%;display:inline-block;}
+
+  /* GO Day / GO Trips countdown banner — same structure as Overview's, slightly tighter */
+  .gt-cd, .gd-cd{margin:12px 0 16px;border-radius:14px;padding:1px;background:linear-gradient(120deg,#F26522 0%,#E94B35 50%,#A989C5 100%);}
+  .gt-cd-inner, .gd-cd-inner{background:linear-gradient(180deg,rgba(14,23,38,0.92),rgba(14,23,38,0.97));border-radius:13px;padding:14px 18px;display:grid;grid-template-columns:1fr auto;gap:18px;align-items:center;}
+  .gt-cd .lbl, .gd-cd .lbl{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#F6B042;font-weight:700;}
+  .gt-cd .ttl, .gd-cd .ttl{font-size:18px;font-weight:700;color:var(--text);margin-top:4px;line-height:1.2;}
+  .gt-cd .sub, .gd-cd .sub{font-size:12px;color:var(--muted);margin-top:3px;}
+  .gt-cd .cd-grid, .gd-cd .cd-grid{display:flex;gap:8px;}
+  .gt-cd .cell, .gd-cd .cell{background:rgba(255,255,255,0.04);border:1px solid var(--line);border-radius:8px;padding:6px 10px;text-align:center;min-width:48px;}
+  .gt-cd .cell .num, .gd-cd .cell .num{display:block;font-size:18px;font-weight:700;color:#F6B042;font-variant-numeric:tabular-nums;line-height:1;}
+  .gt-cd .cell .lbl-sm, .gd-cd .cell .lbl-sm{display:block;font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:1.2px;margin-top:3px;font-weight:600;}
+  @media (max-width:780px){
+    .gt-cd-inner, .gd-cd-inner{grid-template-columns:1fr;}
+    .gt-cd .cd-grid, .gd-cd .cd-grid{flex-wrap:wrap;}
+  }
+
+  /* === Mobile responsiveness pass === */
+  @media (max-width:640px){
+    header{padding:14px 16px 10px;}
+    header .title{font-size:20px;}
+    header .logo{width:54px;height:54px;}
+    main{padding:14px 14px 50px;}
+    .tabs{overflow-x:auto;flex-wrap:nowrap;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
+    .tabs::-webkit-scrollbar{display:none;}
+    .tab-btn{flex-shrink:0;font-size:12px;padding:10px 12px;}
+    .kpi .value{font-size:24px;}
+    .kpi{padding:14px 16px;}
+    h2.section{font-size:12px;margin:22px 0 10px;}
+    .card{padding:14px;}
+    .ev-hero-inner{grid-template-columns:1fr;padding:18px;}
+    .ev-hero-title{font-size:22px !important;}
+    .ev-countdown{grid-template-columns:repeat(4,1fr) !important;gap:6px !important;}
+    .ev-cd-cell{padding:8px 6px !important;min-width:auto !important;}
+    .ev-cd-num{font-size:20px !important;}
+    .ov-next-event{grid-template-columns:1fr;}
+    .ov-next-event > .ov-ne-left{border-radius:14px 14px 0 0 !important;margin:1px 1px 0 1px !important;padding:14px 16px !important;}
+    .ov-next-event > .ov-ne-cd{border-radius:0 0 14px 14px !important;margin:0 1px 1px 1px !important;padding:10px 16px !important;}
+    .ov-ne-title{font-size:16px !important;}
+    .ov-ne-arrow{display:none;}
+    .ag-goals{grid-template-columns:1fr;}
+    .ag-goal-card{padding:14px;}
+    .chart-wrap{height:220px !important;}
+    .chart-wrap.tall{height:260px !important;}
+    .ev-row{grid-template-columns:50px 1fr;gap:10px;}
+    .ev-row .ev-r-when{display:none;}
+    .ev-row .ev-r-day{font-size:18px;}
+    .ev-featured{grid-template-columns:1fr;}
+    .ag-footprint{grid-template-columns:1fr 1fr;}
+    table{font-size:12px;}
+    th, td{padding:6px 4px;}
+    .gt-cd-inner, .gd-cd-inner{padding:12px 14px;}
+    .gt-cd .ttl, .gd-cd .ttl{font-size:15px;}
+    .gt-cd .cell, .gd-cd .cell{min-width:auto;flex:1;}
+  }
+
 </style>
 </head>
 <body>
@@ -426,7 +517,8 @@
 </header>
 <main>
     <div class="tabs">
-    <button class="tab-btn active" data-tab="overview">Overview</button>
+    <button class="tab-btn active" data-tab="glance">At a Glance</button>
+    <button class="tab-btn" data-tab="overview">Overview</button>
     <button class="tab-btn" data-tab="events">Events</button>
     <button class="tab-btn" data-tab="investments">Investments</button>
     <button class="tab-btn" data-tab="gotrips">GO Trips 2026</button>
@@ -443,7 +535,48 @@
     <button class="tab-btn" data-tab="tenx">10x Updates</button>
   </div>
 
-    <div id="tab-overview" class="tab-content active">
+
+  <div id="tab-glance" class="tab-content active">
+    <h2 class="section" style="margin-top:24px">ReachOut At a Glance <span class="accent">· 2026 Snapshot</span></h2>
+
+    <!-- HERO: Next-event countdown reused -->
+    <div id="ag-next-event" class="ov-next-event" role="button" tabindex="0" title="Open Events tab">
+      <div class="ov-ne-left">
+        <div class="ov-ne-eyebrow">Next Event Countdown</div>
+        <div class="ov-ne-title" id="ag-ne-title">Loading…</div>
+        <div class="ov-ne-sub" id="ag-ne-sub"></div>
+      </div>
+      <div class="ov-ne-cd">
+        <div class="ov-ne-cell"><span class="ov-ne-num" id="ag-ne-d">--</span><span class="ov-ne-lbl">days</span></div>
+        <div class="ov-ne-cell"><span class="ov-ne-num" id="ag-ne-h">--</span><span class="ov-ne-lbl">hrs</span></div>
+        <div class="ov-ne-cell"><span class="ov-ne-num" id="ag-ne-m">--</span><span class="ov-ne-lbl">min</span></div>
+        <div class="ov-ne-cell"><span class="ov-ne-num" id="ag-ne-s">--</span><span class="ov-ne-lbl">sec</span></div>
+        <div class="ov-ne-arrow">View &rarr;</div>
+      </div>
+    </div>
+
+    <!-- 2026 GOALS strip -->
+    <h2 class="section" style="margin-top:28px">2026 Goal Tracker <span class="accent">· Live</span></h2>
+    <div class="ag-goals" id="ag-goals"></div>
+
+    <!-- WHAT CHANGED feed -->
+    <div class="grid" style="margin-top:18px">
+      <div class="card col-7">
+        <h3>What Changed This Week <span class="pill" id="ag-week-stamp">building baseline</span></h3>
+        <div id="ag-feed" class="ag-feed"></div>
+      </div>
+      <div class="card col-5">
+        <h3>ReachOut Footprint <span class="pill">2026 cumulative</span></h3>
+        <div class="ag-footprint" id="ag-footprint"></div>
+      </div>
+    </div>
+
+    <div class="sources">
+      Goals are drawn from each program's published 2026 capacity. Weekly deltas are computed from a Monday snapshot of the live data.
+    </div>
+  </div>
+
+    <div id="tab-overview" class="tab-content">
     <!-- Next-event countdown -->
     <div id="ov-next-event" class="ov-next-event" role="button" tabindex="0" title="Open Events tab">
       <div class="ov-ne-left">
@@ -652,6 +785,23 @@
           </div>
           <div class="meta" id="filterLabel"></div>
         </div>
+        
+        <div class="gd-cd" id="gd-countdown">
+          <div class="gd-cd-inner">
+            <div>
+              <div class="lbl">Countdown to GO Day</div>
+              <div class="ttl" id="gd-cd-title">—</div>
+              <div class="sub" id="gd-cd-sub">—</div>
+            </div>
+            <div class="cd-grid">
+              <div class="cell"><span class="num" id="gd-cd-d">--</span><span class="lbl-sm">days</span></div>
+              <div class="cell"><span class="num" id="gd-cd-h">--</span><span class="lbl-sm">hrs</span></div>
+              <div class="cell"><span class="num" id="gd-cd-m">--</span><span class="lbl-sm">min</span></div>
+              <div class="cell"><span class="num" id="gd-cd-s">--</span><span class="lbl-sm">sec</span></div>
+            </div>
+          </div>
+        </div>
+
         <section class="hero">
           <div class="hero-grid">
             <div class="stat">
@@ -703,6 +853,23 @@
       </div>
       <div class="header-badge" id="stamp">Data as of April 29, 2026</div>
     </div>
+    
+    <div class="gt-cd" id="gt-countdown">
+      <div class="gt-cd-inner">
+        <div>
+          <div class="lbl">Next Trip Departs</div>
+          <div class="ttl" id="gt-cd-title">—</div>
+          <div class="sub" id="gt-cd-sub">—</div>
+        </div>
+        <div class="cd-grid">
+          <div class="cell"><span class="num" id="gt-cd-d">--</span><span class="lbl-sm">days</span></div>
+          <div class="cell"><span class="num" id="gt-cd-h">--</span><span class="lbl-sm">hrs</span></div>
+          <div class="cell"><span class="num" id="gt-cd-m">--</span><span class="lbl-sm">min</span></div>
+          <div class="cell"><span class="num" id="gt-cd-s">--</span><span class="lbl-sm">sec</span></div>
+        </div>
+      </div>
+    </div>
+
     <div class="kpi-row" id="kpi-row"></div>
     <div class="content">
       <div class="section-title">Overall Signup Progress <span class="accent">· All Trips Combined</span></div>
@@ -1802,6 +1969,9 @@ document.querySelectorAll('.tab-btn').forEach(btn=>{
     if (t === 'gotrips-history' && typeof _initDemoTrips === 'function' && !window._demoInited_gotrips_history) { _initDemoTrips(); window._demoInited_gotrips_history = true; }
     if (t === 'tenx' && !_tabInited.tenx && typeof _init10x === 'function') { _init10x(); _tabInited.tenx = true; }
     if (t === 'events' && !_tabInited.events && typeof _initEvents === 'function') { _initEvents(); _tabInited.events = true; }
+    if (t === 'glance' && typeof _initGlance === 'function') { _initGlance(); }
+    if (t === 'gotrips' && typeof _gtRenderCountdown === 'function') { setTimeout(_gtRenderCountdown, 50); }
+    if (t === 'goday' && typeof _gdRenderCountdown === 'function') { setTimeout(_gdRenderCountdown, 50); }
     window.dispatchEvent(new Event('resize'));
   });
 });
@@ -3440,6 +3610,261 @@ if(document.readyState === 'loading'){
   document.addEventListener('DOMContentLoaded', _ovInitNextEvent);
 } else {
   _ovInitNextEvent();
+}
+
+
+/* ===== At-a-Glance tab ===== */
+const GLANCE_DATA = {"asOf":"2026-04-29","weekOf":"2026-04-29","programs":[{"id":"goday","name":"GO Day 2026","subtitle":"Volunteer event \u00b7 May 16, 2026","current":3658,"goal":5160,"unit":"signups","tabId":"goday","color":"#F6B042","delta7d":null},{"id":"gotrips","name":"GO Trips 2026","subtitle":"22 mission trips this year","current":442,"goal":731,"unit":"participants","tabId":"gotrips","color":"#F26522","delta7d":null},{"id":"inmate","name":"Inmate Communications","subtitle":"250 inmates engaged","current":1697,"goal":null,"unit":"messages","tabId":"inmate","color":"#4A9DE0","delta7d":null},{"id":"pando","name":"Pando Video Ministry","subtitle":"68,783 subscribers \u00b7 3,722 salvations","current":9325720,"goal":null,"unit":"views","tabId":"pando","color":"#A989C5","delta7d":null}],"feed":[{"ts":"2026-04-29","icon":"info","color":"#4A9DE0","title":"Building first weekly snapshot","body":"Real week-over-week deltas will appear here next Monday once a baseline week of data is captured."}]};
+let _agCountdownTimer = null;
+let _agInited = false;
+
+function _initGlance(){
+  if(_agInited) return;
+  _agInited = true;
+
+  // Reuse the next-event countdown logic for this tab too
+  if(typeof EVENTS_DATA !== 'undefined'){
+    const data = EVENTS_DATA.events;
+    const today = new Date(); today.setHours(0,0,0,0);
+    const todayISO = today.toISOString().slice(0,10);
+    const next = data.filter(e => e.start >= todayISO).sort((a,b) => a.start.localeCompare(b.start))[0];
+    if(next){
+      document.getElementById('ag-ne-title').textContent = next.title;
+      const sd = (function(iso){const [y,m,d]=iso.split('-').map(Number);return new Date(y,m-1,d);})(next.start);
+      const fmtD = d => d.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});
+      let when = fmtD(sd);
+      if(next.end && next.end !== next.start){
+        const ed = (function(iso){const [y,m,d]=iso.split('-').map(Number);const x=new Date(y,m-1,d);x.setDate(x.getDate()-1);return x;})(next.end);
+        if(ed.getMonth()===sd.getMonth() && ed.getFullYear()===sd.getFullYear()){
+          when = sd.toLocaleDateString('en-US',{month:'short'})+' '+sd.getDate()+'-'+ed.getDate()+', '+sd.getFullYear();
+        } else {
+          when = fmtD(sd)+' - '+fmtD(ed);
+        }
+      }
+      const parts = [when];
+      if(next.category) parts.push(next.category);
+      if(next.destination) parts.push(next.destination);
+      document.getElementById('ag-ne-sub').textContent = parts.join('  ·  ');
+      function tick(){
+        const t = new Date(next.start + (next.startTime ? 'T'+next.startTime+':00' : 'T00:00:00')).getTime();
+        let diff = Math.max(0, Math.floor((t - Date.now())/1000));
+        const d = Math.floor(diff/86400); diff -= d*86400;
+        const h = Math.floor(diff/3600); diff -= h*3600;
+        const m = Math.floor(diff/60); diff -= m*60;
+        const $d = document.getElementById('ag-ne-d');
+        if(!$d) return;
+        $d.textContent = d;
+        document.getElementById('ag-ne-h').textContent = String(h).padStart(2,'0');
+        document.getElementById('ag-ne-m').textContent = String(m).padStart(2,'0');
+        document.getElementById('ag-ne-s').textContent = String(diff).padStart(2,'0');
+      }
+      tick();
+      if(_agCountdownTimer) clearInterval(_agCountdownTimer);
+      _agCountdownTimer = setInterval(tick, 1000);
+    }
+    document.getElementById('ag-next-event').addEventListener('click', () => {
+      const btn = document.querySelector('.tab-btn[data-tab="events"]');
+      if(btn){ btn.click(); window.scrollTo({top:0,behavior:'smooth'}); }
+    });
+  }
+
+  // Goal cards
+  const $goals = document.getElementById('ag-goals');
+  $goals.innerHTML = GLANCE_DATA.programs.map(p => _agGoalCard(p)).join('');
+  // wire click → tab
+  $goals.querySelectorAll('.ag-goal-card').forEach(card => {
+    card.addEventListener('click', () => {
+      const tabId = card.dataset.target;
+      const btn = document.querySelector('.tab-btn[data-tab="'+tabId+'"]');
+      if(btn){ btn.click(); window.scrollTo({top:0,behavior:'smooth'}); }
+    });
+  });
+
+  // Feed
+  const $feed = document.getElementById('ag-feed');
+  $feed.innerHTML = (GLANCE_DATA.feed || []).map(f => _agFeedItem(f)).join('');
+  if(GLANCE_DATA.weekOf){
+    document.getElementById('ag-week-stamp').textContent = 'week of ' + (function(iso){const [y,m,d]=iso.split('-').map(Number);return new Date(y,m-1,d).toLocaleDateString('en-US',{month:'short',day:'numeric'});})(GLANCE_DATA.weekOf);
+  }
+
+  // Footprint — derive from existing data we already have
+  _agRenderFootprint();
+}
+
+function _agGoalCard(p){
+  const pct = p.goal ? Math.min(100, Math.round((p.current/p.goal)*100)) : null;
+  let statusColor = '#8A9BB8', statusLbl = 'Tracking';
+  if(pct !== null){
+    if(pct >= 85){ statusColor = '#4CAF8E'; statusLbl = 'On Track'; }
+    else if(pct >= 60){ statusColor = '#F6B042'; statusLbl = 'In Progress'; }
+    else { statusColor = '#E94B35'; statusLbl = 'Building'; }
+  }
+  // SVG progress ring
+  const r = 30, c = 2*Math.PI*r;
+  const offset = pct === null ? c : c * (1 - Math.min(pct,100)/100);
+  const ringSvg = '<svg viewBox="0 0 74 74">'
+    + '<circle class="track" cx="37" cy="37" r="'+r+'"/>'
+    + (pct !== null
+        ? '<circle class="progress" cx="37" cy="37" r="'+r+'" stroke="'+statusColor+'" stroke-dasharray="'+c.toFixed(1)+'" stroke-dashoffset="'+offset.toFixed(1)+'"/>'
+        : '<circle class="progress" cx="37" cy="37" r="'+r+'" stroke="'+p.color+'" stroke-dasharray="3 6"/>')
+    + '</svg>'
+    + '<div class="pct">' + (pct !== null ? pct+'%' : '—') + '</div>';
+  const numbers = p.goal
+    ? '<span class="gc-current">'+p.current.toLocaleString('en-US')+'</span><span class="gc-goal">/ '+p.goal.toLocaleString('en-US')+' '+p.unit+'</span>'
+    : '<span class="gc-current">'+p.current.toLocaleString('en-US')+'</span><span class="gc-goal">'+p.unit+'</span>';
+  let deltaHtml = '';
+  if(p.delta7d !== null && p.delta7d !== undefined){
+    const sign = p.delta7d > 0 ? '+' : '';
+    const cls = p.delta7d > 0 ? 'up' : (p.delta7d < 0 ? 'down' : '');
+    deltaHtml = '<div class="gc-delta '+cls+'">'+sign+p.delta7d.toLocaleString('en-US')+' this week</div>';
+  }
+  return '<div class="ag-goal-card" data-target="'+p.tabId+'" title="Open '+p.name+' tab">'
+    + '<div class="ag-ring ag-ring-label">' + ringSvg + '</div>'
+    + '<div>'
+    +   '<div class="gc-name">'+p.name+'</div>'
+    +   '<div class="gc-sub">'+p.subtitle+'</div>'
+    +   '<div class="gc-numbers">'+numbers+'</div>'
+    +   '<span class="gc-status" style="color:'+statusColor+';background:'+statusColor+'15"><span class="gc-dot" style="background:'+statusColor+'"></span>'+statusLbl+'</span>'
+    +   deltaHtml
+    + '</div>'
+  + '</div>';
+}
+
+function _agFeedItem(f){
+  const iconChar = ({info:'i', up:'\u2191', down:'\u2193', star:'\u2605', trip:'\u2708', mail:'\u2709'})[f.icon] || '\u00b7';
+  const ts = f.ts ? (function(iso){const [y,m,d]=iso.split('-').map(Number);return new Date(y,m-1,d).toLocaleDateString('en-US',{month:'short',day:'numeric'});})(f.ts) : '';
+  return '<div class="ag-feed-item">'
+    + '<div class="ag-feed-icon" style="background:'+f.color+'25;color:'+f.color+'">'+iconChar+'</div>'
+    + '<div><div class="ag-feed-title">'+f.title+'</div><div class="ag-feed-body">'+(f.body||'')+'</div></div>'
+    + '<div class="ag-feed-ts">'+ts+'</div>'
+    + '</div>';
+}
+
+function _agRenderFootprint(){
+  const f = document.getElementById('ag-footprint');
+  // Pull totals from data already loaded
+  let countries = 0, trips = 0, signups = 0, capacity = 0;
+  if(typeof GOTRIPS_DATA !== 'undefined'){
+    const dests = new Set(GOTRIPS_DATA.trips.map(t => t.location));
+    countries = dests.size;
+    trips = GOTRIPS_DATA.trips.length;
+    signups = GOTRIPS_DATA.trips.reduce((s,t)=>s+(t.signups||0),0);
+    capacity = GOTRIPS_DATA.trips.reduce((s,t)=>s+(t.capacity||0),0);
+  }
+  // Inmate facilities count - try to read DATA.facilities
+  let facilities = 0, states = 0;
+  try {
+    if(typeof DATA !== 'undefined' && DATA.facilities) facilities = DATA.facilities.length;
+    if(typeof DATA !== 'undefined' && DATA.inmatesByState) states = DATA.inmatesByState.length;
+  } catch(e){}
+  const items = [
+    {l: 'Trip Destinations', v: countries},
+    {l: 'Mission Trips 2026', v: trips},
+    {l: 'Trip Participants', v: signups + ' / ' + capacity},
+    {l: 'Prisons Reached', v: facilities},
+    {l: 'States Receiving Mail', v: states},
+    {l: 'Pando Subscribers', v: GLANCE_DATA.programs.find(p=>p.id==='pando').subtitle.split(' ')[0]}
+  ];
+  f.innerHTML = items.map(it => '<div class="ag-fp"><div class="v">'+it.v+'</div><div class="l">'+it.l+'</div></div>').join('');
+}
+
+/* ===== Goal-status badges on Overview tiles ===== */
+function _ovApplyGoalBadges(){
+  GLANCE_DATA.programs.forEach(p => {
+    let host = null;
+    if(p.id === 'goday') host = document.getElementById('ov-goday-bar');
+    else if(p.id === 'gotrips') host = document.getElementById('ov-trips-bar');
+    if(!host) return;
+    if(host.parentElement.querySelector('.ov-goal-badge')) return;
+    const pct = p.goal ? Math.min(100, Math.round((p.current/p.goal)*100)) : null;
+    if(pct === null) return;
+    let color = '#8A9BB8', lbl = 'Tracking';
+    if(pct >= 85){ color = '#4CAF8E'; lbl = 'On Track'; }
+    else if(pct >= 60){ color = '#F6B042'; lbl = 'In Progress'; }
+    else { color = '#E94B35'; lbl = 'Building'; }
+    const badge = document.createElement('div');
+    badge.className = 'ov-goal-badge';
+    badge.style.color = color;
+    badge.innerHTML = '<span class="dot" style="background:'+color+'"></span>'+pct+'% to goal · '+lbl;
+    host.parentElement.appendChild(badge);
+  });
+}
+
+/* ===== GO Trips countdown ===== */
+let _gtCdTimer = null;
+function _gtRenderCountdown(){
+  if(typeof GOTRIPS_DATA === 'undefined') return;
+  const todayISO = (function(){const d=new Date();return d.toISOString().slice(0,10);})();
+  // Find next trip whose start (parsed from `dates`) is in the future
+  function tripStart(t){
+    // dates like "May 2, 2026 - May 9, 2026" — parse first half
+    const m = (t.dates||'').match(/^([A-Za-z]+)\s+(\d+),\s+(\d{4})/);
+    if(!m) return null;
+    const months = {Jan:0,Feb:1,Mar:2,Apr:3,May:4,Jun:5,Jul:6,Aug:7,Sep:8,Oct:9,Nov:10,Dec:11};
+    return new Date(parseInt(m[3]), months[m[1]] || 0, parseInt(m[2]));
+  }
+  const today = new Date(); today.setHours(0,0,0,0);
+  const upcoming = GOTRIPS_DATA.trips
+    .map(t => ({t, d: tripStart(t)}))
+    .filter(x => x.d && x.d >= today)
+    .sort((a,b) => a.d - b.d);
+  const target = upcoming[0];
+  const $cd = document.getElementById('gt-countdown');
+  if(!$cd) return;
+  if(!target){ $cd.style.display='none'; return; }
+  document.getElementById('gt-cd-title').textContent = target.t.name.replace(/ - \w+ \d{4}$/, '');
+  document.getElementById('gt-cd-sub').textContent = target.t.dates + '  ·  ' + target.t.location + '  ·  ' + target.t.signups + '/' + target.t.capacity + ' signups';
+  function tick(){
+    let diff = Math.max(0, Math.floor((target.d - Date.now())/1000));
+    const d = Math.floor(diff/86400); diff -= d*86400;
+    const h = Math.floor(diff/3600); diff -= h*3600;
+    const m = Math.floor(diff/60); diff -= m*60;
+    const $d = document.getElementById('gt-cd-d');
+    if(!$d) return;
+    $d.textContent = d;
+    document.getElementById('gt-cd-h').textContent = String(h).padStart(2,'0');
+    document.getElementById('gt-cd-m').textContent = String(m).padStart(2,'0');
+    document.getElementById('gt-cd-s').textContent = String(diff).padStart(2,'0');
+  }
+  tick();
+  if(_gtCdTimer) clearInterval(_gtCdTimer);
+  _gtCdTimer = setInterval(tick, 1000);
+}
+
+/* ===== GO Day countdown ===== */
+let _gdCdTimer = null;
+function _gdRenderCountdown(){
+  // GO Day 2026 fixed date
+  const target = new Date(2026, 4, 16, 0, 0, 0); // May 16, 2026
+  const $cd = document.getElementById('gd-countdown');
+  if(!$cd) return;
+  if(target < new Date()){ $cd.style.display='none'; return; }
+  document.getElementById('gd-cd-title').textContent = 'GO DAY 2026';
+  document.getElementById('gd-cd-sub').textContent = 'Saturday, May 16, 2026  ·  All-Crossroads serve day';
+  function tick(){
+    let diff = Math.max(0, Math.floor((target - Date.now())/1000));
+    const d = Math.floor(diff/86400); diff -= d*86400;
+    const h = Math.floor(diff/3600); diff -= h*3600;
+    const m = Math.floor(diff/60); diff -= m*60;
+    const $d = document.getElementById('gd-cd-d');
+    if(!$d) return;
+    $d.textContent = d;
+    document.getElementById('gd-cd-h').textContent = String(h).padStart(2,'0');
+    document.getElementById('gd-cd-m').textContent = String(m).padStart(2,'0');
+    document.getElementById('gd-cd-s').textContent = String(diff).padStart(2,'0');
+  }
+  tick();
+  if(_gdCdTimer) clearInterval(_gdCdTimer);
+  _gdCdTimer = setInterval(tick, 1000);
+}
+
+// Wire up: at-a-glance is the default tab, init now
+if(document.readyState === 'loading'){
+  document.addEventListener('DOMContentLoaded', _initGlance);
+  document.addEventListener('DOMContentLoaded', _ovApplyGoalBadges);
+} else {
+  _initGlance();
+  _ovApplyGoalBadges();
 }
 
 </script>
