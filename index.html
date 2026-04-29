@@ -366,6 +366,32 @@
   .ev-row .ev-r-dot{width:8px;height:8px;border-radius:50%;display:inline-block;}
   .ev-row .ev-r-when{font-size:11px;color:var(--muted);text-align:right;font-weight:600;}
 
+  /* ===== Overview Next-Event countdown ===== */
+  .ov-next-event{margin-top:18px;border-radius:16px;padding:1px;background:linear-gradient(120deg,#F26522 0%,#E94B35 50%,#A989C5 100%);box-shadow:0 10px 36px -14px rgba(242,101,34,0.4);cursor:pointer;transition:transform 0.18s ease;}
+  .ov-next-event:hover{transform:translateY(-1px);}
+  .ov-next-event > div.ov-ne-inner, .ov-next-event{}
+  .ov-next-event{display:block;}
+  .ov-next-event::before{content:"";display:none;}
+  .ov-next-event{position:relative;}
+  .ov-ne-left, .ov-ne-cd{}
+  .ov-next-event{display:grid;grid-template-columns:1fr auto;gap:18px;align-items:center;background:linear-gradient(120deg,#F26522 0%,#E94B35 50%,#A989C5 100%);}
+  .ov-next-event > .ov-ne-left, .ov-next-event > .ov-ne-cd{background:linear-gradient(180deg,rgba(14,23,38,0.9),rgba(14,23,38,0.96));}
+  .ov-next-event{padding:0;}
+  .ov-next-event > .ov-ne-left{border-radius:16px 0 0 16px;padding:18px 22px;margin:1px 0 1px 1px;}
+  .ov-next-event > .ov-ne-cd{border-radius:0 16px 16px 0;padding:14px 22px;margin:1px 1px 1px 0;display:flex;gap:10px;align-items:center;}
+  @media (max-width:780px){
+    .ov-next-event{grid-template-columns:1fr;}
+    .ov-next-event > .ov-ne-left{border-radius:16px 16px 0 0;margin:1px 1px 0 1px;}
+    .ov-next-event > .ov-ne-cd{border-radius:0 0 16px 16px;margin:0 1px 1px 1px;flex-wrap:wrap;justify-content:flex-start;}
+  }
+  .ov-ne-eyebrow{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#F6B042;font-weight:700;margin-bottom:6px;}
+  .ov-ne-title{font-size:20px;font-weight:700;letter-spacing:-0.3px;line-height:1.2;color:var(--text);}
+  .ov-ne-sub{color:var(--muted);margin-top:4px;font-size:12px;}
+  .ov-ne-cell{background:rgba(255,255,255,0.04);border:1px solid var(--line);border-radius:10px;padding:8px 10px;text-align:center;min-width:54px;}
+  .ov-ne-num{display:block;font-size:20px;font-weight:700;color:#F6B042;font-variant-numeric:tabular-nums;line-height:1;}
+  .ov-ne-lbl{display:block;font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:1.4px;margin-top:3px;}
+  .ov-ne-arrow{font-size:11px;color:#F6B042;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding-left:8px;border-left:1px solid var(--line);margin-left:4px;}
+
 </style>
 </head>
 <body>
@@ -418,6 +444,22 @@
   </div>
 
     <div id="tab-overview" class="tab-content active">
+    <!-- Next-event countdown -->
+    <div id="ov-next-event" class="ov-next-event" role="button" tabindex="0" title="Open Events tab">
+      <div class="ov-ne-left">
+        <div class="ov-ne-eyebrow">Next Event Countdown</div>
+        <div class="ov-ne-title" id="ov-ne-title">Loading…</div>
+        <div class="ov-ne-sub" id="ov-ne-sub"></div>
+      </div>
+      <div class="ov-ne-cd">
+        <div class="ov-ne-cell"><span class="ov-ne-num" id="ov-ne-d">--</span><span class="ov-ne-lbl">days</span></div>
+        <div class="ov-ne-cell"><span class="ov-ne-num" id="ov-ne-h">--</span><span class="ov-ne-lbl">hrs</span></div>
+        <div class="ov-ne-cell"><span class="ov-ne-num" id="ov-ne-m">--</span><span class="ov-ne-lbl">min</span></div>
+        <div class="ov-ne-cell"><span class="ov-ne-num" id="ov-ne-s">--</span><span class="ov-ne-lbl">sec</span></div>
+        <div class="ov-ne-arrow">View &rarr;</div>
+      </div>
+    </div>
+
     <h2 class="section" style="margin-top:24px">2026 Snapshot <span class="accent">· Live Programs</span></h2>
     <div class="grid">
       <div class="card col-3">
@@ -1665,6 +1707,15 @@
     <h2 class="section" style="margin-top:28px">Coming Up <span class="accent">· Featured</span></h2>
     <div class="ev-featured" id="ev-featured"></div>
 
+    <h2 class="section" style="margin-top:28px">Full Schedule</h2>
+    <div class="card col-12">
+      <div class="ev-list-toolbar">
+        <input type="search" id="ev-search" placeholder="Search events…" />
+        <div class="ev-filters" id="ev-filters"></div>
+      </div>
+      <div id="ev-list" class="ev-list"></div>
+    </div>
+
     <!-- Charts row -->
     <div class="grid" style="margin-top:18px">
       <div class="card col-12">
@@ -1682,15 +1733,6 @@
     </div>
 
     <!-- Upcoming list -->
-    <h2 class="section" style="margin-top:28px">Full Schedule</h2>
-    <div class="card col-12">
-      <div class="ev-list-toolbar">
-        <input type="search" id="ev-search" placeholder="Search events…" />
-        <div class="ev-filters" id="ev-filters"></div>
-      </div>
-      <div id="ev-list" class="ev-list"></div>
-    </div>
-
     <div class="sources">
       Source: Public Google Calendar feed (GO Ministry Events Calendar). Data refreshed at deploy time.
     </div>
@@ -3333,6 +3375,72 @@ function _evRenderDestChart(data){
 
 function _escapeHtml(s){ return (s||'').replace(/[&<>"']/g, c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c])); }
 function _escapeAttr(s){ return _escapeHtml(s).replace(/"/g,'&quot;'); }
+
+
+/* ===== Overview Next-Event countdown ===== */
+let _ovCountdownTimer = null;
+function _ovInitNextEvent(){
+  if(typeof EVENTS_DATA === 'undefined') return;
+  const data = EVENTS_DATA.events;
+  const today = new Date(); today.setHours(0,0,0,0);
+  const todayISO = today.toISOString().slice(0,10);
+  const upcoming = data.filter(e => e.start >= todayISO).sort((a,b) => a.start.localeCompare(b.start));
+  const next = upcoming[0];
+  const $card = document.getElementById('ov-next-event');
+  if(!next || !$card){ if($card) $card.style.display='none'; return; }
+  document.getElementById('ov-ne-title').textContent = next.title;
+  // sub line: date range + category + destination
+  const startD = (function(iso){const [y,m,d]=iso.split('-').map(Number);return new Date(y,m-1,d);})(next.start);
+  const fmtD = d => d.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});
+  let when = fmtD(startD);
+  if(next.end && next.end !== next.start){
+    const endD = (function(iso){const [y,m,d]=iso.split('-').map(Number);const x=new Date(y,m-1,d);x.setDate(x.getDate()-1);return x;})(next.end);
+    if(endD.getMonth()===startD.getMonth() && endD.getFullYear()===startD.getFullYear()){
+      when = startD.toLocaleDateString('en-US',{month:'short'})+' '+startD.getDate()+'-'+endD.getDate()+', '+startD.getFullYear();
+    } else {
+      when = fmtD(startD)+' - '+fmtD(endD);
+    }
+  }
+  const parts = [when];
+  if(next.category) parts.push(next.category);
+  if(next.destination) parts.push(next.destination);
+  document.getElementById('ov-ne-sub').textContent = parts.join('  ·  ');
+  function tick(){
+    const targetISO = next.start + (next.startTime ? 'T'+next.startTime+':00' : 'T00:00:00');
+    const t = new Date(targetISO).getTime();
+    let diff = Math.max(0, Math.floor((t - Date.now())/1000));
+    const d = Math.floor(diff/86400); diff -= d*86400;
+    const h = Math.floor(diff/3600); diff -= h*3600;
+    const m = Math.floor(diff/60); diff -= m*60;
+    const s = diff;
+    const $d = document.getElementById('ov-ne-d');
+    if(!$d) return;
+    $d.textContent = d;
+    document.getElementById('ov-ne-h').textContent = String(h).padStart(2,'0');
+    document.getElementById('ov-ne-m').textContent = String(m).padStart(2,'0');
+    document.getElementById('ov-ne-s').textContent = String(s).padStart(2,'0');
+  }
+  tick();
+  if(_ovCountdownTimer) clearInterval(_ovCountdownTimer);
+  _ovCountdownTimer = setInterval(tick, 1000);
+  // Click to switch to Events tab
+  $card.addEventListener('click', () => {
+    const btn = document.querySelector('.tab-btn[data-tab="events"]');
+    if(btn){ btn.click(); window.scrollTo({top:0,behavior:'smooth'}); }
+  });
+  $card.addEventListener('keydown', (ev) => {
+    if(ev.key === 'Enter' || ev.key === ' ') {
+      const btn = document.querySelector('.tab-btn[data-tab="events"]');
+      if(btn){ btn.click(); window.scrollTo({top:0,behavior:'smooth'}); }
+    }
+  });
+}
+// Run on initial load (Overview is the active tab by default)
+if(document.readyState === 'loading'){
+  document.addEventListener('DOMContentLoaded', _ovInitNextEvent);
+} else {
+  _ovInitNextEvent();
+}
 
 </script>
 
