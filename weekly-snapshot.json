@@ -1,0 +1,87 @@
+{
+  "date": "2026-04-29",
+  "goday": 3658,
+  "goday_by_site": {
+    "Anywhere": {
+      "participants": 0,
+      "capacity": 0
+    },
+    "Columbus": {
+      "participants": 110,
+      "capacity": 137
+    },
+    "Dayton": {
+      "participants": 318,
+      "capacity": 396
+    },
+    "East Side": {
+      "participants": 497,
+      "capacity": 471
+    },
+    "Florence": {
+      "participants": 398,
+      "capacity": 387
+    },
+    "Lexington": {
+      "participants": 312,
+      "capacity": 361
+    },
+    "Mason": {
+      "participants": 735,
+      "capacity": 831
+    },
+    "Oakley": {
+      "participants": 1103,
+      "capacity": 2102
+    },
+    "West Side": {
+      "participants": 241,
+      "capacity": 255
+    }
+  },
+  "gotrips": 442,
+  "gotrips_count": 22,
+  "gotrips_capacity": 731,
+  "inmate_msgs": 1697,
+  "inmate_unique": 250,
+  "pando_views": 9325720,
+  "pando_subs": 68783,
+  "pando_salv": 3722,
+  "open_trip_reg_closures": [
+    {
+      "id": 56515,
+      "name": "GO Nepal Trip - September 2026",
+      "regCloseDate": "2026-05-20"
+    },
+    {
+      "id": 52722,
+      "name": "GO Nepal Trekking Trip - October 2026",
+      "regCloseDate": "2026-06-03"
+    },
+    {
+      "id": 52748,
+      "name": "GO Puerto Rico Couples Trip - October 2026",
+      "regCloseDate": "2026-06-15"
+    },
+    {
+      "id": 52752,
+      "name": "GO Martin County Senior Connection Trip - October 2026",
+      "regCloseDate": "2026-06-24"
+    },
+    {
+      "id": 52753,
+      "name": "GO Martin County Women's Trip - November 2026",
+      "regCloseDate": "2026-07-08"
+    },
+    {
+      "id": 52744,
+      "name": "GO Durban Trip - November 2026",
+      "regCloseDate": "2026-07-23"
+    },
+    {
+      "id": 52717,
+      "name": "GO Nicaragua Trip - November 2026",
+      "regCloseDate": "2026-07-27"
+    }
+  ]
+}
