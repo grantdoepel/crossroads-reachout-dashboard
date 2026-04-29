@@ -313,6 +313,9 @@
   #tab-gotrips .tag.near { background: rgba(241,196,15,0.15); color: #f1c40f; border-color: rgba(241,196,15,0.3); }
   #tab-gotrips .tag.open { background: rgba(46,204,113,0.15); color: #2ecc71; border-color: rgba(46,204,113,0.3); }
   #tab-gotrips .tag.closed { background: rgba(150,150,150,0.15); color: #999; border-color: rgba(150,150,150,0.3); }
+  #tab-gotrips #tbl-trips thead th[data-sortable="1"] { cursor: pointer; user-select: none; transition: color 0.15s; }
+  #tab-gotrips #tbl-trips thead th[data-sortable="1"]:hover { color: var(--gt-text); }
+  #tab-gotrips #tbl-trips thead th .sort-ind { color: #F26522; margin-left: 4px; font-size: 11px; }
   #tab-gotrips .trip-dates { font-size: 10px; color: var(--gt-text-dim); }
 
 </style>
@@ -1967,12 +1970,71 @@ function _initGoTrips() {
     document.getElementById('loc-grid').innerHTML = html;
   })();
 
-  /* Trips Table */
+  /* Trips Table (sortable) */
   (function() {
-    const sorted = [...GOTRIPS_DATA.trips].sort((a,b) => gt_pct(b.signups, b.capacity) - gt_pct(a.signups, a.capacity));
-    const rows = sorted.map(t => {
-      const pct = gt_pct(t.signups, t.capacity);
-      return `
+    const COLS = [
+      {key:'trip',     label:'Trip',        dir:'asc',  sortable:true},
+      {key:'dates',    label:'Trip Dates',  dir:'asc',  sortable:true},
+      {key:'closes',   label:'Reg. Closes', dir:'asc',  sortable:true},
+      {key:'signups',  label:'Signups',     dir:'desc', sortable:true},
+      {key:'capacity', label:'Capacity',    dir:'desc', sortable:true},
+      {key:'fill',     label:'Fill %',      dir:'desc', sortable:true},
+      {key:'progress', label:'Progress',    dir:'desc', sortable:false},
+      {key:'status',   label:'Status',      dir:'desc', sortable:true}
+    ];
+    let currentSort = {key:'fill', dir:'desc'};
+
+    function tripStartTs(d) {
+      const part = (d || '').split(' - ')[0];
+      const t = Date.parse(part);
+      return isNaN(t) ? 0 : t;
+    }
+    function statusRank(t) {
+      if (t.regCloseDate && t.regCloseDate < GT_TODAY_ISO) return 0;
+      const f = gt_pct(t.signups, t.capacity);
+      if (f >= 100) return 3;
+      if (f >= 85)  return 2;
+      return 1;
+    }
+    function sortValue(t, key) {
+      switch(key) {
+        case 'trip':     return (t.name || '').toLowerCase();
+        case 'dates':    return tripStartTs(t.dates);
+        case 'closes':   return t.regCloseDate || '9999-99-99';
+        case 'signups':  return t.signups;
+        case 'capacity': return t.capacity;
+        case 'fill':     return gt_pct(t.signups, t.capacity);
+        case 'status':   return statusRank(t);
+      }
+      return 0;
+    }
+
+    const tbl = document.getElementById('tbl-trips');
+    const thead = tbl.querySelector('thead tr');
+    thead.innerHTML = COLS.map(c => {
+      const cls = (c.key === 'signups' || c.key === 'capacity' || c.key === 'fill') ? ' class="num"' :
+                  (c.key === 'progress' ? ' style="width:15%"' : '');
+      return `<th${cls} data-key="${c.key}" data-sortable="${c.sortable?1:0}">${c.label}<span class="sort-ind" data-for="${c.key}"></span></th>`;
+    }).join('');
+
+    function updateIndicators() {
+      tbl.querySelectorAll('thead .sort-ind').forEach(s => {
+        s.textContent = (s.dataset.for === currentSort.key) ? (currentSort.dir === 'asc' ? '▲' : '▼') : '';
+      });
+    }
+
+    function render() {
+      const data = [...GOTRIPS_DATA.trips];
+      const {key, dir} = currentSort;
+      data.sort((a,b) => {
+        const va = sortValue(a, key), vb = sortValue(b, key);
+        if (va < vb) return dir === 'asc' ? -1 : 1;
+        if (va > vb) return dir === 'asc' ? 1 : -1;
+        return 0;
+      });
+      const rows = data.map(t => {
+        const pct = gt_pct(t.signups, t.capacity);
+        return `
         <tr>
           <td>${t.name}</td>
           <td class="trip-dates">${t.dates}</td>
@@ -1983,8 +2045,25 @@ function _initGoTrips() {
           <td><div class="trip-bar"><i style="width:${pct}%;background:${gt_barColor(pct)}"></i></div></td>
           <td>${gt_statusTag(t)}</td>
         </tr>`;
-    }).join('');
-    document.getElementById('tbl-trips').querySelector('tbody').innerHTML = rows;
+      }).join('');
+      tbl.querySelector('tbody').innerHTML = rows;
+      updateIndicators();
+    }
+
+    tbl.querySelectorAll('thead th[data-sortable="1"]').forEach(th => {
+      th.addEventListener('click', () => {
+        const key = th.dataset.key;
+        if (currentSort.key === key) {
+          currentSort.dir = currentSort.dir === 'asc' ? 'desc' : 'asc';
+        } else {
+          currentSort.key = key;
+          currentSort.dir = COLS.find(c => c.key === key).dir;
+        }
+        render();
+      });
+    });
+
+    render();
   })();
 
   /* Campus Chart and Table */
