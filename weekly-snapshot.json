@@ -51,37 +51,51 @@
     {
       "id": 56515,
       "name": "GO Nepal Trip - September 2026",
-      "regCloseDate": "2026-05-20"
+      "regCloseDate": "2026-05-20",
+      "capacity": 25,
+      "signups": 5
     },
     {
       "id": 52722,
       "name": "GO Nepal Trekking Trip - October 2026",
-      "regCloseDate": "2026-06-03"
+      "regCloseDate": "2026-06-03",
+      "capacity": 25,
+      "signups": 12
     },
     {
       "id": 52748,
       "name": "GO Puerto Rico Couples Trip - October 2026",
-      "regCloseDate": "2026-06-15"
+      "regCloseDate": "2026-06-15",
+      "capacity": 30,
+      "signups": 26
     },
     {
       "id": 52752,
       "name": "GO Martin County Senior Connection Trip - October 2026",
-      "regCloseDate": "2026-06-24"
+      "regCloseDate": "2026-06-24",
+      "capacity": 38,
+      "signups": 39
     },
     {
       "id": 52753,
       "name": "GO Martin County Women's Trip - November 2026",
-      "regCloseDate": "2026-07-08"
+      "regCloseDate": "2026-07-08",
+      "capacity": 40,
+      "signups": 39
     },
     {
       "id": 52744,
       "name": "GO Durban Trip - November 2026",
-      "regCloseDate": "2026-07-23"
+      "regCloseDate": "2026-07-23",
+      "capacity": 39,
+      "signups": 9
     },
     {
       "id": 52717,
       "name": "GO Nicaragua Trip - November 2026",
-      "regCloseDate": "2026-07-27"
+      "regCloseDate": "2026-07-27",
+      "capacity": 21,
+      "signups": 21
     }
   ]
 }
