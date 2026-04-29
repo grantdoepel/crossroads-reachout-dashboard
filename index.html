@@ -515,6 +515,18 @@
   </div>
   <div class="refresh" id="refresh-stamp">Data as of April 25, 2026 at 10:24 AM</div>
 </header>
+
+<script>
+window.GT_NEXT_TRIP = {"name": "GO Nicaragua Young Adults Trip", "fullName": "GO Nicaragua Young Adults Trip - May 2026", "location": "Nicaragua", "dates": "May 2, 2026 - May 9, 2026", "capacity": 20, "signups": 13, "startISO": "2026-05-02"};
+window.AG_FOOTPRINT = {
+  destinations: 6,
+  trips: 22,
+  signups: 442,
+  capacity: 731,
+  facilities: 57,
+  states: 17
+};
+</script>
 <main>
     <div class="tabs">
     <button class="tab-btn active" data-tab="glance">At a Glance</button>
@@ -3742,27 +3754,14 @@ function _agFeedItem(f){
 
 function _agRenderFootprint(){
   const f = document.getElementById('ag-footprint');
-  // Pull totals from data already loaded
-  let countries = 0, trips = 0, signups = 0, capacity = 0;
-  if(typeof GOTRIPS_DATA !== 'undefined'){
-    const dests = new Set(GOTRIPS_DATA.trips.map(t => t.location));
-    countries = dests.size;
-    trips = GOTRIPS_DATA.trips.length;
-    signups = GOTRIPS_DATA.trips.reduce((s,t)=>s+(t.signups||0),0);
-    capacity = GOTRIPS_DATA.trips.reduce((s,t)=>s+(t.capacity||0),0);
-  }
-  // Inmate facilities count - try to read DATA.facilities
-  let facilities = 0, states = 0;
-  try {
-    if(typeof DATA !== 'undefined' && DATA.facilities) facilities = DATA.facilities.length;
-    if(typeof DATA !== 'undefined' && DATA.inmatesByState) states = DATA.inmatesByState.length;
-  } catch(e){}
+  const fp = window.AG_FOOTPRINT || {};
+  const fmt = n => (n||0).toLocaleString('en-US');
   const items = [
-    {l: 'Trip Destinations', v: countries},
-    {l: 'Mission Trips 2026', v: trips},
-    {l: 'Trip Participants', v: signups + ' / ' + capacity},
-    {l: 'Prisons Reached', v: facilities},
-    {l: 'States Receiving Mail', v: states},
+    {l: 'Trip Destinations', v: fmt(fp.destinations)},
+    {l: 'Mission Trips 2026', v: fmt(fp.trips)},
+    {l: 'Trip Participants', v: fmt(fp.signups) + ' / ' + fmt(fp.capacity)},
+    {l: 'Prisons Reached', v: fmt(fp.facilities)},
+    {l: 'States Receiving Mail', v: fmt(fp.states)},
     {l: 'Pando Subscribers', v: GLANCE_DATA.programs.find(p=>p.id==='pando').subtitle.split(' ')[0]}
   ];
   f.innerHTML = items.map(it => '<div class="ag-fp"><div class="v">'+it.v+'</div><div class="l">'+it.l+'</div></div>').join('');
@@ -3773,7 +3772,7 @@ function _ovApplyGoalBadges(){
   GLANCE_DATA.programs.forEach(p => {
     let host = null;
     if(p.id === 'goday') host = document.getElementById('ov-goday-bar');
-    else if(p.id === 'gotrips') host = document.getElementById('ov-trips-bar');
+    else if(p.id === 'gotrips') host = document.getElementById('ov-gotrips-bar');
     if(!host) return;
     if(host.parentElement.querySelector('.ov-goal-badge')) return;
     const pct = p.goal ? Math.min(100, Math.round((p.current/p.goal)*100)) : null;
@@ -3793,29 +3792,15 @@ function _ovApplyGoalBadges(){
 /* ===== GO Trips countdown ===== */
 let _gtCdTimer = null;
 function _gtRenderCountdown(){
-  if(typeof GOTRIPS_DATA === 'undefined') return;
-  const todayISO = (function(){const d=new Date();return d.toISOString().slice(0,10);})();
-  // Find next trip whose start (parsed from `dates`) is in the future
-  function tripStart(t){
-    // dates like "May 2, 2026 - May 9, 2026" — parse first half
-    const m = (t.dates||'').match(/^([A-Za-z]+)\s+(\d+),\s+(\d{4})/);
-    if(!m) return null;
-    const months = {Jan:0,Feb:1,Mar:2,Apr:3,May:4,Jun:5,Jul:6,Aug:7,Sep:8,Oct:9,Nov:10,Dec:11};
-    return new Date(parseInt(m[3]), months[m[1]] || 0, parseInt(m[2]));
-  }
-  const today = new Date(); today.setHours(0,0,0,0);
-  const upcoming = GOTRIPS_DATA.trips
-    .map(t => ({t, d: tripStart(t)}))
-    .filter(x => x.d && x.d >= today)
-    .sort((a,b) => a.d - b.d);
-  const target = upcoming[0];
+  if(!window.GT_NEXT_TRIP){ const $cd=document.getElementById('gt-countdown'); if($cd) $cd.style.display='none'; return; }
+  const t = window.GT_NEXT_TRIP;
+  const target = new Date(t.startISO + 'T00:00:00');
   const $cd = document.getElementById('gt-countdown');
   if(!$cd) return;
-  if(!target){ $cd.style.display='none'; return; }
-  document.getElementById('gt-cd-title').textContent = target.t.name.replace(/ - \w+ \d{4}$/, '');
-  document.getElementById('gt-cd-sub').textContent = target.t.dates + '  ·  ' + target.t.location + '  ·  ' + target.t.signups + '/' + target.t.capacity + ' signups';
+  document.getElementById('gt-cd-title').textContent = t.name;
+  document.getElementById('gt-cd-sub').textContent = t.dates + '  \u00b7  ' + t.location + '  \u00b7  ' + t.signups + '/' + t.capacity + ' signups';
   function tick(){
-    let diff = Math.max(0, Math.floor((target.d - Date.now())/1000));
+    let diff = Math.max(0, Math.floor((target - Date.now())/1000));
     const d = Math.floor(diff/86400); diff -= d*86400;
     const h = Math.floor(diff/3600); diff -= h*3600;
     const m = Math.floor(diff/60); diff -= m*60;
