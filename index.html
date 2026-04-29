@@ -318,6 +318,54 @@
   #tab-gotrips #tbl-trips thead th .sort-ind { color: #F26522; margin-left: 4px; font-size: 11px; }
   #tab-gotrips .trip-dates { font-size: 10px; color: var(--gt-text-dim); }
 
+  /* ===== Events tab ===== */
+  .tab-btn[data-tab="events"].active{border-bottom-color:#F6B042; color:#F6B042;}
+  .ev-hero{margin-top:16px;border-radius:18px;padding:1px;background:linear-gradient(120deg,#F26522 0%,#E94B35 30%,#A989C5 65%,#4A9DE0 100%);box-shadow:0 14px 50px -20px rgba(242,101,34,0.45);}
+  .ev-hero-inner{background:linear-gradient(180deg,rgba(14,23,38,0.92),rgba(14,23,38,0.98));border-radius:17px;padding:26px 28px;display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center;position:relative;overflow:hidden;}
+  .ev-hero-inner::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 90% 0%,rgba(246,176,66,0.18),transparent 60%);pointer-events:none;}
+  .ev-hero-eyebrow{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#F6B042;font-weight:700;margin-bottom:10px;}
+  .ev-hero-title{font-size:30px;font-weight:700;letter-spacing:-0.5px;line-height:1.15;color:var(--text);}
+  .ev-hero-sub{color:var(--muted);margin-top:8px;font-size:14px;}
+  .ev-hero-meta{margin-top:14px;display:flex;flex-wrap:wrap;gap:8px;}
+  .ev-hero-meta .chip{display:inline-flex;align-items:center;gap:6px;font-size:12px;background:rgba(255,255,255,0.06);border:1px solid var(--line);padding:5px 10px;border-radius:999px;color:var(--text);}
+  .ev-countdown{display:grid;grid-template-columns:repeat(4,minmax(64px,1fr));gap:10px;}
+  .ev-cd-cell{background:rgba(255,255,255,0.04);border:1px solid var(--line);border-radius:12px;padding:10px 12px;text-align:center;min-width:64px;}
+  .ev-cd-num{display:block;font-size:26px;font-weight:700;color:#F6B042;font-variant-numeric:tabular-nums;line-height:1;}
+  .ev-cd-lbl{display:block;font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:1.5px;margin-top:4px;}
+  @media (max-width:780px){
+    .ev-hero-inner{grid-template-columns:1fr;}
+    .ev-countdown{grid-template-columns:repeat(4,1fr);}
+    .ev-hero-title{font-size:24px;}
+  }
+  .ev-featured{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px;}
+  .ev-card{position:relative;border-radius:14px;padding:18px;background:linear-gradient(160deg,rgba(255,255,255,0.04),rgba(255,255,255,0.01));border:1px solid var(--line);overflow:hidden;transition:transform 0.18s ease,border-color 0.18s ease;}
+  .ev-card:hover{transform:translateY(-2px);border-color:rgba(255,255,255,0.18);}
+  .ev-card .ev-stripe{position:absolute;left:0;top:0;bottom:0;width:4px;}
+  .ev-card .ev-date-badge{display:inline-block;font-size:10px;letter-spacing:1.4px;text-transform:uppercase;font-weight:700;color:#0a0a0a;background:#F6B042;padding:4px 9px;border-radius:6px;}
+  .ev-card .ev-title{margin-top:12px;font-size:15px;font-weight:600;color:var(--text);line-height:1.3;}
+  .ev-card .ev-when{margin-top:8px;font-size:12px;color:var(--muted);}
+  .ev-card .ev-cat{margin-top:14px;display:flex;justify-content:space-between;align-items:center;}
+  .ev-card .ev-cat-pill{font-size:10px;padding:3px 8px;border-radius:999px;border:1px solid var(--line);text-transform:uppercase;letter-spacing:1px;}
+  .ev-card .ev-when-num{font-size:11px;color:var(--muted);font-weight:600;}
+  .ev-list-toolbar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:14px;}
+  #ev-search{flex:1;min-width:200px;background:rgba(255,255,255,0.04);border:1px solid var(--line);color:var(--text);padding:8px 12px;border-radius:8px;font-size:13px;outline:none;}
+  #ev-search:focus{border-color:rgba(246,176,66,0.5);}
+  .ev-filters{display:flex;gap:6px;flex-wrap:wrap;}
+  .ev-filter-btn{background:rgba(255,255,255,0.04);border:1px solid var(--line);color:var(--muted);padding:6px 11px;border-radius:999px;font-size:11px;cursor:pointer;text-transform:uppercase;letter-spacing:1px;font-weight:600;}
+  .ev-filter-btn.active{color:#0a0a0a;background:#F6B042;border-color:#F6B042;}
+  .ev-list{max-height:520px;overflow:auto;}
+  .ev-month-divider{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);font-weight:700;margin:18px 0 8px;padding-bottom:6px;border-bottom:1px solid var(--line);}
+  .ev-month-divider:first-child{margin-top:0;}
+  .ev-row{display:grid;grid-template-columns:62px 1fr auto;gap:16px;align-items:center;padding:10px 4px;border-bottom:1px solid rgba(255,255,255,0.04);transition:background 0.12s;}
+  .ev-row:hover{background:rgba(255,255,255,0.02);}
+  .ev-row .ev-r-date{text-align:center;}
+  .ev-row .ev-r-day{font-size:22px;font-weight:700;line-height:1;color:var(--text);}
+  .ev-row .ev-r-dow{font-size:10px;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted);margin-top:3px;}
+  .ev-row .ev-r-title{font-size:14px;font-weight:500;color:var(--text);}
+  .ev-row .ev-r-meta{font-size:11px;color:var(--muted);margin-top:3px;display:flex;gap:8px;align-items:center;flex-wrap:wrap;}
+  .ev-row .ev-r-dot{width:8px;height:8px;border-radius:50%;display:inline-block;}
+  .ev-row .ev-r-when{font-size:11px;color:var(--muted);text-align:right;font-weight:600;}
+
 </style>
 </head>
 <body>
@@ -353,6 +401,7 @@
 <main>
     <div class="tabs">
     <button class="tab-btn active" data-tab="overview">Overview</button>
+    <button class="tab-btn" data-tab="events">Events</button>
     <button class="tab-btn" data-tab="investments">Investments</button>
     <button class="tab-btn" data-tab="gotrips">GO Trips 2026</button>
     <button class="tab-btn" data-tab="goday">GO Day 2026</button>
@@ -587,7 +636,74 @@
         <div class="sites-grid" id="siteCardsContainer"></div>
         <div id="projectContainer"></div>
         <footer>GO Day 2026 Signups Dashboard · Data refreshed hourly</footer>
-      </main>
+      
+  <div id="tab-events" class="tab-content">
+    <h2 class="section" style="margin-top:24px">ReachOut Events <span class="accent">· Live Calendar Feed</span></h2>
+
+    <!-- HERO: Next-up event banner -->
+    <div id="ev-hero" class="ev-hero">
+      <div class="ev-hero-inner">
+        <div class="ev-hero-left">
+          <div class="ev-hero-eyebrow">NEXT UP</div>
+          <div class="ev-hero-title" id="ev-hero-title">Loading next event…</div>
+          <div class="ev-hero-sub" id="ev-hero-sub"></div>
+          <div class="ev-hero-meta" id="ev-hero-meta"></div>
+        </div>
+        <div class="ev-hero-right">
+          <div class="ev-countdown">
+            <div class="ev-cd-cell"><span class="ev-cd-num" id="ev-cd-d">--</span><span class="ev-cd-lbl">days</span></div>
+            <div class="ev-cd-cell"><span class="ev-cd-num" id="ev-cd-h">--</span><span class="ev-cd-lbl">hrs</span></div>
+            <div class="ev-cd-cell"><span class="ev-cd-num" id="ev-cd-m">--</span><span class="ev-cd-lbl">min</span></div>
+            <div class="ev-cd-cell"><span class="ev-cd-num" id="ev-cd-s">--</span><span class="ev-cd-lbl">sec</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- KPI strip -->
+    <div class="kpi-grid" style="margin-top:16px">
+      <div class="kpi"><div class="label">In the next 30 days</div><div class="value" id="ev-kpi-30">--</div><div class="hint">events on the calendar</div></div>
+      <div class="kpi accent"><div class="label">Rolling 12 months</div><div class="value" id="ev-kpi-365">--</div><div class="hint">upcoming events ahead</div></div>
+      <div class="kpi blue"><div class="label">This calendar year</div><div class="value" id="ev-kpi-year">--</div><div class="hint" id="ev-kpi-year-hint">events scheduled</div></div>
+      <div class="kpi green"><div class="label">Mission trips ahead</div><div class="value" id="ev-kpi-trips">--</div><div class="hint">in the next 12 months</div></div>
+    </div>
+
+    <!-- Featured upcoming -->
+    <h2 class="section" style="margin-top:28px">Coming Up <span class="accent">· Featured</span></h2>
+    <div class="ev-featured" id="ev-featured"></div>
+
+    <!-- Charts row -->
+    <div class="grid" style="margin-top:18px">
+      <div class="card col-12">
+        <h3>Events by Month <span class="pill" id="ev-month-window">rolling 12 months</span></h3>
+        <div class="chart-wrap"><canvas id="ev-chart-month"></canvas></div>
+      </div>
+      <div class="card col-6">
+        <h3>By Category</h3>
+        <div class="chart-wrap"><canvas id="ev-chart-cat"></canvas></div>
+      </div>
+      <div class="card col-6">
+        <h3>By Destination <span class="pill">mission trips</span></h3>
+        <div class="chart-wrap"><canvas id="ev-chart-dest"></canvas></div>
+      </div>
+    </div>
+
+    <!-- Upcoming list -->
+    <h2 class="section" style="margin-top:28px">Full Schedule</h2>
+    <div class="card col-12">
+      <div class="ev-list-toolbar">
+        <input type="search" id="ev-search" placeholder="Search events…" />
+        <div class="ev-filters" id="ev-filters"></div>
+      </div>
+      <div id="ev-list" class="ev-list"></div>
+    </div>
+
+    <div class="sources">
+      Source: Public Google Calendar feed (GO Ministry Events Calendar). Data refreshed at deploy time.
+    </div>
+  </div>
+
+</main>
     </div>
   </div>
 
@@ -1643,6 +1759,7 @@ document.querySelectorAll('.tab-btn').forEach(btn=>{
     if (t === 'gotrips-history' && !_tabInited['gotrips-history'] && typeof _initGoTripsHistory === 'function') { _initGoTripsHistory(); _tabInited['gotrips-history'] = true; }
     if (t === 'gotrips-history' && typeof _initDemoTrips === 'function' && !window._demoInited_gotrips_history) { _initDemoTrips(); window._demoInited_gotrips_history = true; }
     if (t === 'tenx' && !_tabInited.tenx && typeof _init10x === 'function') { _init10x(); _tabInited.tenx = true; }
+    if (t === 'events' && !_tabInited.events && typeof _initEvents === 'function') { _initEvents(); _tabInited.events = true; }
     window.dispatchEvent(new Event('resize'));
   });
 });
@@ -2906,6 +3023,316 @@ function _initDemoAll() {
 /* ---- Auto-init the default Overview tab ---- */
 if (typeof _initOverview === 'function' && !_tabInited.overview) { _initOverview(); _tabInited.overview = true; }
 if (typeof _initDemoAll === 'function' && !window._demoInited_all) { _initDemoAll(); window._demoInited_all = true; }
+
+
+/* ===== Events tab ===== */
+const EVENTS_DATA = {"asOf":"2026-04-29","calendarName":"GO Ministry Events Calendar","events":[{"uid":"6maktkfea3viqr8bred69c215d@google.com","title":"GO Johannesburg Trip","start":"2026-04-10","startTime":null,"end":"2026-04-20","allDay":true,"category":"Mission Trip","destination":"Johannesburg","region":"International","location":"","description":""},{"uid":"210mtjq4q072gbsbjbhfesaqbc@google.com","title":"GO Puerto Rico Trip","start":"2026-04-18","startTime":null,"end":"2026-04-25","allDay":true,"category":"Mission Trip","destination":"Puerto Rico","region":"International","location":"","description":""},{"uid":"51o3brsqg5aka3u33ptss510ri@google.com","title":"GO Martin County Mens Ministry Trip","start":"2026-04-23","startTime":null,"end":"2026-04-27","allDay":true,"category":"Mission Trip","destination":"Martin County","region":"Domestic","location":"","description":""},{"uid":"7c2gdmsnrfi3g44mpk8cqur87a@google.com","title":"GO Nicaragua Young Adults Trip","start":"2026-05-02","startTime":null,"end":"2026-05-10","allDay":true,"category":"Mission Trip","destination":"Nicaragua","region":"International","location":"","description":""},{"uid":"1jpor0k497v9e5vmsst8jusp4f@google.com","title":"GO DAY","start":"2026-05-16","startTime":null,"end":"2026-05-17","allDay":true,"category":"GO Day","destination":null,"region":null,"location":"","description":""},{"uid":"3bn7cufcobdjlkld31r9e71mke@google.com","title":"GO Guatemala Women's Trip","start":"2026-05-29","startTime":null,"end":"2026-06-05","allDay":true,"category":"Mission Trip","destination":"Guatemala","region":"International","location":"","description":""},{"uid":"6k7d8qc8t42076d8vjh6d6mg9r@google.com","title":"GO Puerto Rico Anywhere Trip","start":"2026-06-06","startTime":null,"end":"2026-06-13","allDay":true,"category":"Mission Trip","destination":"Puerto Rico","region":"International","location":"","description":""},{"uid":"054s6pgamhmg90c3o4omsq7iqt@google.com","title":"GO Nicaragua Students Trip","start":"2026-06-06","startTime":null,"end":"2026-06-14","allDay":true,"category":"Mission Trip","destination":"Nicaragua","region":"International","location":"","description":""},{"uid":"7jb2tmt0ib0ksbvc96ijemeeeo@google.com","title":"GO Martin County Family Trip","start":"2026-06-06","startTime":null,"end":"2026-06-13","allDay":true,"category":"Mission Trip","destination":"Martin County","region":"Domestic","location":"","description":""},{"uid":"16l8rocretl4ttvdnfvrusl9ke@google.com","title":"GO Cape Town Trip","start":"2026-06-12","startTime":null,"end":"2026-06-22","allDay":true,"category":"Mission Trip","destination":"Cape Town","region":"International","location":"","description":""},{"uid":"6hbu6e8mjshvdv45mnbf8nulnh@google.com","title":"GO Nicaragua Trip","start":"2026-06-20","startTime":null,"end":"2026-06-28","allDay":true,"category":"Mission Trip","destination":"Nicaragua","region":"International","location":"","description":""},{"uid":"6nc7phq6pakg1q3e77sk1ivb23@google.com","title":"GO Puerto Rico Trip","start":"2026-06-27","startTime":null,"end":"2026-07-04","allDay":true,"category":"Mission Trip","destination":"Puerto Rico","region":"International","location":"","description":""},{"uid":"75mkia387u96kahuutriiq4n8b@google.com","title":"GO Puerto Rico Family Trip","start":"2026-07-11","startTime":null,"end":"2026-07-18","allDay":true,"category":"Mission Trip","destination":"Puerto Rico","region":"International","location":"","description":""},{"uid":"1s573da7tgmv41jbf88us3if76@google.com","title":"GO Durban Trip","start":"2026-07-24","startTime":null,"end":"2026-08-03","allDay":true,"category":"Mission Trip","destination":"Durban","region":"International","location":"","description":""},{"uid":"4nnaihq9sieilbvpe9akqfdlqp@google.com","title":"GO Guatemala Trip","start":"2026-07-24","startTime":null,"end":"2026-07-31","allDay":true,"category":"Mission Trip","destination":"Guatemala","region":"International","location":"","description":""},{"uid":"41jnj517mrb387go3ah81ek2nb@google.com","title":"Local Impact Summit","start":"2026-07-27","startTime":"12:00","end":"2026-07-27","allDay":false,"category":"Local Impact","destination":null,"region":null,"location":"Woodward Theater, 1404 Main St, Cincinnati, OH 45202, USA","description":"Save the date! Optional, but recommended, for site directors."},{"uid":"2m9mhuh905aiqhd9l97c6mv5gk@google.com","title":"GO Martin County Trip","start":"2026-08-01","startTime":null,"end":"2026-08-08","allDay":true,"category":"Mission Trip","destination":"Martin County","region":"Domestic","location":"","description":""},{"uid":"5e6j1rnf8lr6niu4ojhr03j314@google.com","title":"GO Nepal Trip","start":"2026-09-17","startTime":null,"end":"2026-09-28","allDay":true,"category":"Mission Trip","destination":"Nepal","region":"International","location":"","description":""},{"uid":"584err9ba6cv2c8r81svnhe17r@google.com","title":"GO Nepal Trekking Trip","start":"2026-10-01","startTime":null,"end":"2026-10-12","allDay":true,"category":"Mission Trip","destination":"Nepal","region":"International","location":"","description":""},{"uid":"6o9sdi0cbnba0f951a8ff1jklf@google.com","title":"GO Puerto Rico Couples Trip","start":"2026-10-10","startTime":null,"end":"2026-10-17","allDay":true,"category":"Mission Trip","destination":"Puerto Rico","region":"International","location":"","description":""},{"uid":"384vdnfeq3n1dhvsghcfbu0n4q@google.com","title":"GO Martin County Senior Connection Trip","start":"2026-10-22","startTime":null,"end":"2026-10-26","allDay":true,"category":"Mission Trip","destination":"Martin County","region":"Domestic","location":"","description":""},{"uid":"5lck5t98tnnpgfbnhqtk4rmrdm@google.com","title":"GO Martin County Womens Trip","start":"2026-11-05","startTime":null,"end":"2026-11-09","allDay":true,"category":"Mission Trip","destination":"Martin County","region":"Domestic","location":"","description":""},{"uid":"7m65hecedf6gp0glgk9e4uoohs@google.com","title":"GO Durban Trip","start":"2026-11-20","startTime":null,"end":"2026-11-30","allDay":true,"category":"Mission Trip","destination":"Durban","region":"International","location":"","description":""},{"uid":"01p4uvao6t7g3fodisck5e51ud@google.com","title":"GO Nicaragua Trip","start":"2026-11-21","startTime":null,"end":"2026-11-29","allDay":true,"category":"Mission Trip","destination":"Nicaragua","region":"International","location":"","description":""}]};
+const EV_TODAY_ISO = (function(){ const d = new Date(); return d.toISOString().slice(0,10); })();
+const EV_CAT_COLORS = {
+  "Mission Trip": "#F26522",
+  "GO Day": "#E94B35",
+  "Local Impact": "#A989C5",
+  "Info Session": "#4A9DE0",
+  "Training": "#4CAF8E",
+  "Volunteer": "#F6B042",
+  "Tip the Driver": "#D46FB3",
+  "CGD": "#4FB0AC",
+  "Prison Reentry": "#6C7A92",
+  "Worship": "#E5CE4A",
+  "Other Event": "#8A9BB8"
+};
+const EV_REGION_FLAG = {
+  "Nicaragua":"\uD83C\uDDF3\uD83C\uDDEE",
+  "Guatemala":"\uD83C\uDDEC\uD83C\uDDF9",
+  "Puerto Rico":"\uD83C\uDDF5\uD83C\uDDF7",
+  "Cape Town":"\uD83C\uDDFF\uD83C\uDDE6",
+  "Durban":"\uD83C\uDDFF\uD83C\uDDE6",
+  "Johannesburg":"\uD83C\uDDFF\uD83C\uDDE6",
+  "Nepal":"\uD83C\uDDF3\uD83C\uDDF5",
+  "Martin County":"\uD83C\uDDFA\uD83C\uDDF8"
+};
+
+let _evCountdownTimer = null;
+let _evChartMonth = null;
+let _evChartCat = null;
+let _evChartDest = null;
+let _evCurrentFilter = 'all';
+
+function _evParseDate(iso){
+  // Returns a Date at local midnight for 'YYYY-MM-DD'
+  const [y,m,d] = iso.split('-').map(Number);
+  return new Date(y, m-1, d);
+}
+function _evFmtDate(iso){
+  const d = _evParseDate(iso);
+  return d.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});
+}
+function _evFmtDateRange(start, end){
+  if(!end || end === start) return _evFmtDate(start);
+  const s = _evParseDate(start), e = _evParseDate(end);
+  // Google ICS uses exclusive DTEND for all-day events; subtract a day for display
+  const eAdj = new Date(e); eAdj.setDate(eAdj.getDate()-1);
+  if(s.getMonth()===eAdj.getMonth() && s.getFullYear()===eAdj.getFullYear()){
+    return s.toLocaleDateString('en-US',{month:'short'})+' '+s.getDate()+'–'+eAdj.getDate()+', '+s.getFullYear();
+  }
+  return _evFmtDate(start)+' – '+eAdj.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});
+}
+function _evDaysUntil(iso){
+  const today = new Date(); today.setHours(0,0,0,0);
+  const d = _evParseDate(iso);
+  return Math.round((d - today)/86400000);
+}
+function _evCategoryColor(cat){ return EV_CAT_COLORS[cat] || EV_CAT_COLORS["Other Event"]; }
+
+function _initEvents(){
+  const data = EVENTS_DATA.events;
+  const today = new Date(); today.setHours(0,0,0,0);
+  const todayISO = today.toISOString().slice(0,10);
+
+  // ---------- Hero / countdown ----------
+  const upcoming = data
+    .filter(e => e.start >= todayISO)
+    .sort((a,b) => a.start.localeCompare(b.start));
+  const next = upcoming[0];
+  if(next){
+    document.getElementById('ev-hero-title').textContent = next.title;
+    const sub = _evFmtDateRange(next.start, next.end);
+    document.getElementById('ev-hero-sub').textContent = sub;
+    const meta = document.getElementById('ev-hero-meta');
+    meta.innerHTML = '';
+    const catChip = document.createElement('span');
+    catChip.className = 'chip';
+    catChip.innerHTML = '<span class="ev-r-dot" style="background:'+_evCategoryColor(next.category)+'"></span>'+next.category;
+    meta.appendChild(catChip);
+    if(next.destination){
+      const destChip = document.createElement('span');
+      destChip.className = 'chip';
+      destChip.textContent = (EV_REGION_FLAG[next.destination]||'') + ' ' + next.destination;
+      meta.appendChild(destChip);
+    }
+    if(next.location){
+      const locChip = document.createElement('span');
+      locChip.className = 'chip';
+      locChip.textContent = '\uD83D\uDCCD ' + next.location.split(',')[0];
+      meta.appendChild(locChip);
+    }
+    // start countdown
+    function tick(){
+      const targetISO = next.start + (next.startTime ? 'T'+next.startTime+':00' : 'T00:00:00');
+      const t = new Date(targetISO).getTime();
+      const now = Date.now();
+      let diff = Math.max(0, Math.floor((t - now)/1000));
+      const d = Math.floor(diff/86400); diff -= d*86400;
+      const h = Math.floor(diff/3600); diff -= h*3600;
+      const m = Math.floor(diff/60); diff -= m*60;
+      const s = diff;
+      const $d = document.getElementById('ev-cd-d');
+      if(!$d) return; // tab no longer in DOM
+      $d.textContent = d;
+      document.getElementById('ev-cd-h').textContent = String(h).padStart(2,'0');
+      document.getElementById('ev-cd-m').textContent = String(m).padStart(2,'0');
+      document.getElementById('ev-cd-s').textContent = String(s).padStart(2,'0');
+    }
+    tick();
+    if(_evCountdownTimer) clearInterval(_evCountdownTimer);
+    _evCountdownTimer = setInterval(tick, 1000);
+  } else {
+    document.getElementById('ev-hero-title').textContent = 'No upcoming events';
+  }
+
+  // ---------- KPIs ----------
+  const in30 = upcoming.filter(e => _evDaysUntil(e.start) <= 30).length;
+  const in365 = upcoming.filter(e => _evDaysUntil(e.start) <= 365).length;
+  const yr = today.getFullYear();
+  const inYear = data.filter(e => e.start.startsWith(String(yr))).length;
+  const tripsAhead = upcoming.filter(e => e.category === 'Mission Trip' && _evDaysUntil(e.start) <= 365).length;
+  document.getElementById('ev-kpi-30').textContent = in30;
+  document.getElementById('ev-kpi-365').textContent = in365;
+  document.getElementById('ev-kpi-year').textContent = inYear;
+  document.getElementById('ev-kpi-year-hint').textContent = 'events in '+yr;
+  document.getElementById('ev-kpi-trips').textContent = tripsAhead;
+
+  // ---------- Featured upcoming (next 6) ----------
+  const featured = upcoming.slice(0, 6);
+  const $feat = document.getElementById('ev-featured');
+  $feat.innerHTML = featured.map(e => {
+    const color = _evCategoryColor(e.category);
+    const days = _evDaysUntil(e.start);
+    const flag = e.destination ? (EV_REGION_FLAG[e.destination]||'') : '';
+    const dayBadge = days === 0 ? 'TODAY' : (days === 1 ? 'TOMORROW' : 'IN '+days+' DAYS');
+    return '<div class="ev-card">'
+      +'<div class="ev-stripe" style="background:'+color+'"></div>'
+      +'<span class="ev-date-badge" style="background:'+color+';color:#0a0a0a">'+dayBadge+'</span>'
+      +'<div class="ev-title">'+(flag?flag+' ':'')+_escapeHtml(e.title)+'</div>'
+      +'<div class="ev-when">'+_evFmtDateRange(e.start,e.end)+'</div>'
+      +'<div class="ev-cat"><span class="ev-cat-pill" style="color:'+color+';border-color:'+color+'40">'+e.category+'</span></div>'
+      +'</div>';
+  }).join('');
+
+  // ---------- Charts ----------
+  _evRenderMonthChart(data);
+  _evRenderCatChart(data);
+  _evRenderDestChart(data);
+
+  // ---------- Filters ----------
+  const cats = Array.from(new Set(data.map(e => e.category))).sort((a,b) => {
+    const ca = data.filter(e => e.category===a).length;
+    const cb = data.filter(e => e.category===b).length;
+    return cb - ca;
+  });
+  const $filters = document.getElementById('ev-filters');
+  $filters.innerHTML = '<button class="ev-filter-btn active" data-cat="all">All</button>'
+    + cats.map(c => '<button class="ev-filter-btn" data-cat="'+_escapeAttr(c)+'" style="--fc:'+_evCategoryColor(c)+'">'+c+'</button>').join('');
+  $filters.querySelectorAll('.ev-filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      $filters.querySelectorAll('.ev-filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      _evCurrentFilter = btn.dataset.cat;
+      _evRenderList();
+    });
+  });
+
+  // ---------- Search ----------
+  document.getElementById('ev-search').addEventListener('input', _evRenderList);
+
+  // ---------- List ----------
+  _evRenderList();
+}
+
+function _evRenderList(){
+  const data = EVENTS_DATA.events;
+  const today = new Date(); today.setHours(0,0,0,0);
+  const todayISO = today.toISOString().slice(0,10);
+  const q = (document.getElementById('ev-search').value || '').toLowerCase().trim();
+  const filt = _evCurrentFilter;
+  const items = data
+    .filter(e => e.start >= todayISO || _evParseDate(e.end||e.start) >= today)
+    .filter(e => filt === 'all' || e.category === filt)
+    .filter(e => !q || e.title.toLowerCase().includes(q) || (e.destination||'').toLowerCase().includes(q) || (e.location||'').toLowerCase().includes(q));
+  const $list = document.getElementById('ev-list');
+  if(!items.length){
+    $list.innerHTML = '<div style="padding:30px;text-align:center;color:var(--muted)">No events match your filters.</div>';
+    return;
+  }
+  let html = '';
+  let curMonth = '';
+  items.forEach(e => {
+    const d = _evParseDate(e.start);
+    const monthKey = d.toLocaleDateString('en-US',{month:'long',year:'numeric'});
+    if(monthKey !== curMonth){
+      curMonth = monthKey;
+      html += '<div class="ev-month-divider">'+monthKey+'</div>';
+    }
+    const days = _evDaysUntil(e.start);
+    const color = _evCategoryColor(e.category);
+    const flag = e.destination ? (EV_REGION_FLAG[e.destination]||'') : '';
+    const dow = d.toLocaleDateString('en-US',{weekday:'short'});
+    const whenLbl = days===0?'Today':days===1?'Tomorrow':days<0?'Started':'in '+days+' d';
+    html += '<div class="ev-row">'
+      +'<div class="ev-r-date"><div class="ev-r-day">'+d.getDate()+'</div><div class="ev-r-dow">'+dow+'</div></div>'
+      +'<div><div class="ev-r-title">'+(flag?flag+' ':'')+_escapeHtml(e.title)+'</div>'
+      +'<div class="ev-r-meta"><span class="ev-r-dot" style="background:'+color+'"></span><span>'+e.category+'</span>'
+      +(e.destination?'<span>·</span><span>'+e.destination+'</span>':'')
+      +(e.location?'<span>·</span><span>'+_escapeHtml(e.location.split(',')[0])+'</span>':'')
+      +'<span>·</span><span>'+_evFmtDateRange(e.start,e.end)+'</span>'
+      +'</div></div>'
+      +'<div class="ev-r-when">'+whenLbl+'</div>'
+      +'</div>';
+  });
+  $list.innerHTML = html;
+}
+
+function _evRenderMonthChart(data){
+  // Bucket by year-month for the next 13 months
+  const today = new Date(); today.setDate(1); today.setHours(0,0,0,0);
+  const labels = [];
+  const buckets = {};
+  for(let i=-1; i<=12; i++){
+    const d = new Date(today.getFullYear(), today.getMonth()+i, 1);
+    const key = d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0');
+    const lbl = d.toLocaleDateString('en-US',{month:'short',year:'2-digit'});
+    labels.push(lbl);
+    buckets[key] = 0;
+  }
+  data.forEach(e => {
+    const key = e.start.slice(0,7);
+    if(buckets[key] !== undefined) buckets[key]++;
+  });
+  const counts = Object.values(buckets);
+  const ctx = document.getElementById('ev-chart-month').getContext('2d');
+  if(_evChartMonth) _evChartMonth.destroy();
+  // gradient fill
+  const grad = ctx.createLinearGradient(0,0,0,260);
+  grad.addColorStop(0,'rgba(246,176,66,0.7)');
+  grad.addColorStop(1,'rgba(242,101,34,0.15)');
+  _evChartMonth = new Chart(ctx,{
+    type:'bar',
+    data:{labels:labels, datasets:[{label:'Events', data:counts, backgroundColor:grad, borderColor:'#F6B042', borderWidth:1, borderRadius:6}]},
+    options:{
+      responsive:true, maintainAspectRatio:false,
+      plugins:{legend:{display:false}, tooltip:{callbacks:{label:c=>c.parsed.y+' event'+(c.parsed.y===1?'':'s')}}},
+      scales:{
+        x:{ticks:{color:'#8A9BB8'},grid:{display:false}},
+        y:{beginAtZero:true,ticks:{color:'#8A9BB8',precision:0},grid:{color:'rgba(255,255,255,0.05)'}}
+      }
+    }
+  });
+}
+
+function _evRenderCatChart(data){
+  // include only future events (rolling 12 months)
+  const today = new Date(); today.setHours(0,0,0,0);
+  const todayISO = today.toISOString().slice(0,10);
+  const upcoming = data.filter(e => e.start >= todayISO);
+  const counts = {};
+  upcoming.forEach(e => { counts[e.category] = (counts[e.category]||0)+1; });
+  const entries = Object.entries(counts).sort((a,b) => b[1]-a[1]);
+  const labels = entries.map(e => e[0]);
+  const values = entries.map(e => e[1]);
+  const colors = labels.map(_evCategoryColor);
+  const ctx = document.getElementById('ev-chart-cat').getContext('2d');
+  if(_evChartCat) _evChartCat.destroy();
+  _evChartCat = new Chart(ctx,{
+    type:'doughnut',
+    data:{labels, datasets:[{data:values, backgroundColor:colors, borderColor:'#0e1726', borderWidth:2}]},
+    options:{
+      responsive:true, maintainAspectRatio:false, cutout:'62%',
+      plugins:{
+        legend:{position:'right', labels:{color:'#F2F4F8', font:{size:11}, padding:10, boxWidth:10}},
+        tooltip:{callbacks:{label:c=>c.label+': '+c.parsed+' event'+(c.parsed===1?'':'s')}}
+      }
+    }
+  });
+}
+
+function _evRenderDestChart(data){
+  const today = new Date(); today.setHours(0,0,0,0);
+  const todayISO = today.toISOString().slice(0,10);
+  const upcoming = data.filter(e => e.start >= todayISO && e.destination);
+  const counts = {};
+  upcoming.forEach(e => { counts[e.destination] = (counts[e.destination]||0)+1; });
+  const entries = Object.entries(counts).sort((a,b) => b[1]-a[1]);
+  const labels = entries.map(e => (EV_REGION_FLAG[e[0]]||'')+' '+e[0]);
+  const values = entries.map(e => e[1]);
+  const ctx = document.getElementById('ev-chart-dest').getContext('2d');
+  if(_evChartDest) _evChartDest.destroy();
+  _evChartDest = new Chart(ctx,{
+    type:'bar',
+    data:{labels, datasets:[{data:values, backgroundColor:'#F26522', borderColor:'#F6B042', borderWidth:1, borderRadius:6}]},
+    options:{
+      indexAxis:'y',
+      responsive:true, maintainAspectRatio:false,
+      plugins:{legend:{display:false}, tooltip:{callbacks:{label:c=>c.parsed.x+' trip'+(c.parsed.x===1?'':'s')}}},
+      scales:{
+        x:{beginAtZero:true,ticks:{color:'#8A9BB8',precision:0},grid:{color:'rgba(255,255,255,0.05)'}},
+        y:{ticks:{color:'#F2F4F8'},grid:{display:false}}
+      }
+    }
+  });
+}
+
+function _escapeHtml(s){ return (s||'').replace(/[&<>"']/g, c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c])); }
+function _escapeAttr(s){ return _escapeHtml(s).replace(/"/g,'&quot;'); }
 
 </script>
 
