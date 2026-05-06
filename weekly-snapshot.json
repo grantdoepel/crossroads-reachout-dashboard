@@ -1,21 +1,21 @@
 {
-  "date": "2026-05-04",
-  "goday": 3941,
+  "date": "2026-05-06",
+  "goday": 4108,
   "goday_by_site": {
     "Anywhere": {
       "participants": 0,
       "capacity": 0
     },
     "Columbus": {
-      "participants": 118,
+      "participants": 124,
       "capacity": 137
     },
     "Dayton": {
-      "participants": 338,
+      "participants": 357,
       "capacity": 386
     },
     "East Side": {
-      "participants": 554,
+      "participants": 557,
       "capacity": 511
     },
     "Florence": {
@@ -23,19 +23,19 @@
       "capacity": 387
     },
     "Lexington": {
-      "participants": 322,
+      "participants": 337,
       "capacity": 361
     },
     "Mason": {
-      "participants": 792,
+      "participants": 801,
       "capacity": 831
     },
     "Oakley": {
-      "participants": 1215,
+      "participants": 1283,
       "capacity": 1502
     },
     "West Side": {
-      "participants": 241,
+      "participants": 239,
       "capacity": 255
     }
   },
@@ -44,9 +44,9 @@
   "gotrips_capacity": 732,
   "inmate_msgs": 1697,
   "inmate_unique": 250,
-  "pando_views": 9952475,
-  "pando_subs": 69605,
-  "pando_salv": 3782,
+  "pando_views": 9743947,
+  "pando_subs": 70079,
+  "pando_salv": 3810,
   "open_trip_reg_closures": [
     {
       "id": 56515,
