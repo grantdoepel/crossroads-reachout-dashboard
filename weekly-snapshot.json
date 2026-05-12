@@ -1,52 +1,52 @@
 {
-  "date": "2026-05-06",
-  "goday": 4108,
+  "date": "2026-05-12",
+  "goday": 4290,
   "goday_by_site": {
     "Anywhere": {
       "participants": 0,
       "capacity": 0
     },
     "Columbus": {
-      "participants": 124,
+      "participants": 147,
       "capacity": 137
     },
     "Dayton": {
-      "participants": 357,
+      "participants": 386,
       "capacity": 386
     },
     "East Side": {
-      "participants": 557,
+      "participants": 562,
       "capacity": 511
     },
     "Florence": {
-      "participants": 410,
+      "participants": 440,
       "capacity": 387
     },
     "Lexington": {
-      "participants": 337,
+      "participants": 357,
       "capacity": 361
     },
     "Mason": {
-      "participants": 801,
+      "participants": 869,
       "capacity": 831
     },
     "Oakley": {
-      "participants": 1283,
+      "participants": 1332,
       "capacity": 1502
     },
     "West Side": {
-      "participants": 239,
+      "participants": 243,
       "capacity": 255
     }
   },
-  "gotrips": 442,
-  "gotrips_count": 22,
-  "gotrips_capacity": 732,
+  "gotrips": 429,
+  "gotrips_count": 21,
+  "gotrips_capacity": 692,
   "inmate_msgs": 1697,
   "inmate_unique": 250,
-  "pando_views": 9743947,
-  "pando_subs": 70079,
-  "pando_salv": 3810,
+  "pando_views": 7829157,
+  "pando_subs": 71011,
+  "pando_salv": 3924,
   "open_trip_reg_closures": [
     {
       "id": 56515,
@@ -54,6 +54,13 @@
       "regCloseDate": "2026-05-20",
       "capacity": 25,
       "signups": 5
+    },
+    {
+      "id": 52752,
+      "name": "GO Martin County Senior Connection Trip - October 2026",
+      "regCloseDate": "2026-06-24",
+      "capacity": 38,
+      "signups": 39
     },
     {
       "id": 52722,
@@ -70,11 +77,11 @@
       "signups": 26
     },
     {
-      "id": 52752,
-      "name": "GO Martin County Senior Connection Trip - October 2026",
-      "regCloseDate": "2026-06-24",
-      "capacity": 38,
-      "signups": 39
+      "id": 52744,
+      "name": "GO Durban Trip - November 2026",
+      "regCloseDate": "2026-07-23",
+      "capacity": 39,
+      "signups": 9
     },
     {
       "id": 52753,
@@ -82,13 +89,6 @@
       "regCloseDate": "2026-07-08",
       "capacity": 40,
       "signups": 39
-    },
-    {
-      "id": 52744,
-      "name": "GO Durban Trip - November 2026",
-      "regCloseDate": "2026-07-23",
-      "capacity": 39,
-      "signups": 9
     },
     {
       "id": 52717,
