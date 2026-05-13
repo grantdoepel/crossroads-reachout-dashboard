@@ -552,6 +552,7 @@ window.AG_FOOTPRINT = {
     <button class="tab-btn" data-tab="gotrips-history">GO Trips History</button>
     <button class="tab-btn" data-tab="annual">Annual Stats</button>
     <button class="tab-btn" data-tab="tenx">10x Updates</button>
+    <button class="tab-btn" data-tab="trips-marketing">Trips Marketing</button>
   </div>
 
 
@@ -1924,6 +1925,53 @@ window.AG_FOOTPRINT = {
     </div>
   </div>
 
+  <div id="tab-trips-marketing" class="tab-content">
+    <h2 class="section">Trips Marketing Tracker <span class="accent">&middot; 2026 Campaign Hub</span></h2>
+    <div style="font-size:14px;color:var(--muted);margin-bottom:18px;line-height:1.7">
+      Owner: <strong style="color:var(--text)">Cierra Carter</strong> &middot; Crossroads ReachOut &middot; Studio Client: GO Team<br>
+      Master Narrative: <em>Reach Out is the adventure that changes the world &mdash; and changes you in the process.</em>
+    </div>
+    <div class="grid" id="tm-kpi-row">
+      <div class="card col-3" style="text-align:center">
+        <div style="font-size:32px;font-weight:700;color:var(--accent)">18</div>
+        <div style="font-size:12px;color:var(--muted);margin-top:4px">Total Trip Variants</div>
+      </div>
+      <div class="card col-3" style="text-align:center">
+        <div style="font-size:32px;font-weight:700;color:#E94B35">5</div>
+        <div style="font-size:12px;color:var(--muted);margin-top:4px">A-Tier (High Priority)</div>
+      </div>
+      <div class="card col-3" style="text-align:center">
+        <div style="font-size:32px;font-weight:700;color:#4A9DE0">13</div>
+        <div style="font-size:12px;color:var(--muted);margin-top:4px">B-Tier (Standard)</div>
+      </div>
+      <div class="card col-3" style="text-align:center">
+        <div style="font-size:32px;font-weight:700;color:#4CAF8E">6</div>
+        <div style="font-size:12px;color:var(--muted);margin-top:4px">Regions Covered</div>
+      </div>
+    </div>
+    <div style="margin:16px 0 20px;display:flex;flex-wrap:wrap;gap:8px;align-items:center">
+      <span style="font-size:12px;color:var(--muted);margin-right:4px">Filter:</span>
+      <button class="tm-filter active" data-region="all" style="padding:5px 14px;border-radius:20px;border:1px solid var(--border);background:var(--accent);color:#fff;font-size:12px;cursor:pointer">All Trips</button>
+      <button class="tm-filter" data-region="MAINLAND USA" style="padding:5px 14px;border-radius:20px;border:1px solid var(--border);background:var(--card);color:var(--text);font-size:12px;cursor:pointer">Mainland USA</button>
+      <button class="tm-filter" data-region="ASIA" style="padding:5px 14px;border-radius:20px;border:1px solid var(--border);background:var(--card);color:var(--text);font-size:12px;cursor:pointer">Asia</button>
+      <button class="tm-filter" data-region="LATIN AMERICA" style="padding:5px 14px;border-radius:20px;border:1px solid var(--border);background:var(--card);color:var(--text);font-size:12px;cursor:pointer">Latin America</button>
+      <button class="tm-filter" data-region="CARIBBEAN" style="padding:5px 14px;border-radius:20px;border:1px solid var(--border);background:var(--card);color:var(--text);font-size:12px;cursor:pointer">Caribbean</button>
+      <button class="tm-filter" data-region="SOUTH AFRICA" style="padding:5px 14px;border-radius:20px;border:1px solid var(--border);background:var(--card);color:var(--text);font-size:12px;cursor:pointer">South Africa</button>
+    </div>
+    <div class="grid" id="tm-trips-grid"></div>
+    <h2 class="section" style="margin-top:32px">Content Overview <span class="accent">&middot; By Region &amp; Tier</span></h2>
+    <div class="grid">
+      <div class="card col-6"><h3>Trips by Region</h3><div style="height:260px"><canvas id="tm-chart-region"></canvas></div></div>
+      <div class="card col-6"><h3>Trips by Type</h3><div style="height:260px"><canvas id="tm-chart-type"></canvas></div></div>
+    </div>
+    <h2 class="section" style="margin-top:32px">Social Content Calendar <span class="accent">&middot; GO Day Campaign</span></h2>
+    <div class="card col-12"><div class="scroll-box" style="max-height:420px"><table id="tm-social-table"><thead><tr><th>Asset</th><th>Copy / Concept</th><th>Platform</th><th>Post Date</th><th>Status</th></tr></thead><tbody></tbody></table></div></div>
+    <h2 class="section" style="margin-top:32px">Monthly Editorial Calendar <span class="accent">&middot; 2026 Rhythm</span></h2>
+    <div class="grid" id="tm-editorial-grid"></div>
+    <h2 class="section" style="margin-top:32px">Asset Completion Tracker <span class="accent">&middot; Per Trip</span></h2>
+    <div class="card col-12"><div style="height:320px"><canvas id="tm-chart-assets"></canvas></div></div>
+  </div>
+
 </main>
 
 <script>
@@ -1988,6 +2036,7 @@ document.querySelectorAll('.tab-btn').forEach(btn=>{
     if (t === 'gotrips-history' && typeof _initDemoTrips === 'function' && !window._demoInited_gotrips_history) { _initDemoTrips(); window._demoInited_gotrips_history = true; }
     if (t === 'tenx' && !_tabInited.tenx && typeof _init10x === 'function') { _init10x(); _tabInited.tenx = true; }
     if (t === 'events' && !_tabInited.events && typeof _initEvents === 'function') { _initEvents(); _tabInited.events = true; }
+    if (t === 'trips-marketing' && !_tabInited['trips-marketing'] && typeof _initTripsMarketing === 'function') { _initTripsMarketing(); _tabInited['trips-marketing'] = true; }
     if (t === 'glance' && typeof _initGlance === 'function') { _initGlance(); }
     if (t === 'gotrips' && typeof _gtRenderCountdown === 'function') { setTimeout(_gtRenderCountdown, 50); }
     if (t === 'goday' && typeof _gdRenderCountdown === 'function') { setTimeout(_gdRenderCountdown, 50); }
@@ -3251,13 +3300,154 @@ function _initDemoAll() {
   });
 }
 
+
+/* ============ Trips Marketing Tab ============ */
+function _initTripsMarketing() {
+  const TRIPS = [
+    {region:"MAINLAND USA",location:"Martin County, KY",type:"Family",tier:"B",overview:"Serve side by side as a family in one of America’s most economically distressed regions.",headline:"The best thing you can teach your kids can’t happen in a classroom.",deadline:"",sensory:"Kids’ hands sorting food pantry donations • Sound of a screen door • Parent + child side by side",assets:["3:4 static","16:9 reel","FB event","Promo video","Stories (3)","Email — family"],notes:"Coordinate with Family Ministry"},
+    {region:"MAINLAND USA",location:"Martin County, KY",type:"All Ages",tier:"B",overview:"Fight poverty, food insecurity, and broken infrastructure in the county once named ‘the poorest in America.’",headline:"You don’t have to go far to change something.",deadline:"",sensory:"Hands gripping a hammer • Soil under fingernails • Food pantry box packed",assets:["3:4 static","16:9 reel","FB event","Promo video","Stories (3)","Email segment"],notes:""},
+    {region:"MAINLAND USA",location:"Martin County, KY",type:"Senior 55+",tier:"B",overview:"Use your life experience where it’s needed most. Serve with wisdom and leave something lasting.",headline:"You have more to give than you think.",deadline:"",sensory:"Warm handshake with a resident • Shared laughter over a community meal",assets:["3:4 static","16:9 reel","FB event","Promo video","Email — 55+"],notes:""},
+    {region:"MAINLAND USA",location:"Martin County, KY",type:"Men’s",tier:"B",overview:"Roll up your sleeves. Serve hard. Stand shoulder to shoulder where it counts.",headline:"Brotherhood isn’t built in a gym. It’s built out here.",deadline:"",sensory:"Hammers at sunrise • Hands in sawdust • Weight of a tool belt",assets:["3:4 static","16:9 reel","FB event","Promo video","Email — men’s"],notes:""},
+    {region:"MAINLAND USA",location:"Martin County, KY",type:"Women’s",tier:"B",overview:"When women uplift women, entire communities rise. Serve, skill-build, and bring hope.",headline:"When women show up, things change.",deadline:"",sensory:"Knee to knee • Braiding hair • Women laughing over a shared meal",assets:["3:4 static","16:9 reel","FB event","Promo video","Email — women’s"],notes:""},
+    {region:"ASIA",location:"Nepal",type:"All Ages",tier:"A",overview:"In the shadow of the Himalayas, fight human trafficking through education, relationship, and presence.",headline:"GO be a voice for freedom.",deadline:"",sensory:"Thin mountain air • Children’s voices in a school • Kathmandu color and chaos",assets:["3:4 static","16:9 reel","FB event","Promo video","Stories (3)","Email segment"],notes:"High-story potential — plan A-tier docu reel"},
+    {region:"ASIA",location:"Nepal",type:"Trekking 18+",tier:"A",overview:"Part adventure. Part purpose. Trek the Himalayas while fighting human trafficking in remote villages.",headline:"Trek the Himalayas. Fight for freedom.",deadline:"",sensory:"Burning legs on a steep climb • Homestay • Cold mountain water",assets:["3:4 static","16:9 reel","FB event","Promo video","Adventure Stories"],notes:"Highest adventure content — plan GoPro capture"},
+    {region:"LATIN AMERICA",location:"Guatemala",type:"Women’s",tier:"B",overview:"Work alongside young Guatemalan women as they lead their own community change.",headline:"You’re not going to save anyone. You’re going to stand with someone.",deadline:"April 19",sensory:"Girls presenting projects • Guatemalan coffee • Mayan textiles",assets:["3:4 static","16:9 reel","FB event","Promo video","Women’s email","Ignite tote insert"],notes:""},
+    {region:"LATIN AMERICA",location:"Guatemala",type:"All Ages",tier:"B",overview:"Work directly with students as they lead community service. Invest in the next generation.",headline:"The next generation is already leading. They just need backup.",deadline:"",sensory:"Classroom energy • Guatemalan street food • Hands helping a student build",assets:["3:4 static","16:9 reel","FB event","Promo video","Email segment","Stories (3)"],notes:"Evergreen — multiple trip windows"},
+    {region:"LATIN AMERICA",location:"Nicaragua",type:"Young Adults 18–24",tier:"B",overview:"Dig water lines. Build stoves. Share hope. Nicaragua needs you.",headline:"Get your hands dirty. Change everything.",deadline:"",sensory:"Dirt on your hands • Water flowing through a line • Nicaraguan sun",assets:["3:4 static","16:9 reel","FB event","Promo video","1824 email","Stories (3)"],notes:""},
+    {region:"LATIN AMERICA",location:"Nicaragua",type:"Students (HS)",tier:"B",overview:"This trip will grow your leadership, stretch your faith, and show you a bigger world.",headline:"This trip will make the best story you tell at college.",deadline:"",sensory:"Working alongside Nicaraguan students • Kids at Amigos Academy",assets:["3:4 static","16:9 reel","FB event","Promo video","Student email","Parent FAQ"],notes:"Route through Student Ministry"},
+    {region:"LATIN AMERICA",location:"Nicaragua",type:"All Ages",tier:"B",overview:"Bring clean water. Build infrastructure. Share hope. Show up and get to work.",headline:"Every trench dug moves someone closer to hope.",deadline:"",sensory:"Hands in soil • Shovels hitting earth • First flush of clean water",assets:["3:4 static","16:9 reel","FB event","Promo video","Email segment","Stories (3)"],notes:""},
+    {region:"CARIBBEAN",location:"Puerto Rico",type:"All Ages",tier:"A",overview:"Communities still rebuilding after hurricanes, earthquakes, and floods. Help restore what’s been lost.",headline:"Families are still rebuilding. They need your hands.",deadline:"",sensory:"Hammer rebuilding a wall • Sea breeze • Painting a wall back to life",assets:["3:4 static","16:9 reel","FB event","Promo video","Email segment","Anywhere version"],notes:""},
+    {region:"CARIBBEAN",location:"Puerto Rico",type:"Family",tier:"B",overview:"Rebuild homes and restore hope as a family. Grow closer through service.",headline:"The best family trip isn’t a vacation. It’s this.",deadline:"",sensory:"Kids and parents lifting materials • Big and small hands painting",assets:["3:4 static","16:9 reel","FB event","Promo video","Family email"],notes:"Coordinate with Family Ministry"},
+    {region:"CARIBBEAN",location:"Puerto Rico",type:"Couples",tier:"B",overview:"Serve side by side. Strengthen your bond through shared purpose.",headline:"The best thing you can do for your marriage is this.",deadline:"",sensory:"Working with your person • Sunset after a full day of service",assets:["3:4 static","16:9 reel","FB event","Promo video","Marriage email"],notes:"Route through Marriage Ministry"},
+    {region:"SOUTH AFRICA",location:"Johannesburg",type:"All Ages 10+",tier:"A",overview:"Serve with Build the Future, visit the Apartheid Museum, see God still writing Joburg’s story.",headline:"This city carries its history in its bones. And its hope in its hands.",deadline:"",sensory:"Apartheid Museum • Food garden at a preschool • Sound of children",assets:["3:4 static","16:9 reel","FB event","Promo video — Mico-led","Pando crossover","Stories (3)"],notes:""},
+    {region:"SOUTH AFRICA",location:"Cape Town",type:"All Ages 10+",tier:"A",overview:"Rugged coastlines. Rich culture. Children under the shadow of Apartheid’s legacy. GO help break the cycle.",headline:"Table Mountain is the backdrop. The kids are the story.",deadline:"",sensory:"Wind on Table Mountain • Painting a preschool • Children in a meal program",assets:["3:4 static","16:9 reel","FB event","Promo video","Email segment","Stories (3)"],notes:"Multiple windows — strong visual story"},
+    {region:"SOUTH AFRICA",location:"Durban",type:"All Ages 10+",tier:"B",overview:"A coastal city alive with culture and deep need. Paint classrooms, tend gardens, prepare meals.",headline:"Every classroom painted is a kid who believes they matter.",deadline:"",sensory:"Paint roller on a wall • Safari experience • Children arriving at school",assets:["3:4 static","16:9 reel","FB event","Promo video","Email segment","Stories (3)"],notes:""}
+  ];
+
+  const SOCIAL = [
+    {asset:"Cover Carousel Slide",copy:"DON'T LET APRIL BE THE MONTH YOU ALMOST WENT.",platform:"Instagram",date:"April 8",status:"POSTED",notes:"Lead post — strong performance"},
+    {asset:"GO Day Static Post",copy:"Somebody planted a tree. Somebody handed a kid a toy. That somebody could be you.",platform:"Instagram",date:"April 9",status:"POSTED",notes:"Strong engagement"},
+    {asset:"Soil Sensory Post",copy:"You can't grow something you never planted. GO Day | May 16",platform:"Instagram",date:"April 14",status:"SCHEDULED",notes:"High save potential"},
+    {asset:"Sky Sensory Post",copy:"The church has left the building. GO Day. May 16.",platform:"Instagram",date:"April 16",status:"SCHEDULED",notes:"Best caption of the series"},
+    {asset:"Grass Overhead Shot",copy:"Get your hands dirty. Start down the street. GO Day | May 16",platform:"IG / TikTok",date:"April 21",status:"PLANNED",notes:"Most scroll-stopping"},
+    {asset:"Paint Roller Reel",copy:"Sound-forward: paint roller on wall. End card: GO DAY | MAY 16",platform:"Reels / TikTok",date:"April 23",status:"PLANNED",notes:"Sensory Reel #1"},
+    {asset:"Shovel/Soil Reel",copy:"Shovel breaking soil — first hit sound. End card: GO DAY | MAY 16",platform:"Reels / TikTok",date:"April 25",status:"PLANNED",notes:"Sensory Reel #2"},
+    {asset:"Easter Story Post",copy:"The church has left the building. GO Day. May 16.",platform:"IG Stories",date:"April 20",status:"POSTED",notes:"Easter momentum capture"},
+    {asset:"GO Day Countdown",copy:"3 days. GO Day. May 16. Sign-ups still open.",platform:"IG Stories",date:"May 13",status:"PLANNED",notes:"3-day countdown push"},
+    {asset:"GO Day Eve",copy:"Tomorrow. GO Day. May 16. See you out there.",platform:"IG Stories",date:"May 15",status:"PLANNED",notes:"Build anticipation"},
+    {asset:"GO Day Live Coverage",copy:"Real-time stories from sites. Hands, faces, moments.",platform:"Stories / TikTok Live",date:"May 16",status:"PLANNED",notes:"Brief project leaders on capture kit"},
+    {asset:"GO Day Recap Reel",copy:"They showed up. Thousands of people. One day. Their city.",platform:"IG / TikTok / Service",date:"May 19–23",status:"PLANNED",notes:"A-Tier recap — use in service + social"}
+  ];
+  const EDITORIAL = [
+    {month:"JAN",focus:"Courage & Imagination",spike:"Trips Night",aTier:"Docu reel — 'Why I GO' testimony",bTier:"Trip destination reels (2–3), Leader intro clips",sensory:"Trip packing flat-lay — passport, field guide, boots"},
+    {month:"FEB",focus:"Evergreen Trips + Local Stories",spike:"—",aTier:"Black History Month story reel (Alabama)",bTier:"Alabama trip, Martin County, 'Start here' on-ramp",sensory:"Hands on historical artifact at a museum"},
+    {month:"MAR",focus:"Evergreen Trips + Local Stories",spike:"—",aTier:"Nicaragua or Guatemala testimony film",bTier:"Guatemala women's, Nicaragua 1824, CP talking points",sensory:"Seeds in soil — planting season"},
+    {month:"APR",focus:"GO Day Build-Up",spike:"GO Day Sign-Ups ALL MONTH",aTier:"Sensory marketing series (soil, sky, grass)",bTier:"April carousel, GO Virtual Night, Trip deadlines",sensory:"Soil with GO DAY traced, Sky through trees, Grass overhead"},
+    {month:"MAY",focus:"Serve Locally",spike:"GO DAY — MAY 16",aTier:"GO Day recap reel (A-Tier)",bTier:"Countdown stories, Site coverage, Thank you post",sensory:"Hands covered in soil/paint/sweat — real work"},
+    {month:"JUN",focus:"Trips Departures",spike:"—",aTier:"Trip departure send-off reel",bTier:"Destination posts, Partner spotlights",sensory:"Suitcase zipping — travel sounds"},
+    {month:"JUL",focus:"Trips in the Field",spike:"—",aTier:"Mid-trip field content",bTier:"UGC recaps, Fall promos (Nepal, Cape Town, Durban)",sensory:"Hands mid-serve — in the field, real and raw"},
+    {month:"AUG",focus:"Trip Returns + Storytelling",spike:"—",aTier:"Return testimony reel",bTier:"Martin County recap, Nicaragua return, Fall promos",sensory:"Volunteer's worn boots after a week of serving"},
+    {month:"SEP",focus:"Cultural Calendar + Trips",spike:"—",aTier:"Hispanic Heritage Month story",bTier:"Nicaragua/Guatemala cultural post, Nepal promo",sensory:"Coffee co-op texture, Himalayan trail"},
+    {month:"OCT",focus:"Re-engage + Prime Generosity",spike:"—",aTier:"Couples trip return testimony",bTier:"Nepal trekking, PR couples, MC senior recap",sensory:"Safari texture, Mountain air"},
+    {month:"NOV",focus:"Compassion + Thanksgiving",spike:"Thanksgiving Food Drive",aTier:"TFD campaign film 'No empty tables'",bTier:"TFD box posts, Site counters, MC women's promo",sensory:"Hands loading food boxes"},
+    {month:"DEC",focus:"Blessing Families",spike:"Christmas Gift Drive",aTier:"CGD campaign film",bTier:"Gift wrapping posts, Year-end generosity recap",sensory:"Gift wrapping — ribbon, paper, hands"}
+  ];
+
+  const REGION_COLORS = {"MAINLAND USA":"#4A9DE0","ASIA":"#E94B35","LATIN AMERICA":"#F6B042","CARIBBEAN":"#4CAF8E","SOUTH AFRICA":"#A989C5"};
+  const grid = document.getElementById('tm-trips-grid');
+  function renderCards(filter) {
+    grid.innerHTML = '';
+    const filtered = filter === 'all' ? TRIPS : TRIPS.filter(t => t.region === filter);
+    filtered.forEach(trip => {
+      const tierColor = trip.tier === 'A' ? '#E94B35' : '#4A9DE0';
+      const regionColor = REGION_COLORS[trip.region] || '#6C7A92';
+      const assetChecks = trip.assets.map(a => '<span style="display:inline-block;background:rgba(255,255,255,0.05);border:1px solid var(--border);border-radius:12px;padding:2px 10px;margin:2px 4px 2px 0;font-size:11px;color:var(--muted)">\u2610 ' + a + '</span>').join('');
+      const card = document.createElement('div');
+      card.className = 'card col-6';
+      card.innerHTML =
+        '<div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px"><div>' +
+        '<span style="display:inline-block;background:' + regionColor + ';color:#fff;font-size:10px;font-weight:700;padding:2px 10px;border-radius:12px;margin-right:6px">' + trip.region + '</span>' +
+        '<span style="display:inline-block;background:rgba(255,255,255,0.1);color:var(--text);font-size:10px;padding:2px 10px;border-radius:12px">' + trip.type + '</span>' +
+        '</div><span style="display:inline-block;background:' + tierColor + ';color:#fff;font-size:10px;font-weight:700;padding:2px 10px;border-radius:12px">' + trip.tier + '-Tier</span></div>' +
+        '<h3 style="margin:0 0 6px;font-size:16px">' + trip.location + ' <span style="color:var(--muted);font-weight:400;font-size:13px">\u2014 ' + trip.type + '</span></h3>' +
+        '<div style="font-size:13px;color:var(--muted);margin-bottom:10px;line-height:1.5;font-style:italic">\u201c' + trip.headline + '\u201d</div>' +
+        '<div style="font-size:12px;color:var(--muted);margin-bottom:10px;line-height:1.6">' + trip.overview + '</div>' +
+        (trip.deadline ? '<div style="font-size:12px;color:#E94B35;font-weight:600;margin-bottom:8px">\u23f0 Sign-ups close: ' + trip.deadline + '</div>' : '') +
+        '<div style="font-size:11px;color:var(--muted);margin-bottom:6px"><strong style="color:var(--text)">Sensory Hooks:</strong> ' + trip.sensory + '</div>' +
+        '<div style="margin-top:8px">' + assetChecks + '</div>' +
+        (trip.notes ? '<div style="font-size:11px;color:var(--accent);margin-top:8px">\ud83d\udccc ' + trip.notes + '</div>' : '');
+      grid.appendChild(card);
+    });
+  }
+  renderCards('all');
+  document.querySelectorAll('.tm-filter').forEach(btn => {
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('.tm-filter').forEach(b => { b.style.background = 'var(--card)'; b.style.color = 'var(--text)'; b.classList.remove('active'); });
+      this.style.background = 'var(--accent)'; this.style.color = '#fff'; this.classList.add('active');
+      renderCards(this.dataset.region);
+    });
+  });
+
+  // Region Donut
+  const regionCounts = {};
+  TRIPS.forEach(t => { regionCounts[t.region] = (regionCounts[t.region]||0) + 1; });
+  new Chart(document.getElementById('tm-chart-region'), {
+    type:'doughnut',
+    data:{labels:Object.keys(regionCounts),datasets:[{data:Object.values(regionCounts),backgroundColor:Object.keys(regionCounts).map(r=>REGION_COLORS[r]||'#6C7A92'),borderWidth:0}]},
+    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{color:'#8A9BB8',padding:10}}}}
+  });
+  // Type Bar
+  const typeCounts = {};
+  TRIPS.forEach(t => { typeCounts[t.type] = (typeCounts[t.type]||0) + 1; });
+  const typeLabels = Object.keys(typeCounts).sort((a,b)=>typeCounts[b]-typeCounts[a]);
+  new Chart(document.getElementById('tm-chart-type'), {
+    type:'bar',
+    data:{labels:typeLabels,datasets:[{label:'Trips',data:typeLabels.map(l=>typeCounts[l]),backgroundColor:'#F6B042'}]},
+    options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{grid:{color:'rgba(255,255,255,0.05)'}},y:{grid:{display:false}}}}
+  });
+  // Social Table
+  const tbody = document.querySelector('#tm-social-table tbody');
+  SOCIAL.forEach(s => {
+    const sc = s.status==='POSTED'?'#4CAF8E':s.status==='SCHEDULED'?'#F6B042':'#4A9DE0';
+    const row = document.createElement('tr');
+    row.innerHTML = '<td><strong>'+s.asset+'</strong></td><td style="font-size:12px;max-width:340px;line-height:1.5">'+s.copy+(s.notes?'<br><span style="color:var(--accent);font-size:11px">'+s.notes+'</span>':'')+'</td><td>'+s.platform+'</td><td>'+s.date+'</td><td><span style="color:'+sc+';font-weight:600">'+s.status+'</span></td>';
+    tbody.appendChild(row);
+  });
+  // Editorial Cards
+  const edGrid = document.getElementById('tm-editorial-grid');
+  const mColors = ['#4A9DE0','#A989C5','#4CAF8E','#E94B35','#F6B042','#D46FB3','#4FB0AC','#E5CE4A','#6C7A92','#4A9DE0','#E94B35','#4CAF8E'];
+  EDITORIAL.forEach((m,i) => {
+    const card = document.createElement('div');
+    card.className = 'card col-4';
+    card.innerHTML =
+      '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px"><h3 style="margin:0;font-size:15px"><span style="color:'+mColors[i]+'">'+m.month+'</span> \u2014 '+m.focus+'</h3></div>' +
+      (m.spike!=='\u2014'&&m.spike!=='—'?'<div style="background:rgba(233,75,53,0.15);border:1px solid rgba(233,75,53,0.3);border-radius:6px;padding:6px 10px;font-size:12px;color:#E94B35;font-weight:600;margin-bottom:8px">\ud83d\udd25 '+m.spike+'</div>':'') +
+      '<div style="font-size:12px;margin-bottom:6px"><strong style="color:var(--accent)">A-Tier:</strong> <span style="color:var(--muted)">'+m.aTier+'</span></div>' +
+      '<div style="font-size:12px;margin-bottom:6px"><strong style="color:#4A9DE0">B-Tier:</strong> <span style="color:var(--muted)">'+m.bTier+'</span></div>' +
+      '<div style="font-size:11px;color:var(--muted);font-style:italic">\ud83c\udfa8 '+m.sensory+'</div>';
+    edGrid.appendChild(card);
+  });
+  // Asset Tracker Chart
+  const assetTypes = ['3:4 static','16:9 reel','FB event','Promo video','Email','Stories'];
+  const datasets = assetTypes.map((at,idx) => ({
+    label:at,
+    data:TRIPS.map(t=>t.assets.some(a=>a.toLowerCase().includes(at.toLowerCase().split(' ')[0]))?1:0),
+    backgroundColor:['#E94B35','#F6B042','#4A9DE0','#4CAF8E','#A989C5','#D46FB3'][idx]
+  }));
+  new Chart(document.getElementById('tm-chart-assets'), {
+    type:'bar',
+    data:{labels:TRIPS.map(t=>t.location.split(',')[0]+' '+t.type),datasets:datasets},
+    options:{responsive:true,maintainAspectRatio:false,scales:{x:{stacked:true,ticks:{font:{size:10},maxRotation:45},grid:{display:false}},y:{stacked:true,grid:{color:'rgba(255,255,255,0.05)'},title:{display:true,text:'Assets Required',color:'#8A9BB8'}}},plugins:{legend:{position:'bottom',labels:{color:'#8A9BB8',padding:8,font:{size:11}}}}}
+  });
+}
+
 /* ---- Auto-init the default Overview tab ---- */
 if (typeof _initOverview === 'function' && !_tabInited.overview) { _initOverview(); _tabInited.overview = true; }
 if (typeof _initDemoAll === 'function' && !window._demoInited_all) { _initDemoAll(); window._demoInited_all = true; }
 
 
 /* ===== Events tab ===== */
-const EVENTS_DATA = {"asOf":"2026-05-12","calendarName":"GO Ministry Events Calendar","events":[{"uid":"6maktkfea3viqr8bred69c215d@google.com","title":"GO Johannesburg Trip","start":"2026-04-10","startTime":null,"end":"2026-04-20","allDay":true,"category":"Mission Trip","destination":"Johannesburg","region":"International","location":"","description":""},{"uid":"210mtjq4q072gbsbjbhfesaqbc@google.com","title":"GO Puerto Rico Trip","start":"2026-04-18","startTime":null,"end":"2026-04-25","allDay":true,"category":"Mission Trip","destination":"Puerto Rico","region":"International","location":"","description":""},{"uid":"51o3brsqg5aka3u33ptss510ri@google.com","title":"GO Martin County Mens Ministry Trip","start":"2026-04-23","startTime":null,"end":"2026-04-27","allDay":true,"category":"Mission Trip","destination":"Martin County","region":"Domestic","location":"","description":""},{"uid":"7c2gdmsnrfi3g44mpk8cqur87a@google.com","title":"GO Nicaragua Young Adults Trip","start":"2026-05-02","startTime":null,"end":"2026-05-10","allDay":true,"category":"Mission Trip","destination":"Nicaragua","region":"International","location":"","description":""},{"uid":"1jpor0k497v9e5vmsst8jusp4f@google.com","title":"GO DAY","start":"2026-05-16","startTime":null,"end":"2026-05-17","allDay":true,"category":"GO Day","destination":null,"region":null,"location":"","description":""},{"uid":"3bn7cufcobdjlkld31r9e71mke@google.com","title":"GO Guatemala Women's Trip","start":"2026-05-29","startTime":null,"end":"2026-06-05","allDay":true,"category":"Mission Trip","destination":"Guatemala","region":"International","location":"","description":""},{"uid":"7jb2tmt0ib0ksbvc96ijemeeeo@google.com","title":"GO Martin County Family Trip","start":"2026-06-06","startTime":null,"end":"2026-06-13","allDay":true,"category":"Mission Trip","destination":"Martin County","region":"Domestic","location":"","description":""},{"uid":"6k7d8qc8t42076d8vjh6d6mg9r@google.com","title":"GO Puerto Rico Anywhere Trip","start":"2026-06-06","startTime":null,"end":"2026-06-13","allDay":true,"category":"Mission Trip","destination":"Puerto Rico","region":"International","location":"","description":""},{"uid":"054s6pgamhmg90c3o4omsq7iqt@google.com","title":"GO Nicaragua Students Trip","start":"2026-06-06","startTime":null,"end":"2026-06-14","allDay":true,"category":"Mission Trip","destination":"Nicaragua","region":"International","location":"","description":""},{"uid":"16l8rocretl4ttvdnfvrusl9ke@google.com","title":"GO Cape Town Trip","start":"2026-06-12","startTime":null,"end":"2026-06-22","allDay":true,"category":"Mission Trip","destination":"Cape Town","region":"International","location":"","description":""},{"uid":"6hbu6e8mjshvdv45mnbf8nulnh@google.com","title":"GO Nicaragua Trip","start":"2026-06-20","startTime":null,"end":"2026-06-28","allDay":true,"category":"Mission Trip","destination":"Nicaragua","region":"International","location":"","description":""},{"uid":"6nc7phq6pakg1q3e77sk1ivb23@google.com","title":"GO Puerto Rico Trip","start":"2026-06-27","startTime":null,"end":"2026-07-04","allDay":true,"category":"Mission Trip","destination":"Puerto Rico","region":"International","location":"","description":""},{"uid":"75mkia387u96kahuutriiq4n8b@google.com","title":"GO Puerto Rico Family Trip","start":"2026-07-11","startTime":null,"end":"2026-07-18","allDay":true,"category":"Mission Trip","destination":"Puerto Rico","region":"International","location":"","description":""},{"uid":"4nnaihq9sieilbvpe9akqfdlqp@google.com","title":"GO Guatemala Trip","start":"2026-07-24","startTime":null,"end":"2026-07-31","allDay":true,"category":"Mission Trip","destination":"Guatemala","region":"International","location":"","description":""},{"uid":"1s573da7tgmv41jbf88us3if76@google.com","title":"GO Durban Trip","start":"2026-07-24","startTime":null,"end":"2026-08-03","allDay":true,"category":"Mission Trip","destination":"Durban","region":"International","location":"","description":""},{"uid":"41jnj517mrb387go3ah81ek2nb@google.com","title":"Local Impact Summit","start":"2026-07-27","startTime":"12:00","end":"2026-07-27","allDay":false,"category":"Local Impact","destination":null,"region":null,"location":"Woodward Theater, 1404 Main St, Cincinnati, OH 45202, USA","description":"Save the date! Optional, but recommended, for site directors."},{"uid":"2m9mhuh905aiqhd9l97c6mv5gk@google.com","title":"GO Martin County Trip","start":"2026-08-01","startTime":null,"end":"2026-08-08","allDay":true,"category":"Mission Trip","destination":"Martin County","region":"Domestic","location":"","description":""},{"uid":"5e6j1rnf8lr6niu4ojhr03j314@google.com","title":"GO Nepal Trip","start":"2026-09-17","startTime":null,"end":"2026-09-28","allDay":true,"category":"Mission Trip","destination":"Nepal","region":"International","location":"","description":""},{"uid":"584err9ba6cv2c8r81svnhe17r@google.com","title":"GO Nepal Trekking Trip","start":"2026-10-01","startTime":null,"end":"2026-10-12","allDay":true,"category":"Mission Trip","destination":"Nepal","region":"International","location":"","description":""},{"uid":"6o9sdi0cbnba0f951a8ff1jklf@google.com","title":"GO Puerto Rico Couples Trip","start":"2026-10-10","startTime":null,"end":"2026-10-17","allDay":true,"category":"Mission Trip","destination":"Puerto Rico","region":"International","location":"","description":""},{"uid":"384vdnfeq3n1dhvsghcfbu0n4q@google.com","title":"GO Martin County Senior Connection Trip","start":"2026-10-22","startTime":null,"end":"2026-10-26","allDay":true,"category":"Mission Trip","destination":"Martin County","region":"Domestic","location":"","description":""},{"uid":"5lck5t98tnnpgfbnhqtk4rmrdm@google.com","title":"GO Martin County Womens Trip","start":"2026-11-05","startTime":null,"end":"2026-11-09","allDay":true,"category":"Mission Trip","destination":"Martin County","region":"Domestic","location":"","description":""},{"uid":"7m65hecedf6gp0glgk9e4uoohs@google.com","title":"GO Durban Trip","start":"2026-11-20","startTime":null,"end":"2026-11-30","allDay":true,"category":"Mission Trip","destination":"Durban","region":"International","location":"","description":""},{"uid":"01p4uvao6t7g3fodisck5e51ud@google.com","title":"GO Nicaragua Trip","start":"2026-11-21","startTime":null,"end":"2026-11-29","allDay":true,"category":"Mission Trip","destination":"Nicaragua","region":"International","location":"","description":""},{"uid":"3o7sg14of2rf961aj9lkdoplc7@google.com","title":"GO Nic YA Trip","start":"2027-03-13","startTime":null,"end":"2027-03-21","allDay":true,"category":"Other Event","destination":null,"region":null,"location":"","description":""},{"uid":"7ulil4kias11lu7rejb5pvgqp8@google.com","title":"GO Martin County Senior Trip","start":"2027-04-29","startTime":null,"end":"2027-05-03","allDay":true,"category":"Mission Trip","destination":"Martin County","region":"Domestic","location":"","description":""}]};
+const EVENTS_DATA = {"asOf":"2026-05-13","calendarName":"GO Ministry Events Calendar","events":[{"uid":"6maktkfea3viqr8bred69c215d@google.com","title":"GO Johannesburg Trip","start":"2026-04-10","startTime":null,"end":"2026-04-20","allDay":true,"category":"Mission Trip","destination":"Johannesburg","region":"International","location":"","description":""},{"uid":"210mtjq4q072gbsbjbhfesaqbc@google.com","title":"GO Puerto Rico Trip","start":"2026-04-18","startTime":null,"end":"2026-04-25","allDay":true,"category":"Mission Trip","destination":"Puerto Rico","region":"International","location":"","description":""},{"uid":"51o3brsqg5aka3u33ptss510ri@google.com","title":"GO Martin County Mens Ministry Trip","start":"2026-04-23","startTime":null,"end":"2026-04-27","allDay":true,"category":"Mission Trip","destination":"Martin County","region":"Domestic","location":"","description":""},{"uid":"7c2gdmsnrfi3g44mpk8cqur87a@google.com","title":"GO Nicaragua Young Adults Trip","start":"2026-05-02","startTime":null,"end":"2026-05-10","allDay":true,"category":"Mission Trip","destination":"Nicaragua","region":"International","location":"","description":""},{"uid":"1jpor0k497v9e5vmsst8jusp4f@google.com","title":"GO DAY","start":"2026-05-16","startTime":null,"end":"2026-05-17","allDay":true,"category":"GO Day","destination":null,"region":null,"location":"","description":""},{"uid":"3bn7cufcobdjlkld31r9e71mke@google.com","title":"GO Guatemala Women's Trip","start":"2026-05-29","startTime":null,"end":"2026-06-05","allDay":true,"category":"Mission Trip","destination":"Guatemala","region":"International","location":"","description":""},{"uid":"7jb2tmt0ib0ksbvc96ijemeeeo@google.com","title":"GO Martin County Family Trip","start":"2026-06-06","startTime":null,"end":"2026-06-13","allDay":true,"category":"Mission Trip","destination":"Martin County","region":"Domestic","location":"","description":""},{"uid":"054s6pgamhmg90c3o4omsq7iqt@google.com","title":"GO Nicaragua Students Trip","start":"2026-06-06","startTime":null,"end":"2026-06-14","allDay":true,"category":"Mission Trip","destination":"Nicaragua","region":"International","location":"","description":""},{"uid":"6k7d8qc8t42076d8vjh6d6mg9r@google.com","title":"GO Puerto Rico Anywhere Trip","start":"2026-06-06","startTime":null,"end":"2026-06-13","allDay":true,"category":"Mission Trip","destination":"Puerto Rico","region":"International","location":"","description":""},{"uid":"16l8rocretl4ttvdnfvrusl9ke@google.com","title":"GO Cape Town Trip","start":"2026-06-12","startTime":null,"end":"2026-06-22","allDay":true,"category":"Mission Trip","destination":"Cape Town","region":"International","location":"","description":""},{"uid":"6hbu6e8mjshvdv45mnbf8nulnh@google.com","title":"GO Nicaragua Trip","start":"2026-06-20","startTime":null,"end":"2026-06-28","allDay":true,"category":"Mission Trip","destination":"Nicaragua","region":"International","location":"","description":""},{"uid":"6nc7phq6pakg1q3e77sk1ivb23@google.com","title":"GO Puerto Rico Trip","start":"2026-06-27","startTime":null,"end":"2026-07-04","allDay":true,"category":"Mission Trip","destination":"Puerto Rico","region":"International","location":"","description":""},{"uid":"75mkia387u96kahuutriiq4n8b@google.com","title":"GO Puerto Rico Family Trip","start":"2026-07-11","startTime":null,"end":"2026-07-18","allDay":true,"category":"Mission Trip","destination":"Puerto Rico","region":"International","location":"","description":""},{"uid":"4nnaihq9sieilbvpe9akqfdlqp@google.com","title":"GO Guatemala Trip","start":"2026-07-24","startTime":null,"end":"2026-07-31","allDay":true,"category":"Mission Trip","destination":"Guatemala","region":"International","location":"","description":""},{"uid":"1s573da7tgmv41jbf88us3if76@google.com","title":"GO Durban Trip","start":"2026-07-24","startTime":null,"end":"2026-08-03","allDay":true,"category":"Mission Trip","destination":"Durban","region":"International","location":"","description":""},{"uid":"41jnj517mrb387go3ah81ek2nb@google.com","title":"Local Impact Summit","start":"2026-07-27","startTime":"12:00","end":"2026-07-27","allDay":false,"category":"Local Impact","destination":null,"region":null,"location":"Woodward Theater, 1404 Main St, Cincinnati, OH 45202, USA","description":"Save the date! Optional, but recommended, for site directors."},{"uid":"2m9mhuh905aiqhd9l97c6mv5gk@google.com","title":"GO Martin County Trip","start":"2026-08-01","startTime":null,"end":"2026-08-08","allDay":true,"category":"Mission Trip","destination":"Martin County","region":"Domestic","location":"","description":""},{"uid":"5e6j1rnf8lr6niu4ojhr03j314@google.com","title":"GO Nepal Trip","start":"2026-09-17","startTime":null,"end":"2026-09-28","allDay":true,"category":"Mission Trip","destination":"Nepal","region":"International","location":"","description":""},{"uid":"584err9ba6cv2c8r81svnhe17r@google.com","title":"GO Nepal Trekking Trip","start":"2026-10-01","startTime":null,"end":"2026-10-12","allDay":true,"category":"Mission Trip","destination":"Nepal","region":"International","location":"","description":""},{"uid":"6o9sdi0cbnba0f951a8ff1jklf@google.com","title":"GO Puerto Rico Couples Trip","start":"2026-10-10","startTime":null,"end":"2026-10-17","allDay":true,"category":"Mission Trip","destination":"Puerto Rico","region":"International","location":"","description":""},{"uid":"384vdnfeq3n1dhvsghcfbu0n4q@google.com","title":"GO Martin County Senior Connection Trip","start":"2026-10-22","startTime":null,"end":"2026-10-26","allDay":true,"category":"Mission Trip","destination":"Martin County","region":"Domestic","location":"","description":""},{"uid":"5lck5t98tnnpgfbnhqtk4rmrdm@google.com","title":"GO Martin County Womens Trip","start":"2026-11-05","startTime":null,"end":"2026-11-09","allDay":true,"category":"Mission Trip","destination":"Martin County","region":"Domestic","location":"","description":""},{"uid":"7m65hecedf6gp0glgk9e4uoohs@google.com","title":"GO Durban Trip","start":"2026-11-20","startTime":null,"end":"2026-11-30","allDay":true,"category":"Mission Trip","destination":"Durban","region":"International","location":"","description":""},{"uid":"01p4uvao6t7g3fodisck5e51ud@google.com","title":"GO Nicaragua Trip","start":"2026-11-21","startTime":null,"end":"2026-11-29","allDay":true,"category":"Mission Trip","destination":"Nicaragua","region":"International","location":"","description":""},{"uid":"3o7sg14of2rf961aj9lkdoplc7@google.com","title":"GO Nic YA Trip","start":"2027-03-13","startTime":null,"end":"2027-03-21","allDay":true,"category":"Other Event","destination":null,"region":null,"location":"","description":""},{"uid":"7ulil4kias11lu7rejb5pvgqp8@google.com","title":"GO Martin County Senior Trip","start":"2027-04-29","startTime":null,"end":"2027-05-03","allDay":true,"category":"Mission Trip","destination":"Martin County","region":"Domestic","location":"","description":""}]};
 const EV_TODAY_ISO = (function(){ const d = new Date(); return d.toISOString().slice(0,10); })();
 const EV_CAT_COLORS = {
   "Mission Trip": "#F26522",
