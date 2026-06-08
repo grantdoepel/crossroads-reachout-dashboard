@@ -1,5 +1,5 @@
 {
-  "date": "2026-06-01",
+  "date": "2026-06-08",
   "goday": 4331,
   "goday_by_site": {
     "Anywhere": {
@@ -39,35 +39,28 @@
       "capacity": 255
     }
   },
-  "gotrips": 446,
+  "gotrips": 447,
   "gotrips_count": 22,
-  "gotrips_capacity": 732,
+  "gotrips_capacity": 734,
   "inmate_msgs": 1697,
   "inmate_unique": 250,
-  "pando_views": 8282445,
-  "pando_subs": 73481,
-  "pando_salv": 4239,
+  "pando_views": 8395084,
+  "pando_subs": 74110,
+  "pando_salv": 4295,
   "open_trip_reg_closures": [
-    {
-      "id": 52722,
-      "name": "GO Nepal Trekking Trip - October 2026",
-      "regCloseDate": "2026-06-03",
-      "capacity": 25,
-      "signups": 13
-    },
     {
       "id": 52748,
       "name": "GO Puerto Rico Couples Trip - October 2026",
       "regCloseDate": "2026-06-15",
-      "capacity": 28,
-      "signups": 26
+      "capacity": 30,
+      "signups": 28
     },
     {
       "id": 52752,
       "name": "GO Martin County Senior Connection Trip - October 2026",
       "regCloseDate": "2026-06-24",
       "capacity": 40,
-      "signups": 40
+      "signups": 38
     },
     {
       "id": 52753,
@@ -81,7 +74,7 @@
       "name": "GO Durban Trip - November 2026",
       "regCloseDate": "2026-07-23",
       "capacity": 39,
-      "signups": 11
+      "signups": 14
     },
     {
       "id": 52717,
