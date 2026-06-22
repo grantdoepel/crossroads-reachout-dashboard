@@ -1,5 +1,5 @@
 {
-  "date": "2026-06-15",
+  "date": "2026-06-22",
   "goday": 4331,
   "goday_by_site": {
     "Anywhere": {
@@ -39,22 +39,15 @@
       "capacity": 255
     }
   },
-  "gotrips": 447,
+  "gotrips": 446,
   "gotrips_count": 22,
   "gotrips_capacity": 734,
   "inmate_msgs": 1697,
   "inmate_unique": 250,
-  "pando_views": 8501921,
-  "pando_subs": 74666,
-  "pando_salv": 4348,
+  "pando_views": 8651687,
+  "pando_subs": 75442,
+  "pando_salv": 4401,
   "open_trip_reg_closures": [
-    {
-      "id": 52748,
-      "name": "GO Puerto Rico Couples Trip - October 2026",
-      "regCloseDate": "2026-06-15",
-      "capacity": 30,
-      "signups": 28
-    },
     {
       "id": 52752,
       "name": "GO Martin County Senior Connection Trip - October 2026",
