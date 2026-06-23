@@ -1,5 +1,5 @@
 {
-  "date": "2026-06-22",
+  "date": "2026-06-23",
   "goday": 4331,
   "goday_by_site": {
     "Anywhere": {
@@ -39,14 +39,14 @@
       "capacity": 255
     }
   },
-  "gotrips": 446,
+  "gotrips": 443,
   "gotrips_count": 22,
   "gotrips_capacity": 734,
   "inmate_msgs": 1697,
   "inmate_unique": 250,
-  "pando_views": 8651687,
-  "pando_subs": 75442,
-  "pando_salv": 4401,
+  "pando_views": 8697693,
+  "pando_subs": 75652,
+  "pando_salv": 4410,
   "open_trip_reg_closures": [
     {
       "id": 52752,
@@ -67,7 +67,7 @@
       "name": "GO Durban Trip - November 2026",
       "regCloseDate": "2026-07-23",
       "capacity": 39,
-      "signups": 14
+      "signups": 15
     },
     {
       "id": 52717,
