@@ -1,5 +1,5 @@
 {
-  "date": "2026-06-23",
+  "date": "2026-06-29",
   "goday": 4331,
   "goday_by_site": {
     "Anywhere": {
@@ -39,28 +39,21 @@
       "capacity": 255
     }
   },
-  "gotrips": 443,
+  "gotrips": 441,
   "gotrips_count": 22,
   "gotrips_capacity": 734,
   "inmate_msgs": 1697,
   "inmate_unique": 250,
-  "pando_views": 8697693,
-  "pando_subs": 75652,
-  "pando_salv": 4410,
+  "pando_views": 8787399,
+  "pando_subs": 75936,
+  "pando_salv": 4435,
   "open_trip_reg_closures": [
     {
-      "id": 52752,
-      "name": "GO Martin County Senior Connection Trip - October 2026",
-      "regCloseDate": "2026-06-24",
-      "capacity": 40,
-      "signups": 38
-    },
-    {
-      "id": 52753,
-      "name": "GO Martin County Women's Trip - November 2026",
-      "regCloseDate": "2026-07-08",
-      "capacity": 40,
-      "signups": 40
+      "id": 52717,
+      "name": "GO Nicaragua Trip - November 2026",
+      "regCloseDate": "2026-07-27",
+      "capacity": 21,
+      "signups": 21
     },
     {
       "id": 52744,
@@ -70,11 +63,11 @@
       "signups": 15
     },
     {
-      "id": 52717,
-      "name": "GO Nicaragua Trip - November 2026",
-      "regCloseDate": "2026-07-27",
-      "capacity": 21,
-      "signups": 21
+      "id": 52753,
+      "name": "GO Martin County Women's Trip - November 2026",
+      "regCloseDate": "2026-07-08",
+      "capacity": 40,
+      "signups": 39
     }
   ]
 }
