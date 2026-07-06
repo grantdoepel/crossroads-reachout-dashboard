@@ -1,5 +1,5 @@
 {
-  "date": "2026-06-29",
+  "date": "2026-07-06",
   "goday": 4331,
   "goday_by_site": {
     "Anywhere": {
@@ -44,9 +44,9 @@
   "gotrips_capacity": 734,
   "inmate_msgs": 1697,
   "inmate_unique": 250,
-  "pando_views": 8787399,
-  "pando_subs": 75936,
-  "pando_salv": 4435,
+  "pando_views": 8895728,
+  "pando_subs": 76540,
+  "pando_salv": 4466,
   "open_trip_reg_closures": [
     {
       "id": 52717,
