@@ -1,5 +1,5 @@
 {
-  "date": "2026-07-06",
+  "date": "2026-07-14",
   "goday": 4331,
   "goday_by_site": {
     "Anywhere": {
@@ -39,14 +39,14 @@
       "capacity": 255
     }
   },
-  "gotrips": 441,
+  "gotrips": 443,
   "gotrips_count": 22,
   "gotrips_capacity": 734,
   "inmate_msgs": 1697,
   "inmate_unique": 250,
-  "pando_views": 8895728,
-  "pando_subs": 76540,
-  "pando_salv": 4466,
+  "pando_views": 9040195,
+  "pando_subs": 77411,
+  "pando_salv": 4512,
   "open_trip_reg_closures": [
     {
       "id": 52717,
@@ -63,11 +63,11 @@
       "signups": 15
     },
     {
-      "id": 52753,
-      "name": "GO Martin County Women's Trip - November 2026",
-      "regCloseDate": "2026-07-08",
+      "id": 52752,
+      "name": "GO Martin County Senior Connection Trip - October 2026",
+      "regCloseDate": "2026-07-20",
       "capacity": 40,
-      "signups": 39
+      "signups": 40
     }
   ]
 }
