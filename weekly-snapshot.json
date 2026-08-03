@@ -1,5 +1,5 @@
 {
-  "date": "2026-07-27",
+  "date": "2026-08-03",
   "goday": 4331,
   "goday_by_site": {
     "Anywhere": {
@@ -39,14 +39,14 @@
       "capacity": 255
     }
   },
-  "gotrips": 34,
+  "gotrips": 45,
   "gotrips_count": 24,
   "gotrips_capacity": 810,
   "inmate_msgs": 1697,
   "inmate_unique": 250,
-  "pando_views": 9353819,
-  "pando_subs": 79551,
-  "pando_salv": 4580,
+  "pando_views": 9707872,
+  "pando_subs": 82769,
+  "pando_salv": 4672,
   "open_trip_reg_closures": [
     {
       "id": 59484,
@@ -60,7 +60,7 @@
       "name": "GO Martin County Senior Connection Trip - April 2027",
       "regCloseDate": "2026-12-30",
       "capacity": 40,
-      "signups": 7
+      "signups": 8
     },
     {
       "id": 59495,
@@ -109,7 +109,7 @@
       "name": "GO Puerto Rico Womens Trip - July 2027",
       "regCloseDate": "2027-03-14",
       "capacity": 30,
-      "signups": 6
+      "signups": 14
     },
     {
       "id": 59524,
@@ -130,7 +130,7 @@
       "name": "GO Guatemala Couples Trip - July 2027",
       "regCloseDate": "2027-03-25",
       "capacity": 35,
-      "signups": 0
+      "signups": 2
     },
     {
       "id": 59486,
