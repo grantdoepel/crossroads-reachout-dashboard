@@ -1,5 +1,5 @@
 {
-  "date": "2026-08-03",
+  "date": "2026-08-10",
   "goday": 4331,
   "goday_by_site": {
     "Anywhere": {
@@ -39,42 +39,42 @@
       "capacity": 255
     }
   },
-  "gotrips": 45,
+  "gotrips": 72,
   "gotrips_count": 24,
   "gotrips_capacity": 810,
   "inmate_msgs": 1697,
   "inmate_unique": 250,
-  "pando_views": 9707872,
-  "pando_subs": 82769,
-  "pando_salv": 4672,
+  "pando_views": 9919057,
+  "pando_subs": 84012,
+  "pando_salv": 4753,
   "open_trip_reg_closures": [
     {
       "id": 59484,
       "name": "GO Nicaragua Young Adult Trip - March 2027",
       "regCloseDate": "2026-11-15",
       "capacity": 20,
-      "signups": 0
+      "signups": 1
     },
     {
       "id": 59526,
       "name": "GO Martin County Senior Connection Trip - April 2027",
       "regCloseDate": "2026-12-30",
       "capacity": 40,
-      "signups": 8
+      "signups": 14
     },
     {
       "id": 59495,
       "name": "GO Guatemala Trip - May 2027",
       "regCloseDate": "2027-01-28",
       "capacity": 35,
-      "signups": 1
+      "signups": 4
     },
     {
       "id": 59485,
       "name": "GO Nicaragua Trip - May 2027",
       "regCloseDate": "2027-01-31",
       "capacity": 20,
-      "signups": 3
+      "signups": 4
     },
     {
       "id": 59492,
@@ -88,14 +88,14 @@
       "name": "GO Puerto Rico Student Trip - June 2027",
       "regCloseDate": "2027-02-07",
       "capacity": 40,
-      "signups": 0
+      "signups": 1
     },
     {
       "id": 59521,
       "name": "GO Puerto Rico Family Trip - June 2027",
       "regCloseDate": "2027-02-21",
       "capacity": 40,
-      "signups": 4
+      "signups": 8
     },
     {
       "id": 59502,
@@ -109,7 +109,7 @@
       "name": "GO Puerto Rico Womens Trip - July 2027",
       "regCloseDate": "2027-03-14",
       "capacity": 30,
-      "signups": 14
+      "signups": 18
     },
     {
       "id": 59524,
@@ -123,14 +123,14 @@
       "name": "GO Durban Trip - July 2027",
       "regCloseDate": "2027-03-25",
       "capacity": 40,
-      "signups": 1
+      "signups": 4
     },
     {
       "id": 59496,
       "name": "GO Guatemala Couples Trip - July 2027",
       "regCloseDate": "2027-03-25",
       "capacity": 35,
-      "signups": 2
+      "signups": 4
     },
     {
       "id": 59486,
@@ -144,7 +144,7 @@
       "name": "GO Martin County Trip - August 2027",
       "regCloseDate": "2027-04-21",
       "capacity": 40,
-      "signups": 4
+      "signups": 6
     },
     {
       "id": 59564,
